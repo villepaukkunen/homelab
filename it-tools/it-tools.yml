@@ -1,0 +1,71 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: it-tools
+  name: it-tools
+  namespace: it-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: it-tools
+  template:
+    metadata:
+      labels:
+        app: it-tools
+    spec:
+      containers:
+        - name: it-tools
+          image: corentinth/it-tools:latest
+          ports:
+            - containerPort: 80
+              name: web
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: it-tools
+  name: it-tools
+  namespace: it-tools
+spec:
+  selector:
+    app: it-tools
+  ports:
+    - name: web
+      port: 80
+      protocol: TCP
+      targetPort: 80
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: it-tools
+  namespace: it-tools
+  annotations: 
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`tools.mandariini.uk`)
+      middlewares:
+        - name: authentik
+          namespace: authentik
+      priority: 10
+      services:
+        - name: it-tools
+          port: 80
+    - kind: Rule
+      match: "Host(`tools.mandariini.uk`) && PathPrefix(`/outpost.goauthentik.io/`)"
+      priority: 15
+      services:
+          - kind: Service
+            name: ak-outpost-authentik-embedded-outpost
+            port: 9000
+  tls:
+    secretName: mandariini-uk-tls
