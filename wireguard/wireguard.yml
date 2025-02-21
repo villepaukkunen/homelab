@@ -8,6 +8,7 @@ spec:
   source:
     chart: wireguard
     repoURL: https://bryopsida.github.io/wireguard-chart
+    targetRevision: 0.28.0
     helm:
       releaseName: wireguard
       valueFiles:
