@@ -1,0 +1,98 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: unbound-lv
+  name: unbound-lv
+  namespace: pihole
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unbound-lv
+  template:
+    metadata:
+      labels:
+        app: unbound-lv
+    spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: release
+                    operator: In
+                    values:
+                      - pihole
+              topologyKey: "kubernetes.io/hostname"
+      initContainers:
+        - name: unbound-lv-gluetun
+          image: qmcgaw/gluetun:latest
+          restartPolicy: Always
+          securityContext:
+            privileged: true
+            capabilities:
+              add:
+                - NET_ADMIN
+          ports:
+            - name: dns
+              containerPort: 53
+              protocol: TCP
+            - name: dns-udp
+              containerPort: 53
+              protocol: UDP
+          volumeMounts:
+            - name: gluetun-wg0-conf-lv-volume
+              mountPath: /gluetun/wireguard/wg0.conf
+              subPath: wg0.conf
+          env:
+            - name: TZ
+              value: Europe/Helsinki
+            - name: VPN_SERVICE_PROVIDER
+              value: custom
+            - name: VPN_TYPE
+              value: wireguard
+            - name: DNS_KEEP_NAMESERVER
+              value: 'on'
+      containers:
+        - name: unbound-lv
+          image: mvance/unbound:latest
+          volumeMounts:
+            - name: unbound-main-conf-volume
+              mountPath: /opt/unbound/etc/unbound/unbound.conf
+              subPath: unbound.conf
+            - name: unbound-a-conf-volume
+              mountPath: /opt/unbound/etc/unbound/a-records.conf
+              subPath: a-records.conf
+      volumes:
+        - name: gluetun-wg0-conf-lv-volume
+          secret:
+            secretName: gluetun-wg0-conf-pia-lv
+        - name: unbound-main-conf-volume
+          configMap:
+            name: unbound-main-conf
+        - name: unbound-a-conf-volume
+          configMap:
+            name: unbound-a-records-conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: unbound-lv
+  name: unbound-lv
+  namespace: pihole
+spec:
+  selector:
+    app: unbound-lv
+  type: ClusterIP
+  ports:
+    - name: dns
+      port: 53
+      protocol: TCP
+      targetPort: 53
+    - name: dns-udp
+      port: 53
+      protocol: UDP
+      targetPort: 53
