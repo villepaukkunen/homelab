@@ -1,0 +1,87 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vaultwarden
+  namespace: vaultwarden
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: vaultwarden
+  name: vaultwarden
+  namespace: vaultwarden
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vaultwarden
+  template:
+    metadata:
+      labels:
+        app: vaultwarden
+    spec:
+      containers:
+        - name: vaultwarden
+          image: vaultwarden/server:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: TZ
+              value: Europe/Helsinki
+          envFrom:
+            - secretRef:
+                name: envsecrets
+          ports:
+            - containerPort: 80
+              name: web
+              protocol: TCP
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: vaultwarden
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: vaultwarden
+  name: vaultwarden
+  namespace: vaultwarden
+spec:
+  selector:
+    app: vaultwarden
+  ports:
+    - name: web
+      port: 80
+      protocol: TCP
+      targetPort: 80
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: vaultwarden
+  namespace: vaultwarden
+  annotations: 
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`vault.mandariini.uk`)
+      kind: Rule
+      services:
+        - name: vaultwarden
+          port: 80
+  tls:
+    secretName: mandariini-uk-tls
