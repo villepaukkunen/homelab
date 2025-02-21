@@ -1,0 +1,14 @@
+service:
+  loadBalancerIP: 192.168.10.220
+
+secretName: privatekey
+
+configSecretName: wg0-conf
+
+replicaCount: 1
+
+disruptionBudget:
+  enabled: false
+
+autoscaling:
+  enabled: false

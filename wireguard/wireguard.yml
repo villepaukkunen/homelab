@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wireguard
+  namespace: wireguard
+spec:
+  project: default
+  source:
+    chart: wireguard
+    repoURL: https://bryopsida.github.io/wireguard-chart
+    helm:
+      releaseName: wireguard
+      valueFiles:
+        - values.yml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: wireguard
