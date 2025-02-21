@@ -1,0 +1,84 @@
+# create a kubernetes service and expose
+# port 53 outside of cluster on the local network
+serviceDns:
+  type: LoadBalancer
+  loadBalancerIP: 192.168.10.230
+
+serviceDhcp:
+  enabled: false
+  type: LoadBalancer
+  loadBalancerIP: 192.168.10.230
+
+# will create kubernetes services for web admin
+serviceWeb:
+  type: ClusterIP
+  loadBalancerIP: 192.168.10.220
+
+virtualHost: pihole2.mandariini.uk
+  
+# pi-hole will automatially create a new
+# persistent volume managed by longhorn
+persistentVolumeClaim:
+  enabled: true
+  existingClaim: "pihole2"
+
+# -- Use an existing secret for the admin password.
+admin:
+  # -- If set to false admin password will be disabled, adminPassword specified above and the pre-existing secret (if specified) will be ignored.
+  enabled: false
+
+# -- extraEnvironmentVars is a list of extra enviroment variables to set for pihole to use
+extraEnvVars:
+  TZ: Europe/Helsinki
+  FTLCONF_LOCAL_IPV4: 192.168.10.230
+  FTLCONF_RATE_LIMIT: 0/0
+  DNS_BOGUS_PRIV: false
+  DNS_FQDN_REQUIRED: false
+  REV_SERVER: true
+  REV_SERVER_TARGET: 192.168.10.1
+  REV_SERVER_CIDR: 192.168.10.0/24
+  DNSMASQ_LISTENING: all
+  PIHOLE_DNS_: 10.43.248.179;10.43.105.59;10.43.30.141
+
+## -- default upstream DNS 1 server to use
+#DNS1: "10.43.248.179#53"
+## -- default upstream DNS 2 server to use
+#DNS2: "10.43.105.59#53"
+
+antiaff:
+  # -- set to true to enable antiaffinity (example: 2 pihole DNS in the same cluster)
+  enabled: true
+  # -- Here you can set the pihole release (you set in `helm install <releasename> ...`)
+  # you want to avoid
+  avoidRelease: pihole
+  # -- Here you can choose between preferred or required
+  strict: true
+  # -- Here you can pass namespaces to be part of those inclueded in anti-affinity
+  namespaces: []
+
+# -- hostname of pod
+hostname: "pihole2"
+
+extraVolumes:
+  pihole-custom-list-volume:
+    configMap:
+      name: pihole-custom-list
+  pihole-custom-cname-conf-volume:
+    configMap:
+      name: pihole-custom-cname-conf
+
+# -- any extra volume mounts you might want
+extraVolumeMounts:
+  pihole-custom-list-volume:
+    mountPath: /etc/pihole/custom.list
+    subPath: custom.list
+  pihole-custom-cname-conf-volume:
+    mountPath: /etc/dnsmasq.d/05-pihole-custom-cname.conf
+    subPath: 05-pihole-custom-cname.conf
+
+podDnsConfig:
+  enabled: true
+  policy: "None"
+  nameservers:
+    - 127.0.0.1
+    - 9.9.9.9
