@@ -17,18 +17,16 @@ metadata:
   name: pihole
   namespace: argocd
 spec:
-  project: default
-  source:
-    chart: pihole
-    repoURL: https://mojo2600.github.io/pihole-kubernetes/
-    targetRevision: 2.27.0
-    helm:
-      releaseName: pihole
-      valueFiles:
-        - values.yml
-  destination:
-    server: "https://kubernetes.default.svc"
-    namespace: pihole
+  sources:
+    - repoURL: https://mojo2600.github.io/pihole-kubernetes/
+      chart: pihole
+      targetRevision: 2.27.0
+      helm:
+        valueFiles:
+          - $values/pihole/values.yml
+    - repoURL: https://github.com/villepaukkunen/homelab.git
+      targetRevision: HEAD
+      ref: values
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
