@@ -5,14 +5,16 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    chart: wireguard
-    repoURL: https://bryopsida.github.io/wireguard-chart
-    targetRevision: 0.28.0
-    helm:
-      releaseName: wireguard
-      valueFiles:
-        - values.yml
+  sources:
+    - repoURL: https://bryopsida.github.io/wireguard-chart
+      chart: wireguard
+      targetRevision: 0.28.0
+      helm:
+        valueFiles:
+          - $values/wireguard/values.yml
+    - repoURL: https://github.com/villepaukkunen/homelab.git
+      targetRevision: HEAD
+      ref: values
   destination:
     server: "https://kubernetes.default.svc"
     namespace: wireguard
