@@ -23,7 +23,7 @@ spec:
       targetRevision: 2.27.0
       helm:
         valueFiles:
-          - $values/pihole/values2.yml
+          - $values/pihole2/values2.yml
     - repoURL: https://github.com/villepaukkunen/homelab.git
       targetRevision: HEAD
       ref: values
