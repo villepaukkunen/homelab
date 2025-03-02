@@ -49,3 +49,5 @@ data:
     cname=search.mandariini.uk,kube.mandariini.uk
     cname=longhorn.mandariini.uk,kube.mandariini.uk
     cname=argocd.mandariini.uk,kube.mandariini.uk
+    cname=tplink.mandariini.uk,kube.mandariini.uk
+    cname=printer2.mandariini.uk,kube.mandariini.uk
