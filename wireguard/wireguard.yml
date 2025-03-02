@@ -1,8 +1,5 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-metadata:
-  name: wireguard
-  namespace: argocd
 spec:
   sources:
     - repoURL: https://bryopsida.github.io/wireguard-chart
