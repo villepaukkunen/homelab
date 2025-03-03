@@ -4,7 +4,13 @@ metadata:
   name: csi-driver-smb
   namespace: argocd
 spec:
-  source:
+  sources:
     - repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
       chart: csi-driver-smb
       targetRevision: 1.17.0
+      helm:
+        valueFiles:
+          - $values/csi-driver-smb/values.yml
+    - repoURL: https://github.com/villepaukkunen/homelab.git
+      targetRevision: HEAD
+      ref: values
