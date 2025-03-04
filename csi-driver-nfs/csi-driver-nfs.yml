@@ -8,3 +8,6 @@ spec:
     - repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
       chart: csi-driver-nfs
       targetRevision: v4.10.0
+    - repoURL: https://github.com/villepaukkunen/homelab.git
+      targetRevision: HEAD
+      path: csi-driver-nfs
