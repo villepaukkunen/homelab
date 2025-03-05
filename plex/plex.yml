@@ -30,7 +30,7 @@ spec:
     - match: Host(`plex.mandariini.uk`)
       kind: Rule
       services:
-        - name: plex
+        - name: plex-plex-media-server
           port: 32400
   tls:
     secretName: mandariini-uk-tls
