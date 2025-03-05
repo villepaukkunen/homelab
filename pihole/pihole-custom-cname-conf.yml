@@ -12,7 +12,7 @@ data:
     cname=abs.mandariini.uk,acer.mandariini.uk
     cname=homarr.mandariini.uk,kube.mandariini.uk
     cname=jellyfin.mandariini.uk,acer.mandariini.uk
-    cname=plex.mandariini.uk,acer.mandariini.uk
+    cname=plex.mandariini.uk,kube.mandariini.uk
     cname=gotify.mandariini.uk,kube.mandariini.uk
     cname=hass.mandariini.uk,acer.mandariini.uk
     cname=inventory.mandariini.uk,acer.mandariini.uk
