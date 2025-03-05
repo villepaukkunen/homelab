@@ -26,6 +26,8 @@ metadata:
 spec:
   entryPoints:
     - websecure
+      specificIPv4:
+        address: "192.168.10.220:32400"
   routes:
     - match: Host(`plex.mandariini.uk`)
       kind: Rule
