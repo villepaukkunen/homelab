@@ -1,0 +1,9 @@
+pms:
+  configExistingClaim: "config"
+
+nodeSelector:
+  plex: "true"
+
+extraVolumeMounts:
+  - name: data
+    mountPath: /data
