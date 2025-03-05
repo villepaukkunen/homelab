@@ -25,8 +25,7 @@ metadata:
     kubernetes.io/ingress.class: traefik-external
 spec:
   entryPoints:
-    - specificIPv4:
-        address: "192.168.10.220:32400"
+    - websecure
   routes:
     - match: Host(`plex.mandariini.uk`)
       kind: Rule
