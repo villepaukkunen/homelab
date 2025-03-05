@@ -7,3 +7,8 @@ nodeSelector:
 extraVolumeMounts:
   - name: data
     mountPath: /data
+
+extraVolumes:
+  - name: data
+    persistentVolumeClaim:
+      claimName: data
