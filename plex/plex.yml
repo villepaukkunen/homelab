@@ -14,8 +14,6 @@ spec:
     - repoURL: https://github.com/villepaukkunen/homelab.git
       targetRevision: HEAD
       ref: values
-    - repoURL: https://github.com/villepaukkunen/homelab.git
-      targetRevision: HEAD
       path: plex
 ---
 apiVersion: traefik.io/v1alpha1
