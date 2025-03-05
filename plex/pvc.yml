@@ -15,25 +15,12 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: movies
+  name: data
   namespace: plex
 spec:
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 200Gi
-  storageClassName: nfs-csi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: tvseries
-  namespace: plex
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 200Gi
+      storage: 300Gi
   storageClassName: nfs-csi
