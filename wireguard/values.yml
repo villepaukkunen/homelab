@@ -1,5 +1,4 @@
 service:
-  externalTrafficPolicy: Local
   loadBalancerIP: 192.168.10.220
 
 secretName: privatekey
