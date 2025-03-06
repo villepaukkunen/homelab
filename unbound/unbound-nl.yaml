@@ -28,7 +28,8 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       initContainers:
         - name: unbound-nl-gluetun
-          image: qmcgaw/gluetun:latest
+          image: qmcgaw/gluetun:v3.40.0
+          imagePullPolicy: IfNotPresent
           restartPolicy: Always
           securityContext:
             privileged: true
@@ -57,7 +58,8 @@ spec:
               value: 'on'
       containers:
         - name: unbound-nl
-          image: mvance/unbound:latest
+          image: mvance/unbound:1.22.0
+          imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: unbound-main-conf-volume
               mountPath: /opt/unbound/etc/unbound/unbound.conf
