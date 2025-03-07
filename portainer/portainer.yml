@@ -4,18 +4,16 @@ metadata:
   name: portainer
   namespace: argocd
 spec:
-  project: default
   source:
-    chart: portainer
-    repoURL: https://portainer.github.io/k8s/
-    targetRevision: 1.0.60
-    helm:
-      releaseName: portainer
-      valueFiles:
-        - values.yml
-  destination:
-    server: "https://kubernetes.default.svc"
-    namespace: portainer
+    - repoURL: https://portainer.github.io/k8s/
+      chart: portainer
+      targetRevision: 1.0.60
+      helm:
+        valueFiles:
+          - $values/portainer/values.yml
+    - repoURL: https://github.com/villepaukkunen/homelab.git
+      targetRevision: HEAD
+      ref: values
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
