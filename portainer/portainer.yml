@@ -4,7 +4,7 @@ metadata:
   name: portainer
   namespace: argocd
 spec:
-  source:
+  sources:
     - repoURL: https://portainer.github.io/k8s/
       chart: portainer
       targetRevision: 1.0.60
