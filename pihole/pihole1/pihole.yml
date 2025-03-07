@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pihole2
+  name: pihole
   namespace: pihole
 spec:
   accessModes:
@@ -14,7 +14,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: pihole2
+  name: pihole
   namespace: argocd
 spec:
   sources:
@@ -23,15 +23,17 @@ spec:
       targetRevision: 2.27.0
       helm:
         valueFiles:
-          - $values/pihole2/values2.yml
+          - $values/pihole/pihole1/values.yml
     - repoURL: https://github.com/villepaukkunen/homelab.git
       targetRevision: HEAD
       ref: values
+      path: pihole
+      path: pihole/pihole1
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: pihole2
+  name: pihole
   namespace: pihole
   annotations: 
     kubernetes.io/ingress.class: traefik-external
@@ -40,16 +42,16 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`pihole2.mandariini.uk`)
+      match: Host(`pihole.mandariini.uk`)
       middlewares:
         - name: authentik
           namespace: authentik
       priority: 10
       services:
-        - name: pihole2-web
+        - name: pihole-web
           port: 80
     - kind: Rule
-      match: "Host(`pihole2.mandariini.uk`) && PathPrefix(`/outpost.goauthentik.io/`)"
+      match: "Host(`pihole.mandariini.uk`) && PathPrefix(`/outpost.goauthentik.io/`)"
       priority: 15
       services:
           - kind: Service
