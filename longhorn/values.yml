@@ -1,0 +1,5 @@
+persistence:
+  reclaimPolicy: Retain
+
+longhornUI:
+  replicas: 3
