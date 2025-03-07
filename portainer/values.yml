@@ -3,5 +3,4 @@ service:
 
 persistence:
   enabled: true
-  size: "100Mi"
-  storageClass: longhorn
+  existingClaim: data
