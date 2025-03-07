@@ -28,9 +28,6 @@ spec:
       targetRevision: HEAD
       ref: values
       path: pihole/pihole2
-    - repoURL: https://github.com/villepaukkunen/homelab.git
-      targetRevision: HEAD
-      path: pihole
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pihole-custom-list2
+  namespace: pihole
+data:
+  custom.list: |
+    192.168.10.15 acer.mandariini.uk
+    192.168.10.16 hp1.mandariini.uk
+    192.168.10.17 hp2.mandariini.uk
+    192.168.10.18 m73-1.mandariini.uk
+    192.168.10.19 m73-2.mandariini.uk
+    192.168.20.15 m600-1.mandariini.uk
+    192.168.10.220 kube.mandariini.uk

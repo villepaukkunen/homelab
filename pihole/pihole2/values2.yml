@@ -60,19 +60,19 @@ antiaff:
 hostname: "pihole2"
 
 extraVolumes:
-  pihole-custom-list-volume:
+  pihole-custom-list2-volume:
     configMap:
-      name: pihole-custom-list
-  pihole-custom-cname-conf-volume:
+      name: pihole-custom-list2
+  pihole-custom-cname-conf2-volume:
     configMap:
-      name: pihole-custom-cname-conf
+      name: pihole-custom-cname-conf2
 
 # -- any extra volume mounts you might want
 extraVolumeMounts:
-  pihole-custom-list-volume:
+  pihole-custom-list2-volume:
     mountPath: /etc/pihole/custom.list
     subPath: custom.list
-  pihole-custom-cname-conf-volume:
+  pihole-custom-cname-conf2-volume:
     mountPath: /etc/dnsmasq.d/05-pihole-custom-cname.conf
     subPath: 05-pihole-custom-cname.conf
 
