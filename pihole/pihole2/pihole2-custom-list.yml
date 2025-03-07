@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: pihole-custom-list2
+  name: pihole2-custom-list
   namespace: pihole
 data:
   custom.list: |
