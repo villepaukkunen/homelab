@@ -51,3 +51,4 @@ data:
     cname=argocd.mandariini.uk,kube.mandariini.uk
     cname=tplink.mandariini.uk,kube.mandariini.uk
     cname=printer2.mandariini.uk,kube.mandariini.uk
+    cname=openbao.mandariini.uk,kube.mandariini.uk
