@@ -1,3 +1,5 @@
 hostname: rancher.mandariini.uk
+ingress:
+  enabled: false
 replicas: 3
 tls: external
