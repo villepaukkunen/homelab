@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: authentik
+  namespace: argocd
+spec:
+  sources:
+    - repoURL: https://charts.goauthentik.io/
+      chart: authentik
+      targetRevision: 2025.2.1
+      helm:
+        valueFiles:
+          - $values/authentik/values.yml
+    - repoURL: https://github.com/villepaukkunen/homelab.git
+      targetRevision: HEAD
+      ref: values
+      path: authentik
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: authentik
+  namespace: authentik
+  annotations: 
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`auth.mandariini.uk`)
+      services:
+        - name: authentik-server
+          port: 80
+  tls:
+    secretName: mandariini-uk-tls

@@ -1,0 +1,34 @@
+global:
+  envFrom:
+    - secretRef:
+        name: envsecrets
+
+authentik:
+  email:
+    port: ""
+    use_tls: ""
+    use_ssl: ""
+    timeout: ""
+
+postgresql:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: bitnami/postgresql
+    tag: 16.0.0-debian-11-r16
+  auth:
+    enablePostgresUser: false
+    existingSecret: "envsecrets"
+    secretKeys:
+      userPasswordKey: AUTHENTIK_POSTGRESQL__PASSWORD
+  primary:
+    persistence:
+      enabled: true
+      existingClaim: "postgresql"
+
+redis:
+  enabled: true
+  master:
+    persistence:
+      enabled: true
+      existingClaim: "redis"
