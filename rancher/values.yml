@@ -1,3 +1,2 @@
-ingress:
-  enabled: false
+hostname: rancher.mandariini.uk
 tls: external
