@@ -7,7 +7,7 @@ spec:
   sources:
     - repoURL: https://releases.rancher.com/server-charts/stable
       chart: rancher
-      targetRevision: 2.10.1
+      targetRevision: 2.10.3
       helm:
         valueFiles:
           - $values/rancher/values.yml
