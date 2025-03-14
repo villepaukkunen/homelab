@@ -8,5 +8,8 @@
   },
   "argocd": {
     "fileMatch": ["\\.yml$"]
-  }
+  },
+  "assignees": [
+    "villepaukkunen"
+  ]
 }
