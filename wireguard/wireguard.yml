@@ -14,3 +14,4 @@ spec:
     - repoURL: https://github.com/villepaukkunen/homelab.git
       targetRevision: HEAD
       ref: values
+      path: wireguard
