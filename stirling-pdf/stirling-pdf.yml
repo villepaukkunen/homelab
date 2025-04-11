@@ -54,6 +54,8 @@ spec:
                 en_GB
                 de_DE
                 fi_FI
+            - name: SYSTEM_ENABLEANALYTICS
+              value: "false"
           envFrom:
             - secretRef:
                 name: envsecrets
