@@ -7,7 +7,7 @@ spec:
   sources:
     - repoURL: https://portainer.github.io/k8s/
       chart: portainer
-      targetRevision: 1.0.63
+      targetRevision: 1.0.64
       helm:
         valueFiles:
           - $values/portainer/values.yml
