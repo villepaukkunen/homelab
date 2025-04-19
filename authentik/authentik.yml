@@ -31,7 +31,7 @@ spec:
       match: Host(`auth.mandariini.uk`)
       services:
         - name: authentik-server
-          namepsace: authentik
+          namespace: authentik
           port: 80
   tls:
     secretName: mandariini-uk-tls
