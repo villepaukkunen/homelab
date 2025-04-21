@@ -1,2 +1,5 @@
 global:
   domain: argocd.mandariini.uk
+configs:
+  params:
+    server.insecure: true
