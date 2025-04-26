@@ -4,6 +4,10 @@ metadata:
   name: argocd
   namespace: argocd
 spec:
+  project: default
+  syncPolicy:
+    automated:
+      selfHeal: true
   sources:
     - repoURL: https://argoproj.github.io/argo-helm
       chart: argo-cd
@@ -15,6 +19,9 @@ spec:
       targetRevision: HEAD
       ref: values
       path: argocd
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argocd
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
