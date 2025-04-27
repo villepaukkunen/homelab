@@ -4,6 +4,10 @@ metadata:
   name: csi-driver-nfs
   namespace: argocd
 spec:
+  project: default
+  syncPolicy:
+    automated:
+      selfHeal: true
   sources:
     - repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
       chart: csi-driver-nfs
@@ -11,3 +15,6 @@ spec:
     - repoURL: https://github.com/villepaukkunen/homelab.git
       targetRevision: HEAD
       path: csi-driver-nfs
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kube-system
