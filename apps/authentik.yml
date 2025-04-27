@@ -21,4 +21,4 @@ spec:
       path: authentik
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: argocd
+    namespace: authentik
