@@ -4,6 +4,10 @@ metadata:
   name: authentik
   namespace: argocd
 spec:
+  project: default
+  syncPolicy:
+    automated:
+      selfHeal: true
   sources:
     - repoURL: https://charts.goauthentik.io/
       chart: authentik
@@ -15,23 +19,6 @@ spec:
       targetRevision: HEAD
       ref: values
       path: authentik
----
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
-metadata:
-  name: authentik
-  namespace: default
-  annotations: 
-    kubernetes.io/ingress.class: traefik-external
-spec:
-  entryPoints:
-    - websecure
-  routes:
-    - kind: Rule
-      match: Host(`auth.mandariini.uk`)
-      services:
-        - name: authentik-server
-          namespace: authentik
-          port: 80
-  tls:
-    secretName: mandariini-uk-tls
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argocd

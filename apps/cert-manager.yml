@@ -4,6 +4,10 @@ metadata:
   name: cert-manager
   namespace: argocd
 spec:
+  project: default
+  syncPolicy:
+    automated:
+      selfHeal: true
   sources:
     - repoURL: https://charts.jetstack.io
       chart: cert-manager
@@ -15,3 +19,6 @@ spec:
       targetRevision: HEAD
       ref: values
       path: cert-manager
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argocd
