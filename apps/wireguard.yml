@@ -4,6 +4,10 @@ metadata:
   name: wireguard
   namespace: argocd
 spec:
+  project: default
+  syncPolicy:
+    automated:
+      selfHeal: true
   sources:
     - repoURL: https://bryopsida.github.io/wireguard-chart
       chart: wireguard
@@ -15,3 +19,6 @@ spec:
       targetRevision: HEAD
       ref: values
       path: wireguard
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: wireguard
