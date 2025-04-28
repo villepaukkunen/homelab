@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mollysocket
+  namespace: mollysocket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mollysocket
+  template:
+    metadata:
+      labels:
+        app: mollysocket
+    spec:
+      containers:
+        - name: mollysocket
+          image: ghcr.io/mollyim/mollysocket:1
+          imagePullPolicy: IfNotPresent
+          args: ["server"]
+          workingDir: /data
+          env:
+            - name: MOLLY_DB
+              value: "/data/mollysocket.db"
+            - name: MOLLY_ALLOWED_UUIDS
+              value: '["*"]'
+            - name: MOLLY_HOST
+              value: "0.0.0.0"
+            - name: MOLLY_PORT
+              value: "8020"
+            - name: RUST_LOG
+              value: "info"
+          envFrom:
+            - secretRef:
+                name: envsecrets
+          ports:
+            - containerPort: 8020
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: mollysocket
