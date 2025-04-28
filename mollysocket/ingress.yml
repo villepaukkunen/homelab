@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`mollysocket.mandariini.uk`)
+    - match: Host(`molly.mandariini.uk`)
       kind: Rule
       services:
         - name: mollysocket

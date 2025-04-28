@@ -52,4 +52,5 @@ data:
     cname=tplink.mandariini.uk,kube.mandariini.uk
     cname=printer2.mandariini.uk,kube.mandariini.uk
     cname=openbao.mandariini.uk,kube.mandariini.uk
-    cname=mollysocket.mandariini.uk,kube.mandariini.uk
+    cname=molly.mandariini.uk,kube.mandariini.uk
+    cname=ntfy.mandariini.uk,kube.mandariini.uk
