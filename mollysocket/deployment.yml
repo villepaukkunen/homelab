@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: mollysocket
-          image: ghcr.io/mollyim/mollysocket:1
+          image: ghcr.io/mollyim/mollysocket:1.6.0
           imagePullPolicy: IfNotPresent
           args: ["server"]
           workingDir: /data
