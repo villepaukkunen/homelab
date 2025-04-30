@@ -51,11 +51,14 @@ spec:
             - name: TZ
               value: Europe/Helsinki
             - name: VPN_SERVICE_PROVIDER
-              value: custom
-            - name: VPN_TYPE
-              value: wireguard
+              value: private internet access
+            - name: SERVER_REGIONS
+              value: Estonia
             - name: DNS_KEEP_NAMESERVER
               value: 'on'
+          envFrom:
+            - secretRef:
+                name: envsecrets
       containers:
         - name: unbound-ee
           image: mvance/unbound:1.22.0
