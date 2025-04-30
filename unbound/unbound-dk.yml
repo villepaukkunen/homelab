@@ -53,7 +53,7 @@ spec:
             - name: VPN_SERVICE_PROVIDER
               value: private internet access
             - name: SERVER_REGIONS
-              value: Denmark
+              value: DK Copenhagen
             - name: DNS_KEEP_NAMESERVER
               value: 'on'
           envFrom:
