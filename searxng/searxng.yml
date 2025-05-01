@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
         - name: searxng
-          image: docker.io/searxng/searxng:2025.3.11-3fe602a46
+          image: docker.io/searxng/searxng:2025.3.11
           securityContext:
             capabilities:
               drop:
