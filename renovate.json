@@ -11,5 +11,12 @@
   },
   "assignees": [
     "villepaukkunen"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["searxng/searxng"],
+      "versioning": "loose"
+    }
   ]
 }
