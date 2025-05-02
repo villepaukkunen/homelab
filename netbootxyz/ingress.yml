@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`netbootxyz.mandariini.uk`)
+    - match: Host(`netboot.mandariini.uk`)
       kind: Rule
       services:
         - name: netbootxyz-web
