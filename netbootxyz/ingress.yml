@@ -9,14 +9,26 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`netboot.mandariini.uk`)
-      kind: Rule
+    - kind: Rule
+      match: Host(`netboot.mandariini.uk`)
+      middlewares:
+        - name: authentik
+          namespace: authentik
+      priority: 10
       services:
         - name: netbootxyz-web
           namespace: netbootxyz
           port: 3000
-    - match: Host(`assets.mandariini.uk`)
-      kind: Rule
+    - kind: Rule
+      match: "Host(`netboot.mandariini.uk`) && PathPrefix(`/outpost.goauthentik.io/`)"
+      priority: 15
+      services:
+          - kind: Service
+            name: ak-outpost-authentik-embedded-outpost
+            namespace: authentik
+            port: 9000
+    - kind: Rule
+      match: Host(`assets.mandariini.uk`)
       services:
         - name: netbootxyz-web
           namespace: netbootxyz
