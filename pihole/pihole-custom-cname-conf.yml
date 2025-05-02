@@ -28,7 +28,8 @@ data:
     cname=guest.mandariini.uk,acer.mandariini.uk
     cname=inform.mandariini.uk,acer.mandariini.uk
     cname=lidarr.mandariini.uk,acer.mandariini.uk
-    cname=netboot.mandariini.uk,acer.mandariini.uk
+    cname=netboot.mandariini.uk,kube.mandariini.uk
+    cname=assets.mandariini.uk,kube.mandariini.uk
     cname=overseerr.mandariini.uk,acer.mandariini.uk
     cname=pdf.mandariini.uk,kube.mandariini.uk
     cname=readarr.mandariini.uk,acer.mandariini.uk
