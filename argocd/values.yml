@@ -5,7 +5,7 @@ configs:
     dex.config: |
       connectors:
         - config:
-            issuer: https://authentik.mandariini.uk/application/o/argocd/
+            issuer: https://auth.mandariini.uk/application/o/argocd/
             clientID: $authentik:clientID
             clientSecret: $authentik:clientSecret
             insecureEnableGroups: true
