@@ -6,8 +6,8 @@ configs:
       connectors:
         - config:
             issuer: https://auth.mandariini.uk/application/o/argocd/
-            clientID: $authentik:clientID
-            clientSecret: $authentik:clientSecret
+            clientID: $authentik:dex.authentik.clientID
+            clientSecret: $authentik:dex.authentik.clientSecret
             insecureEnableGroups: true
             scopes:
               - openid
