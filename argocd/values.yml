@@ -4,6 +4,9 @@ configs:
   cm:
     admin.enabled: false
     server.rbac.disableApplicationFineGrainedRBACInheritance: false
+    resource.compareoptions: |
+      ignoreDifferencesOnResourceUpdates: false
+      ignoreResourceStatusField: crd
     dex.config: |
       connectors:
         - config:
