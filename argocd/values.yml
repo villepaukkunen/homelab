@@ -3,6 +3,7 @@ global:
 configs:
   cm:
     admin.enabled: false
+    server.rbac.disableApplicationFineGrainedRBACInheritance: false
     dex.config: |
       connectors:
         - config:
