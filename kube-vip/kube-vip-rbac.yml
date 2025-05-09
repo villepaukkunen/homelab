@@ -46,7 +46,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/name: kube-vip-ds
-    app.kubernetes.io/version: v0.8.10
+    app.kubernetes.io/version: v0.9.1
   name: kube-vip-ds
   namespace: kube-system
 spec:
@@ -58,7 +58,7 @@ spec:
       creationTimestamp: null
       labels:
         app.kubernetes.io/name: kube-vip-ds
-        app.kubernetes.io/version: v0.8.10
+        app.kubernetes.io/version: v0.9.1
     spec:
       affinity:
         nodeAffinity:
@@ -84,7 +84,7 @@ spec:
               fieldPath: spec.nodeName
         - name: vip_interface
           value: eth0
-        - name: vip_cidr
+        - name: vip_subnet
           value: "32"
         - name: dns_mode
           value: first
@@ -112,7 +112,7 @@ spec:
           value: :2112
         - name: svc_election
           value: "true"
-        image: ghcr.io/kube-vip/kube-vip:v0.8.10
+        image: ghcr.io/kube-vip/kube-vip:v0.9.1
         imagePullPolicy: IfNotPresent
         name: kube-vip
         resources: {}
