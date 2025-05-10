@@ -40,10 +40,10 @@ extraEnvVars:
   DNSMASQ_LISTENING: all
   PIHOLE_DNS_: 10.43.217.41;10.43.136.38;10.43.127.214
 
-## -- default upstream DNS 1 server to use
-#DNS1: "10.43.217.41#53"
-## -- default upstream DNS 2 server to use
-#DNS2: "10.43.136.38#53"
+# -- default upstream DNS 1 server to use
+DNS1: ""
+# -- default upstream DNS 2 server to use
+DNS2: ""
 
 antiaff:
   # -- set to true to enable antiaffinity (example: 2 pihole DNS in the same cluster)
