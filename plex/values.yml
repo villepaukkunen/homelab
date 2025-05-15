@@ -1,14 +1,14 @@
 pms:
-  configExistingClaim: "config"
+  configExistingClaim: "plex-config"
 
 nodeSelector:
   plex: "true"
 
 extraVolumeMounts:
-  - name: data
+  - name: media
     mountPath: /data
 
 extraVolumes:
-  - name: data
+  - name: media
     persistentVolumeClaim:
-      claimName: data
+      claimName: media

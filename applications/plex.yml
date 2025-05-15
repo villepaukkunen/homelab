@@ -21,4 +21,4 @@ spec:
       path: plex
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: plex
+    namespace: media

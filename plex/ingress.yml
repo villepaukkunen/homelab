@@ -14,7 +14,7 @@ spec:
       kind: Rule
       services:
         - name: plex-plex-media-server
-          namespace: plex
+          namespace: media
           port: 32400
   tls:
     secretName: mandariini-uk-tls
