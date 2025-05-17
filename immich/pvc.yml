@@ -3,25 +3,25 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: database
-  namespace: nextcloud
+  namespace: immich
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
+      storage: 5Gi
   storageClassName: longhorn
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nextcloud
-  namespace: nextcloud
+  name: immich
+  namespace: immich
 spec:
   accessModes:
     - ReadWriteMany
   resources:
     requests:
       storage: 100Gi
-  volumeName: nextcloud
+  volumeName: immich
   storageClassName: nfs-csi
