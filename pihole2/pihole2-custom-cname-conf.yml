@@ -7,7 +7,7 @@ data:
   05-pihole-custom-cname.conf: |
     cname=auth.mandariini.uk,kube.mandariini.uk
     cname=portainer.mandariini.uk,kube.mandariini.uk
-    cname=cloud.mandariini.uk,acer.mandariini.uk
+    cname=cloud.mandariini.uk,kube.mandariini.uk
     cname=photos.mandariini.uk,acer.mandariini.uk
     cname=abs.mandariini.uk,acer.mandariini.uk
     cname=homarr.mandariini.uk,kube.mandariini.uk
