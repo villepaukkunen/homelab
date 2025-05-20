@@ -1,0 +1,60 @@
+nextcloud:
+  host: cloud.mandariini.uk
+  username: ""
+  password: ""
+  existingSecret:
+    enabled: true
+    secretName: envsecrets
+    smtpUsernameKey: smtp-username
+    smtpPasswordKey: smtp-password
+    smtpHostKey: smtp-host
+
+  mail:
+    enabled: true
+    fromAddress: cloud
+    domain: mandariini.uk
+    smtp:
+      secure: ""
+      port: 587
+      authtype: LOGIN
+
+internalDatabase:
+  enabled: false
+
+externalDatabase:
+  enabled: true
+
+mariadb:
+  enabled: true
+  auth:
+    database: nextcloud
+    username: nextcloud
+    existingSecret: envsecrets
+  primary:
+    persistence:
+      enabled: true
+      existingClaim: database
+
+redis:
+  enabled: true
+  auth:
+    enabled: false
+  master:
+    persistence:
+      enabled: true
+      existingClaim: redis-master
+  replica:
+    persistence:
+      enabled: true
+      existingClaim: redis-replica
+
+cronjob:
+  enabled: true
+
+persistence:
+  enabled: true
+  existingClaim: data
+
+  nextcloudData:
+    enabled: true
+    existingClaim: userdata
