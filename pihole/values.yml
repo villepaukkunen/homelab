@@ -64,7 +64,7 @@ extraVolumes:
     configMap:
       name: pihole-custom-list
   pihole-custom-cname-conf-volume:
-    configMap:
+    secret:
       name: pihole-custom-cname-conf
 
 # -- any extra volume mounts you might want
