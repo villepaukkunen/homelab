@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: ddclient
-          image: lscr.io/linuxserver/ddclient:v4.0.0-ls198
+          image: lscr.io/linuxserver/ddclient:v4.0.0-ls199
           imagePullPolicy: IfNotPresent
           env:
             - name: PUID
