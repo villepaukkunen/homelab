@@ -1,6 +1,6 @@
-globalArguments:
-  - "--global.sendanonymoususage=false"
-  - "--global.checknewversion=false"
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
 
 additionalArguments:
   - "--serversTransport.insecureSkipVerify=true"
