@@ -56,7 +56,12 @@ spec:
           volumeMounts:
             - name: trainingdata
               mountPath: /usr/share/tessdata
+            - name: config
+              mountPath: /configs
       volumes:
         - name: trainingdata
           persistentVolumeClaim:
             claimName: stirling-pdf
+        - name: config
+          persistentVolumeClaim:
+            claimName: config
