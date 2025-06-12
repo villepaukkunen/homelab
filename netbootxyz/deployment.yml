@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: netbootxyz 
-          image: lscr.io/linuxserver/netbootxyz:0.7.5-ls219
+          image: lscr.io/linuxserver/netbootxyz:0.7.6-ls220
           env:
             - name: PUID
               value: '1000'
