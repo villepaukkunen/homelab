@@ -61,6 +61,6 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 100Gi
+      storage: 500Gi
   volumeName: nextcloud
   storageClassName: nfs-csi

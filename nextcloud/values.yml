@@ -30,6 +30,8 @@ externalDatabase:
   enabled: true
 
 mariadb:
+  image:
+    tag: 10.6
   enabled: true
   auth:
     database: nextcloud
