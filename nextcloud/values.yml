@@ -44,6 +44,7 @@ mariadb:
 
 redis:
   enabled: true
+  architecture: standalone
   auth:
     enabled: false
   master:
@@ -52,8 +53,7 @@ redis:
       existingClaim: redis-master
   replica:
     persistence:
-      enabled: true
-      existingClaim: redis-replica
+      enabled: false
 
 cronjob:
   enabled: true
