@@ -8,6 +8,7 @@ metadata:
   namespace: ddclient
 spec:
   replicas: 1
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: ddclient
@@ -18,7 +19,7 @@ spec:
     spec:
       containers:
         - name: ddclient
-          image: lscr.io/linuxserver/ddclient:v4.0.0-ls197
+          image: lscr.io/linuxserver/ddclient:v4.0.0-ls200
           imagePullPolicy: IfNotPresent
           env:
             - name: PUID

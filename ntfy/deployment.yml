@@ -7,6 +7,9 @@ metadata:
   namespace: ntfy
 spec:
   replicas: 1
+  revisionHistoryLimit: 3
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: ntfy
@@ -17,7 +20,7 @@ spec:
     spec:
       containers:
         - name: ntfy 
-          image: binwiederhier/ntfy:v2.11.0
+          image: binwiederhier/ntfy:v2.12.0
           args: ["serve"]
           env:
             - name: TZ
