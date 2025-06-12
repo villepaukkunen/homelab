@@ -1,0 +1,66 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: database
+  namespace: nextcloud
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: longhorn
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-master
+  namespace: nextcloud
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: longhorn
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-replica
+  namespace: nextcloud
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: longhorn
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data
+  namespace: nextcloud
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: longhorn
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: userdata
+  namespace: nextcloud
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 500Gi
+  volumeName: nextcloud
+  storageClassName: nfs-csi
