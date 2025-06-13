@@ -5,11 +5,11 @@ image:
 
 nextcloud:
   host: cloud.mandariini.uk
-  username: ""
-  password: ""
   existingSecret:
     enabled: true
     secretName: envsecrets
+    usernameKey: nextcloud-username
+    passwordKey: nextcloud-password
     smtpUsernameKey: smtp-username
     smtpPasswordKey: smtp-password
     smtpHostKey: smtp-host
@@ -40,8 +40,6 @@ mariadb:
   image:
     tag: 10.6
   auth:
-    database: nextcloud
-    username: nextcloud
     existingSecret: envsecrets
   primary:
     persistence:
