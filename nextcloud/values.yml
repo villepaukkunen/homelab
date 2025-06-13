@@ -23,12 +23,6 @@ nextcloud:
       port: 587
       authtype: LOGIN
 
-  securityContext:
-    runAsUser: 33
-    runAsGroup: 33
-    runAsNonRoot: true
-    readOnlyRootFilesystem: false
-
 internalDatabase:
   enabled: false
 
@@ -67,12 +61,6 @@ redis:
 
 cronjob:
   enabled: true
-
-  securityContext:
-    runAsUser: 33
-    runAsGroup: 33
-    runAsNonRoot: true
-    readOnlyRootFilesystem: true
 
 persistence:
   enabled: true
