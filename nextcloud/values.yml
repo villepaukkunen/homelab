@@ -80,5 +80,4 @@ persistence:
 
   nextcloudData:
     enabled: true
-    subPath: data
     existingClaim: userdata
