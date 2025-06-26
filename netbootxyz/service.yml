@@ -35,4 +35,4 @@ spec:
       port: 69
       protocol: UDP
       targetPort: 69
-│ externalTrafficPolicy: Local
+  externalTrafficPolicy: Local
