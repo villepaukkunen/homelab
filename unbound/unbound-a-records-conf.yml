@@ -7,6 +7,7 @@ data:
   a-records.conf: |
     # A Record
       #local-data: "somecomputer.local. A 192.168.1.1"
+      local-data: "pfsense.mandariini.uk. A 192.168.10.1"
       local-data: "acer.mandariini.uk. A 192.168.10.15"
       local-data: "hp1.mandariini.uk. A 192.168.10.16"
       local-data: "hp2.mandariini.uk. A 192.168.10.17"
