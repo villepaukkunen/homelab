@@ -9,11 +9,10 @@ data:
       #local-data: "somecomputer.local. A 192.168.1.1"
       local-data: "pfsense.mandariini.uk. A 192.168.10.1"
       local-data: "acer.mandariini.uk. A 192.168.10.15"
-      local-data: "hp1.mandariini.uk. A 192.168.10.16"
-      local-data: "hp2.mandariini.uk. A 192.168.10.17"
       local-data: "m73-1.mandariini.uk. A 192.168.10.18"
       local-data: "m73-2.mandariini.uk. A 192.168.10.19"
       local-data: "m73-3.mandariini.uk. A 192.168.10.20"
+      local-data: "m720q-1.mandariini.uk. A 192.168.10.21"
       local-data: "kube.mandariini.uk. A 192.168.10.220"
       local-data: "m600-1.mandariini.uk. A 192.168.20.15"
 
