@@ -12,10 +12,6 @@ authentik:
 
 postgresql:
   enabled: true
-  image:
-    registry: docker.io
-    repository: bitnami/postgresql
-    tag: 16.0.0-debian-11-r16
   auth:
     enablePostgresUser: false
     existingSecret: "envsecrets"
