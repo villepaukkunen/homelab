@@ -15,7 +15,7 @@ spec:
     - nfsvers=4.1
   csi:
     driver: nfs.csi.k8s.io
-    volumeHandle: 192.168.10.15/srv/nfs/nextcloud
+    volumeHandle: 192.168.10.15/srv/nfs/nextcloud/data
     volumeAttributes:
       server: 192.168.10.15
-      share: /srv/nfs/nextcloud
+      share: /srv/nfs/nextcloud/data
