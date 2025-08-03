@@ -4,7 +4,8 @@ persistence:
   migratable: "true"
 
 defaultSettings:
- replicaAutoBalance: best-effort
+  replicaAutoBalance: best-effort
+  concurrentAutomaticEngineUpgradePerNodeLimit: "3"
 
 longhornUI:
   replicas: 3
