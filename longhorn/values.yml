@@ -1,5 +1,10 @@
 persistence:
+  defaultDataLocality: best-effort
   reclaimPolicy: Retain
+  migratable: "true"
+
+defaultSettings:
+ replicaAutoBalance: best-effort
 
 longhornUI:
   replicas: 3
