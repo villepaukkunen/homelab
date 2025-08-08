@@ -6,9 +6,8 @@ metadata:
   namespace: authentik
 spec:
   accessModes:
-    - ReadWriteMany
-  storageClassName: nfs-csi
-  volumeName: postgresql
+    - ReadWriteOnce
+  storageClassName: longhorn
   resources:
     requests:
       storage: 1Gi
@@ -20,9 +19,8 @@ metadata:
   namespace: authentik
 spec:
   accessModes:
-    - ReadWriteMany
-  storageClassName: nfs-csi
-  volumeName: redis
+    - ReadWriteOnce
+  storageClassName: longhorn
   resources:
     requests:
       storage: 1Gi
