@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-ville
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+  source:
+    repoURL: https://github.com/villepaukkunen/homelab.git
+    targetRevision: HEAD
+    path: nginx-ville
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: default
