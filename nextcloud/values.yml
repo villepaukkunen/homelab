@@ -1,7 +1,7 @@
 image:
   repository: nextcloud
   flavor: apache
-  tag: 31.0.7
+  tag: 31.0.8
 
 nextcloud:
   host: cloud.mandariini.uk
