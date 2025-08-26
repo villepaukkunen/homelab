@@ -107,7 +107,7 @@ spec:
         - name: vip_retryperiod
           value: "1"
         - name: address
-          value: 192.168.10.14
+          value: 192.168.10.40
         - name: prometheus_server
           value: :2112
         - name: svc_election
