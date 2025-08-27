@@ -2,17 +2,17 @@
 # port 53 outside of cluster on the local network
 serviceDns:
   type: LoadBalancer
-  loadBalancerIP: 192.168.10.220
+  loadBalancerIP: 192.168.10.50
 
 serviceDhcp:
   enabled: false
   type: LoadBalancer
-  loadBalancerIP: 192.168.10.220
+  loadBalancerIP: 192.168.10.50
 
 # will create kubernetes services for web admin
 serviceWeb:
   type: ClusterIP
-  loadBalancerIP: 192.168.10.220
+  loadBalancerIP: 192.168.10.50
 
 virtualHost: pihole.mandariini.uk
   
@@ -30,7 +30,7 @@ admin:
 # -- extraEnvironmentVars is a list of extra enviroment variables to set for pihole to use
 extraEnvVars:
   TZ: Europe/Helsinki
-  FTLCONF_LOCAL_IPV4: 192.168.10.220
+  FTLCONF_LOCAL_IPV4: 192.168.10.50
   FTLCONF_RATE_LIMIT: 0/0
   DNS_BOGUS_PRIV: false
   DNS_FQDN_REQUIRED: false
