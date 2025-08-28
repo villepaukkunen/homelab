@@ -6,10 +6,10 @@ metadata:
 data:
   custom.list: |
     192.168.10.1 pfsense.mandariini.uk
-    192.168.10.15 acer.mandariini.uk
-    192.168.10.18 m73-1.mandariini.uk
-    192.168.10.19 m73-2.mandariini.uk
-    192.168.10.20 m73-3.mandariini.uk
-    192.168.10.21 m720q-1.mandariini.uk
+    192.168.10.20 acer.mandariini.uk
+    192.168.10.41 m73-1.mandariini.uk
+    192.168.10.42 m73-2.mandariini.uk
+    192.168.10.43 m73-3.mandariini.uk
+    192.168.10.44 m720q-1.mandariini.uk
     192.168.10.50 kube.mandariini.uk
     192.168.20.15 m600-1.mandariini.uk
