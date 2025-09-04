@@ -50,7 +50,7 @@ spec:
             - name: TZ
               value: Europe/Helsinki
             - name: SERVER_REGIONS
-              value: Finland
+              value: FI Helsinki
             - name: DNS_KEEP_NAMESERVER
               value: 'on'
             - name: FIREWALL_OUTBOUND_SUBNETS
