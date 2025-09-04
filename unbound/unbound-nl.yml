@@ -56,6 +56,8 @@ spec:
               value: wireguard
             - name: DNS_KEEP_NAMESERVER
               value: 'on'
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: '10.43.0.10/32'
       containers:
         - name: unbound-nl
           image: mvance/unbound:1.22.0
