@@ -32,6 +32,32 @@ spec:
       labels:
         app: searxng
     spec:
+      initContainers:
+        - name: searxng-gluetun
+          image: qmcgaw/gluetun:v3.40.0
+          imagePullPolicy: IfNotPresent
+          restartPolicy: Always
+          securityContext:
+            privileged: true
+            capabilities:
+              add:
+                - NET_ADMIN
+          ports:
+            - containerPort: 8080
+              name: web
+              protocol: TCP
+          env:
+            - name: TZ
+              value: Europe/Helsinki
+            - name: SERVER_REGIONS
+              value: Finland
+            - name: DNS_KEEP_NAMESERVER
+              value: 'on'
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: '10.43.0.10/32'
+          envFrom:
+            - secretRef:
+                name: envsecrets
       containers:
         - name: searxng
           image: docker.io/searxng/searxng:2025.7.29-40b78ad
@@ -43,10 +69,6 @@ spec:
                 - CHOWN
                 - SETGID
                 - SETUID
-          ports:
-            - containerPort: 8080
-              name: web
-              protocol: TCP
           env:
             - name: SEARXNG_BASE_URL
               value: https://search.mandariini.uk
