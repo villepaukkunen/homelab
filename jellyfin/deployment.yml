@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jellyfin
+  name: jellyfin
+  namespace: media
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: jellyfin
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+    spec:
+      nodeSelector:
+        streaming: "true"
+      initContainers:
+        - name: jellyfin-gluetun
+          image: qmcgaw/gluetun:v3.40.0
+          imagePullPolicy: IfNotPresent
+          restartPolicy: Always
+          securityContext:
+            privileged: true
+            capabilities:
+              add:
+                - NET_ADMIN
+          ports:
+            - containerPort: 8096
+              name: web
+              protocol: TCP
+          env:
+            - name: TZ
+              value: Europe/Helsinki
+            - name: SERVER_REGIONS
+              value: DE Berlin
+            - name: DNS_KEEP_NAMESERVER
+              value: 'on'
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: '10.43.0.10/32'
+          envFrom:
+            - secretRef:
+                name: envsecrets
+      containers:
+        - name: jellyfin
+          image: lscr.io/linuxserver/jellyfin:10.10.7ubu2404-ls75
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: PUID
+              value: '1000'
+            - name: PGID
+              value: '1000'
+            - name: TZ
+              value: Europe/Helsinki
+            - name: JELLYFIN_PublishedServerUrl
+              value: https://jellyfin.mandariini.uk
+          resources:
+              requests:
+                  gpu.intel.com/i915: "1"
+              limits:
+                  gpu.intel.com/i915: "1"
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: jellyfin
+        - name: data
+          persistentVolumeClaim:
+            claimName: media
