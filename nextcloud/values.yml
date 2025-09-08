@@ -51,7 +51,7 @@ mariadb:
   primary:
     persistence:
       enabled: true
-      existingClaim: database
+      existingClaim: db
 
 redis:
   enabled: true
@@ -71,8 +71,8 @@ cronjob:
 
 persistence:
   enabled: true
-  existingClaim: data
+  existingClaim: config
 
   nextcloudData:
     enabled: true
-    existingClaim: userdata
+    existingClaim: data
