@@ -6,7 +6,7 @@ metadata:
   namespace: nextcloud
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 5Gi
@@ -33,7 +33,7 @@ metadata:
   namespace: nextcloud
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 10Gi
