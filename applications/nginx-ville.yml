@@ -8,10 +8,17 @@ spec:
   syncPolicy:
     automated:
       selfHeal: true
-  source:
-    repoURL: https://github.com/villepaukkunen/homelab.git
-    targetRevision: HEAD
-    path: nginx-ville
+  sources:
+    - repoURL: registry-1.docker.io/cloudpirates
+      chart: nginx
+      targetRevision: 0.1.6
+      helm:
+        valueFiles:
+          - $values/nginx-ville/values.yml
+    - repoURL: https://github.com/villepaukkunen/homelab.git
+      targetRevision: HEAD
+      ref: values
+      path: nginx-ville
   destination:
     server: "https://kubernetes.default.svc"
     namespace: default
