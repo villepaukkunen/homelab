@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: paukkunen-de
+  namespace: default
+spec:
+  secretName: paukkunen-de-staging-tls
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: "*.paukkunen.de"
+  dnsNames:
+  - "paukkunen.de"
+  - "*.paukkunen.de"
