@@ -11,7 +11,14 @@ spec:
     - websecure
     - websecxt
   routes:
-    - match: Host(`ville.mandariini.uk`)
+    - match: Host(`paukkunen.de`)
+      kind: Rule
+      services:
+        - name: nginx-ville
+          port: 80
+      middlewares:
+        - name: default-headers
+    - match: Host(`www.paukkunen.de`)
       kind: Rule
       services:
         - name: nginx-ville
@@ -19,4 +26,4 @@ spec:
       middlewares:
         - name: default-headers
   tls:
-    secretName: mandariini-uk-tls
+    secretName: paukkunen-de-tls
