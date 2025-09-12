@@ -5,9 +5,9 @@ metadata:
   name: paukkunen-de
   namespace: default
 spec:
-  secretName: paukkunen-de-staging-tls
+  secretName: paukkunen-de-tls
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-production
     kind: ClusterIssuer
   commonName: "*.paukkunen.de"
   dnsNames:
