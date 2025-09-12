@@ -6,16 +6,17 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: ville.paukkunen@maxinetti.fi
+    email: ville@paukkunen.de
     privateKeySecretRef:
       name: letsencrypt-production
     solvers:
       - dns01:
           cloudflare:
-            email: ville.paukkunen@maxinetti.fi
+            email: ville@paukkunen.de
             apiTokenSecretRef:
               name: cloudflare-token-secret
               key: cloudflare-token
         selector:
           dnsZones:
             - "mandariini.uk"
+            - "paukkunen.de"
