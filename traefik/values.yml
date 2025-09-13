@@ -8,7 +8,7 @@ additionalArguments:
 
 deployment:
   enabled: true
-  replicas: 1
+  replicas: 3
   revisionHistoryLimit: 3
 
 ingressRoute:
@@ -64,24 +64,24 @@ service:
   loadBalancerSourceRanges: []
   externalIPs: []
 
-autoscaling:
-  enabled: true
-  minReplicas: 1
-  maxReplicas: 5
-  metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        target:
-          type: Utilization
-          averageUtilization: 70
+#autoscaling:
+#  enabled: true
+#  minReplicas: 1
+#  maxReplicas: 5
+#  metrics:
+#    - type: Resource
+#      resource:
+#        name: cpu
+#        target:
+#          type: Utilization
+#          averageUtilization: 70
 
 rbac:
   enabled: true
 
-resources:
-  limits:
-    memory: 256Mi
-  requests:
-    cpu: 100m
-    memory: 128Mi
+#resources:
+#  limits:
+#    memory: 256Mi
+#  requests:
+#    cpu: 100m
+#    memory: 128Mi
