@@ -31,7 +31,7 @@
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["lscr.io/linuxserver/jellyfin"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)ubu(?<build>\\d)-ls(?<revision>.+)$"
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)ubu(?<build>\\d+)-ls(?<revision>.+)$"
     }
   ]
 }
