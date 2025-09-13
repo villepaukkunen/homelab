@@ -69,7 +69,12 @@ autoscaling:
   minReplicas: 1
   maxReplicas: 5
   metrics:
-    targetCPUUtilizationPercentage: 70
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
 
 rbac:
   enabled: true
