@@ -38,7 +38,7 @@ extraEnvVars:
   REV_SERVER_TARGET: 192.168.10.1
   REV_SERVER_CIDR: 192.168.10.0/24
   DNSMASQ_LISTENING: all
-  PIHOLE_DNS_: 10.43.217.41;10.43.136.38;10.43.127.214
+  PIHOLE_DNS_: unbound-nl.pihole.svc.cluster.local;unbound-ee.pihole.svc.cluster.local;unbound-lv.pihole.svc.cluster.local
 
 # -- default upstream DNS 1 server to use
 DNS1: ""
