@@ -121,6 +121,8 @@ spec:
             add:
             - NET_ADMIN
             - NET_RAW
+            drop:
+            - ALL
       hostNetwork: true
       serviceAccountName: kube-vip
       tolerations:
