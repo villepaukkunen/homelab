@@ -8,8 +8,8 @@ data:
     # A Record
       #local-data: "somecomputer.local. A 192.168.1.1"
       local-data: "pfsense.mandariini.uk. A 192.168.10.1"
-      local-data: "acer.mandariini.uk. A 192.168.10.20"
-      local-data: "m73-1.mandariini.uk. A 192.168.10.41"
+      local-data: "m73-1.mandariini.uk. A 192.168.10.20"
+      local-data: "acer.mandariini.uk. A 192.168.10.41"
       local-data: "m73-2.mandariini.uk. A 192.168.10.42"
       local-data: "m73-3.mandariini.uk. A 192.168.10.43"
       local-data: "m720q-1.mandariini.uk. A 192.168.10.44"
