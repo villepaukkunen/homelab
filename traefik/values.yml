@@ -36,7 +36,7 @@ ports:
         priority: 10
   websecure:
     http3:
-      enabled: true
+      enabled: false
     tls:
       enabled: true
   webext:
@@ -50,7 +50,7 @@ ports:
       default: true
     exposedPort: 444
     http3:
-      enabled: true
+      enabled: false
     tls:
       enabled: true
 
