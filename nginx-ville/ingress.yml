@@ -25,5 +25,6 @@ spec:
           port: 80
       middlewares:
         - name: default-headers
+        - name: redirect-to-non-www
   tls:
     secretName: paukkunen-de-tls
