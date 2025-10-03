@@ -11,7 +11,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`traefik2.mandariini.uk`)
+      match: Host(`traefik.kube.mandariini.uk`)
       middlewares:
 ##        - name: traefik-dashboard-basicauth
 ##          namespace: traefik
@@ -22,7 +22,7 @@ spec:
         - name: api@internal
           kind: TraefikService
     - kind: Rule
-      match: "Host(`traefik2.mandariini.uk`) && PathPrefix(`/outpost.goauthentik.io/`)"
+      match: "Host(`traefik.kube.mandariini.uk`) && PathPrefix(`/outpost.goauthentik.io/`)"
       priority: 15
       services:
           - kind: Service
