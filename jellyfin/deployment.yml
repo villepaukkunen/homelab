@@ -48,7 +48,7 @@ spec:
                 name: envsecrets
       containers:
         - name: jellyfin
-          image: lscr.io/linuxserver/jellyfin:10.10.7ubu2404-ls79
+          image: lscr.io/linuxserver/jellyfin:10.10.7ubu2404-ls80
           imagePullPolicy: IfNotPresent
           env:
             - name: PUID
