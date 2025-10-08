@@ -11,7 +11,7 @@ spec:
   sources:
     - repoURL: registry-1.docker.io/cloudpirates
       chart: nginx
-      targetRevision: 0.1.12
+      targetRevision: 0.1.13
       helm:
         valueFiles:
           - $values/nginx-ville/values.yml
