@@ -6,9 +6,8 @@ metadata:
   namespace: media
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
-  volumeName: jellyfin
-  storageClassName: nfs-csi
+      storage: 2Gi
+  storageClassName: longhorn
