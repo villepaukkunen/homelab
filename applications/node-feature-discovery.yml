@@ -9,7 +9,7 @@ spec:
     automated:
       selfHeal: true
   sources:
-    - repoURL: https://kubernetes-sigs.github.io/node-feature-discovery/charts
+    - repoURL: registry.k8s.io/nfd/charts
       chart: node-feature-discovery
       targetRevision: 0.18.2
   destination:
