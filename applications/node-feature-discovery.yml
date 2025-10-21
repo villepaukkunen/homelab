@@ -9,9 +9,12 @@ spec:
     automated:
       selfHeal: true
   sources:
-    - repoURL: https://kubernetes-sigs.github.io/node-feature-discovery/charts
+    - repoURL: registry.k8s.io/nfd/charts
       chart: node-feature-discovery
-      targetRevision: 0.17.3
+      targetRevision: 0.18.2
+    - repoURL: https://github.com/villepaukkunen/homelab.git
+      targetRevision: HEAD
+      path: node-feature-discovery
   destination:
     server: "https://kubernetes.default.svc"
     namespace: node-feature-discovery
