@@ -12,6 +12,9 @@ spec:
     - repoURL: registry.k8s.io/nfd/charts
       chart: node-feature-discovery
       targetRevision: 0.18.2
+    - repoURL: https://github.com/villepaukkunen/homelab.git
+      targetRevision: HEAD
+      path: node-feature-discovery
   destination:
     server: "https://kubernetes.default.svc"
     namespace: node-feature-discovery
