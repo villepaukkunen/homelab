@@ -1,5 +1,5 @@
 persistence:
-  defaultClassReplicaCount: 2
+  defaultClassReplicaCount: 3
   defaultDataLocality: best-effort
   reclaimPolicy: Retain
   migratable: "true"
