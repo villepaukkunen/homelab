@@ -53,15 +53,6 @@ ports:
       enabled: false
     tls:
       enabled: true
-  ldaps:
-    port: 636
-    expose:
-      default: true
-    exposedPort: 636
-    http3:
-      enabled: false
-    tls:
-      enabled: false
 
 service:
   enabled: true
