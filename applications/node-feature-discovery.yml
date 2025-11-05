@@ -11,7 +11,7 @@ spec:
   sources:
     - repoURL: registry.k8s.io/nfd/charts
       chart: node-feature-discovery
-      targetRevision: 0.18.2
+      targetRevision: 0.18.3
   destination:
     server: "https://kubernetes.default.svc"
     namespace: node-feature-discovery
