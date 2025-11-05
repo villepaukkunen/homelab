@@ -9,6 +9,7 @@ metadata:
 spec:
   entryPoints:
     - websecure
+    - ldaps
   routes:
     - kind: Rule
       match: Host(`auth.mandariini.uk`)
@@ -16,5 +17,8 @@ spec:
         - name: authentik-server
           namespace: authentik
           port: 80
+        - name: ak-outpost-ldap
+          namespace: authentik
+          port: 636
   tls:
     secretName: mandariini-uk-tls
