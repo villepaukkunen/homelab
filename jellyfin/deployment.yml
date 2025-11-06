@@ -35,10 +35,10 @@ spec:
               name: web
               protocol: TCP
             - containerPort: 7359
-              name: client-discovery
+              name: client
               protocol: UDP
             - containerPort: 1900
-              name: service-discovery
+              name: service
               protocol: UDP
           env:
             - name: TZ
