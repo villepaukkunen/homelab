@@ -34,6 +34,12 @@ spec:
             - containerPort: 8096
               name: web
               protocol: TCP
+            - containerPort: 7359
+              name: client-discovery
+              protocol: UDP
+            - containerPort: 1900
+              name: service-discovery
+              protocol: UDP
           env:
             - name: TZ
               value: Europe/Helsinki
