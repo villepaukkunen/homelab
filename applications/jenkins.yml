@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jenkins
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+  sources:
+    - repoURL: https://charts.jenkins.io/
+      chart: jenkins
+      targetRevision: 5.8.99
+      helm:
+        valueFiles:
+          - $values/jenkins/values.yml
+    - repoURL: https://github.com/villepaukkunen/homelab.git
+      targetRevision: HEAD
+      ref: values
+      path: jenkins
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: jenkins

@@ -1,0 +1,106 @@
+controller:
+  jenkinsUrl: https://jenkins.mandariini.uk
+  additionalPlugins:
+    - oic-auth
+    - dark-theme
+    - job-dsl
+  existingSecret: authentication
+  JCasC:
+    configScripts:
+      dark-theme: |
+        appearance:
+          themeManager:
+            theme: "darkSystem"
+      credentials: |
+        credentials:
+          system:
+            domainCredentials:
+            - credentials:
+              - basicSSHUserPrivateKey:
+                  id: ssh-key
+                  privateKeySource:
+                    directEntry:
+                      privateKey: ${sshPrivateKey}
+                  scope: GLOBAL
+                  username: ${ssh.username}
+              - usernamePassword:
+                  scope:    GLOBAL
+                  id:       docker-hub-credentials
+                  username: ${dockerHub.username}
+                  password: ${dockerHub.token}
+      job-dsl: |
+        jobs:
+          - script: >
+              pipelineJob('website') {
+                definition {
+                  cpsScm {
+                    scm {
+                      git {
+                        remote {
+                          url('https://github.com/villepaukkunen/website.git')
+                        }
+                        branch('*/main')
+                      }
+                    }
+                    lightweight()
+                  }
+                }
+                triggers {
+                  pollSCM {
+                    scmpoll_spec('H/5 * * * *')
+                  }
+                }
+              }
+          - script: >
+              pipelineJob('inbound-agent') {
+                definition {
+                  cpsScm {
+                    scm {
+                      git {
+                        remote {
+                          url('https://github.com/villepaukkunen/inbound-agent.git')
+                        }
+                        branch('*/main')
+                      }
+                    }
+                    lightweight()
+                  }
+                }
+                triggers {
+                  pollSCM {
+                    scmpoll_spec('H/5 * * * *')
+                  }
+                }
+              }
+    securityRealm: |-
+      oic:
+        serverConfiguration:
+          wellKnown:
+            wellKnownOpenIDConfigurationUrl: https://auth.mandariini.uk/application/o/jenkins/.well-known/openid-configuration
+            scopesOverride: openid profile email
+        clientId: ${authentik.clientID}
+        clientSecret: ${authentik.clientSecret}
+        userNameField: preferred_username
+        groupsFieldName: groups
+        fullNameFieldName: name
+        emailFieldName: email
+        userIdStrategy: caseSensitive
+        groupIdStrategy: caseSensitive
+        properties:
+          - escapeHatch:
+              secret: ${escapeHatch.secret}
+              username: ${escapeHatch.username}
+              group: ${escapeHatch.group}
+          - "pkce"
+
+additionalAgents:
+  hugo:
+    podName: hugo
+    customJenkinsLabels: hugo
+    image:
+      repository: villepaukkunen/inbound-agent
+      tag: latest
+
+persistence:
+  enabled: true
+  existingClaim: jenkins
