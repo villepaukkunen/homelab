@@ -26,7 +26,7 @@
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["searxng/searxng"],
-      "versioning": "loose"
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?\\w+)$"
     },
     {
       "matchDatasources": ["docker"],
