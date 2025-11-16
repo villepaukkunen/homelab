@@ -34,7 +34,7 @@ spec:
     spec:
       initContainers:
         - name: searxng-gluetun
-          image: qmcgaw/gluetun:v3.40.0
+          image: qmcgaw/gluetun:v3.40.1
           imagePullPolicy: IfNotPresent
           restartPolicy: Always
           securityContext:
@@ -60,7 +60,7 @@ spec:
                 name: envsecrets
       containers:
         - name: searxng
-          image: docker.io/searxng/searxng:2025.11.10-7a1b95964
+          image: docker.io/searxng/searxng:2025.11.15-45a4b8ad1
           securityContext:
             capabilities:
               drop:
