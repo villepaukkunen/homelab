@@ -15,7 +15,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": ["/k3s.version/"],
+      "managerFilePatterns": ["/plan.yml/"],
       "matchStrings": ["(?<currentValue>\\S+)"],
       "depNameTemplate": "k3s",
       "versioningTemplate": "semver-coerced",
