@@ -72,6 +72,40 @@ controller:
                   }
                 }
               }
+          - script: >
+              pipelineJob('immich') {
+                definition {
+                  cpsScm {
+                    scm {
+                      git {
+                        remote {
+                          url('https://github.com/villepaukkunen/homelab.git')
+                        }
+                        branch('*/main')
+                        extensions {
+                          sparseCheckout {
+                            sparseCheckoutPaths {
+                              sparseCheckoutPath {
+                                path('/immich')
+                              }
+                            }
+                          }
+                        }
+                      }
+                      svn {
+                        includedRegions('immich/.*')
+                      }
+                    }
+                    scriptPath('immich/Jenkinsfile')
+                    lightweight()
+                  }
+                }
+                triggers {
+                  pollSCM {
+                    scmpoll_spec('H/5 * * * *')
+                  }
+                }
+              }
     securityRealm: |-
       oic:
         serverConfiguration:
