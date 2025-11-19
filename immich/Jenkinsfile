@@ -10,6 +10,7 @@ pipeline {
         stage('Set environment variables') {
             steps {
                 script{
+                    env.GIT_SUBDIR = "immich"
                     env.HOST = "acer.mandariini.uk"
                     env.DIR = "/opt/immich"
                 }
@@ -18,7 +19,7 @@ pipeline {
         stage('Copy compose file') {
             steps {
                 sh '''
-                scp -o StrictHostKeyChecking=no -i $SSH_CREDS compose.yml $SSH_CREDS_USR@$HOST:$DIR
+                scp -o StrictHostKeyChecking=no -i $SSH_CREDS $GIT_SUBDIR/compose.yml $SSH_CREDS_USR@$HOST:$DIR
                 '''
             }
         }
