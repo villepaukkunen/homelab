@@ -90,9 +90,6 @@ controller:
                               }
                             }
                           }
-                          pathRestriction {
-                            includedRegions('immich/.*')
-                          }
                         }
                       }
                     }
