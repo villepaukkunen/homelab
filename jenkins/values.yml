@@ -90,10 +90,10 @@ controller:
                               }
                             }
                           }
+                          pathRestriction {
+                            includedRegions('immich/.*')
+                          }
                         }
-                      }
-                      svn {
-                        includedRegions('immich/.*')
                       }
                     }
                     scriptPath('immich/Jenkinsfile')
