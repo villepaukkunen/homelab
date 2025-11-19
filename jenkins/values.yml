@@ -90,6 +90,9 @@ controller:
                               }
                             }
                           }
+                          pathRestriction {
+                            includedRegions('immich/compose.yml')
+                          }
                         }
                       }
                     }
