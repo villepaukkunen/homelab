@@ -91,11 +91,7 @@ controller:
                             }
                           }
                           pathRestriction {
-                            includedRegions(
-                              '''
-                              immich/.*
-                              '''
-                            )
+                            includedRegions('immich/.*\\.yml')
                           }
                         }
                       }
