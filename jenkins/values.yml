@@ -146,6 +146,43 @@ controller:
                   }
                 }
               }
+          - script: >
+              pipelineJob('duplicati-m73-1') {
+                definition {
+                  cpsScm {
+                    scm {
+                      git {
+                        remote {
+                          url('https://github.com/villepaukkunen/homelab.git')
+                        }
+                        branch('*/main')
+                        extensions {
+                          sparseCheckout {
+                            sparseCheckoutPaths {
+                              sparseCheckoutPath {
+                                path('/duplicati/m73-server-1')
+                              }
+                            }
+                          }
+                        }
+                        configure {
+                          it / extensions / "hudson.plugins.git.extensions.impl.PathRestriction" {
+                            includedRegions("duplicati/m73-server-1/.*")
+                            excludedRegions('')
+                          }
+                        }
+                      }
+                    }
+                    scriptPath('duplicati/m73-server-1/Jenkinsfile')
+                    lightweight()
+                  }
+                }
+                triggers {
+                  pollSCM {
+                    scmpoll_spec('H/5 * * * *')
+                  }
+                }
+              }
     securityRealm: |-
       oic:
         serverConfiguration:
