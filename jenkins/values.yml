@@ -91,6 +91,12 @@ controller:
                             }
                           }
                         }
+                        configure {
+                          it / extensions / "hudson.plugins.git.extensions.impl.PathRestriction" {
+                            includedRegions("immich/.*")
+                            excludedRegions('')
+                          }
+                        }
                       }
                     }
                     scriptPath('immich/Jenkinsfile')
