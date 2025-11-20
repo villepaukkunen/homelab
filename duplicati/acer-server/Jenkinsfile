@@ -10,7 +10,7 @@ pipeline {
         stage('Set environment variables') {
             steps {
                 script{
-                    env.GIT_SUBDIR = "duplicati"
+                    env.GIT_SUBDIR = "duplicati/acer-server"
                     env.HOST = "acer.mandariini.uk"
                     env.DIR = "/opt/duplicati"
                 }
