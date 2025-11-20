@@ -109,6 +109,43 @@ controller:
                   }
                 }
               }
+          - script: >
+              pipelineJob('duplicati-acer') {
+                definition {
+                  cpsScm {
+                    scm {
+                      git {
+                        remote {
+                          url('https://github.com/villepaukkunen/homelab.git')
+                        }
+                        branch('*/main')
+                        extensions {
+                          sparseCheckout {
+                            sparseCheckoutPaths {
+                              sparseCheckoutPath {
+                                path('/duplicati/acer-server')
+                              }
+                            }
+                          }
+                        }
+                        configure {
+                          it / extensions / "hudson.plugins.git.extensions.impl.PathRestriction" {
+                            includedRegions("duplicati/acer-server/.*")
+                            excludedRegions('')
+                          }
+                        }
+                      }
+                    }
+                    scriptPath('duplicati/acer-server/Jenkinsfile')
+                    lightweight()
+                  }
+                }
+                triggers {
+                  pollSCM {
+                    scmpoll_spec('H/5 * * * *')
+                  }
+                }
+              }
     securityRealm: |-
       oic:
         serverConfiguration:
