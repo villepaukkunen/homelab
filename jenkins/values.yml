@@ -130,7 +130,10 @@ controller:
                         }
                         configure {
                           it / extensions / "hudson.plugins.git.extensions.impl.PathRestriction" {
-                            includedRegions("duplicati/acer-server/.*" "duplicati/acer-server/.*\.yml")
+                            includedRegions(
+                              "duplicati/acer-server/.*"
+                              "duplicati/acer-server/.*\.yml"
+                            )
                             excludedRegions('')
                           }
                         }
@@ -167,7 +170,10 @@ controller:
                         }
                         configure {
                           it / extensions / "hudson.plugins.git.extensions.impl.PathRestriction" {
-                            includedRegions("duplicati/m73-server-1/.*" "duplicati/m73-server-1/.*\.yml")
+                            includedRegions(
+                              "duplicati/m73-server-1/.*"
+                              "duplicati/m73-server-1/.*\.yml"
+                            )
                             excludedRegions('')
                           }
                         }
