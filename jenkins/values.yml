@@ -94,7 +94,6 @@ controller:
                         configure {
                           it / extensions / "hudson.plugins.git.extensions.impl.PathRestriction" {
                             includedRegions("immich/.*")
-                            excludedRegions('')
                           }
                         }
                       }
@@ -131,7 +130,6 @@ controller:
                         configure {
                           it / extensions / "hudson.plugins.git.extensions.impl.PathRestriction" {
                             includedRegions("duplicati/acer-server/.*\\.yml")
-                            excludedRegions('')
                           }
                         }
                       }
@@ -168,7 +166,6 @@ controller:
                         configure {
                           it / extensions / "hudson.plugins.git.extensions.impl.PathRestriction" {
                             includedRegions("duplicati/m73-server-1/.*\\.yml")
-                            excludedRegions('')
                           }
                         }
                       }
