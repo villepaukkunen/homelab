@@ -99,7 +99,6 @@ controller:
                       }
                     }
                     scriptPath('immich/Jenkinsfile')
-                    lightweight()
                   }
                 }
                 triggers {
@@ -135,7 +134,6 @@ controller:
                       }
                     }
                     scriptPath('duplicati/acer-server/Jenkinsfile')
-                    lightweight()
                   }
                 }
                 triggers {
@@ -171,7 +169,6 @@ controller:
                       }
                     }
                     scriptPath('duplicati/m73-server-1/Jenkinsfile')
-                    lightweight()
                   }
                 }
                 triggers {
