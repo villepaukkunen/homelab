@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    environment {
+        SSH_CREDS = credentials('ssh-key')
+    }
+    triggers {
+        pollSCM 'H/5 * * * *'
+    }
+    stages {
+        stage('Set environment variables') {
+            steps {
+                script{
+                    env.GIT_SUBDIR = "traefik/m73-server-1"
+                    env.HOST = "m73-1.mandariini.uk"
+                    env.DIR = "/opt/traefik"
+                }
+            }
+        }
+        stage('Copy compose file') {
+            steps {
+                sh '''
+                scp -o StrictHostKeyChecking=no -i $SSH_CREDS $GIT_SUBDIR/compose.yml $SSH_CREDS_USR@$HOST:$DIR
+                '''
+            }
+        }
+        stage('Start containers') {
+            steps {
+                sh '''
+                ssh -o StrictHostKeyChecking=no -i $SSH_CREDS $SSH_CREDS_USR@$HOST "docker compose -f $DIR/compose.yml up -d"
+                '''
+            }
+        }
+    }
+}
