@@ -177,6 +177,76 @@ controller:
                   }
                 }
               }
+          - script: >
+              pipelineJob('traefik-acer') {
+                definition {
+                  cpsScm {
+                    scm {
+                      git {
+                        remote {
+                          url('https://github.com/villepaukkunen/homelab.git')
+                        }
+                        branch('*/main')
+                        extensions {
+                          sparseCheckout {
+                            sparseCheckoutPaths {
+                              sparseCheckoutPath {
+                                path('/traefik/acer-server')
+                              }
+                            }
+                          }
+                        }
+                        configure {
+                          it / extensions / "hudson.plugins.git.extensions.impl.PathRestriction" {
+                            includedRegions("traefik/acer-server/.*")
+                          }
+                        }
+                      }
+                    }
+                    scriptPath('traefik/acer-server/Jenkinsfile')
+                  }
+                }
+                triggers {
+                  pollSCM {
+                    scmpoll_spec('H/5 * * * *')
+                  }
+                }
+              }
+          - script: >
+              pipelineJob('traefik-m73-1') {
+                definition {
+                  cpsScm {
+                    scm {
+                      git {
+                        remote {
+                          url('https://github.com/villepaukkunen/homelab.git')
+                        }
+                        branch('*/main')
+                        extensions {
+                          sparseCheckout {
+                            sparseCheckoutPaths {
+                              sparseCheckoutPath {
+                                path('/traefik/m73-server-1')
+                              }
+                            }
+                          }
+                        }
+                        configure {
+                          it / extensions / "hudson.plugins.git.extensions.impl.PathRestriction" {
+                            includedRegions("traefik/m73-server-1/.*")
+                          }
+                        }
+                      }
+                    }
+                    scriptPath('traefik/m73-server-1/Jenkinsfile')
+                  }
+                }
+                triggers {
+                  pollSCM {
+                    scmpoll_spec('H/5 * * * *')
+                  }
+                }
+              }
     securityRealm: |-
       oic:
         serverConfiguration:
