@@ -14,11 +14,11 @@ spec:
       targetRevision: 37.1.2
       helm:
         valueFiles:
-          - $values/traefik/values.yml
+          - $values/traefik/kubernetes/values.yml
     - repoURL: https://github.com/villepaukkunen/homelab.git
       targetRevision: HEAD
       ref: values
-      path: traefik
+      path: traefik/kubernetes
   destination:
     server: "https://kubernetes.default.svc"
     namespace: traefik
