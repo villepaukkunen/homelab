@@ -4,7 +4,7 @@ volumes:
 
 services:
   db:
-    image: docker.io/mariadb:10.6.24
+    image: docker.io/mariadb:10.11.15
     container_name: nextcloud-mariadb
     restart: always
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
