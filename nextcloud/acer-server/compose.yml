@@ -1,0 +1,90 @@
+volumes:
+  nextcloud:
+  db:
+
+services:
+  db:
+    image: docker.io/mariadb:10.6.24
+    container_name: nextcloud-mariadb
+    restart: always
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+    env_file:
+      - .env
+    networks:
+      default:
+    labels:
+      - com.centurylinklabs.watchtower.monitor-only=false
+
+  redis:
+    image: docker.io/redis:8.4.0-alpine
+    container_name: nextcloud-redis
+    restart: always
+    networks:
+      default:
+    labels:
+      - com.centurylinklabs.watchtower.monitor-only=false
+
+  app:
+    image: docker.io/nextcloud:31.0.7-apache
+    container_name: nextcloud-server
+    restart: always
+#    ports:
+#      - 8080:80
+    volumes:
+      - /mnt/nfs/nfs/nextcloud/data:/var/www/html/data
+      - ./nextcloud:/var/www/html
+    environment:
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_HOST=db
+      - APACHE_DISABLE_REWRITE_IP=1
+      - TRUSTED_PROXIES=172.23.0.2
+      - REDIS_HOST=redis
+      - NEXTCLOUD_TRUSTED_DOMAINS=cloud.mandariini.uk
+      - NEXTCLOUD_INIT_HTACCESS=true
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+    networks:
+      default:
+      traefik_default:
+    labels:
+      - com.centurylinklabs.watchtower.monitor-only=false
+      - traefik.enable=true
+      - traefik.http.routers.nextcloud.rule=Host(`cloud.mandariini.uk`)
+      - traefik.http.routers.nextcloud.entrypoints=websecure
+      - traefik.http.routers.nextcloud.tls=true
+      - traefik.http.services.nextcloud.loadbalancer.server.port=80
+      - traefik.http.routers.nextcloud.middlewares=nextcloud-headers@file
+      - traefik.docker.network=traefik_default
+
+  cron:
+    image: docker.io/nextcloud:31.0.7-apache
+    container_name: nextcloud-cron
+    restart: always
+    volumes:
+      - /mnt/nfs/nfs/nextcloud/data:/var/www/html/data
+      - ./nextcloud:/var/www/html
+    entrypoint: /cron.sh
+    depends_on:
+      - db
+      - redis
+    networks:
+      default:
+    labels:
+      - com.centurylinklabs.watchtower.monitor-only=false
+
+networks:
+  default:
+  traefik_default:
+    external: true
