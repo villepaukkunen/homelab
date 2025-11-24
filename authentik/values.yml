@@ -21,10 +21,3 @@ postgresql:
     persistence:
       enabled: true
       existingClaim: "postgresql"
-
-redis:
-  enabled: true
-  master:
-    persistence:
-      enabled: true
-      existingClaim: "redis"
