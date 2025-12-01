@@ -46,7 +46,7 @@ services:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_HOST=db
       - APACHE_DISABLE_REWRITE_IP=1
-      - TRUSTED_PROXIES=172.23.0.2
+      - TRUSTED_PROXIES=172.23.0.3
       - REDIS_HOST=redis
       - NEXTCLOUD_TRUSTED_DOMAINS=cloud.mandariini.uk
       - NEXTCLOUD_INIT_HTACCESS=true
