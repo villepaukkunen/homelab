@@ -1,0 +1,32 @@
+services:
+  netbootxyz:
+    image: ghcr.io/netbootxyz/netbootxyz:0.7.6-nbxyz10
+    container_name: netbootxyz
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - NGINX_PORT=80
+      - WEB_APP_PORT=3000
+    volumes:
+      - ./config:/config
+      - /mnt/nfs/nfs/netbootxyz/assets:/assets
+    ports:
+#      - 3000:3000
+      - 69:69/udp
+      - 8081:80
+    restart: unless-stopped
+    networks:
+      - traefik_default
+    labels:
+      - com.centurylinklabs.watchtower.monitor-only=false
+      - traefik.enable=true
+      - traefik.http.routers.netbootxyz.rule=Host(`netboot.mandariini.uk`)
+      - traefik.http.routers.netbootxyz.entrypoints=websecure
+      - traefik.http.routers.netbootxyz.tls=true
+      - traefik.http.services.netbootxyz.loadbalancer.server.port=3000
+      - traefik.http.routers.netbootxyz.middlewares=authentik@file
+      - traefik.docker.network=traefik_default
+
+networks:
+  traefik_default:
+    external: true
