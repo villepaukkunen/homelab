@@ -1,4 +1,6 @@
 controller:
+  admin:
+    createSecret: false
   jenkinsUrl: https://jenkins.mandariini.uk
   additionalPlugins:
     - oic-auth
