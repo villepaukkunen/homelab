@@ -60,7 +60,7 @@ spec:
                 name: envsecrets
       containers:
         - name: searxng
-          image: docker.io/searxng/searxng:2025.12.4-3c7545c6c
+          image: docker.io/searxng/searxng:2025.12.5-da6c635ea
           securityContext:
             capabilities:
               drop:
