@@ -17,6 +17,11 @@ nextcloud:
       secure: ""
       port: 587
       authtype: LOGIN
+  extraEnv:
+    - name: APACHE_DISABLE_REWRITE_IP
+      value: "1"
+    - name: NEXTCLOUD_INIT_HTACCESS
+      value: "true"
   podSecurityContext:
     fsGroupChangePolicy: "OnRootMismatch"
 
