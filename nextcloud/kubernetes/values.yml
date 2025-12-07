@@ -20,6 +20,8 @@ nextcloud:
   extraEnv:
     - name: APACHE_DISABLE_REWRITE_IP
       value: "1"
+    - name: TRUSTED_PROXIES
+      value: "10.42.0.0/16"
     - name: NEXTCLOUD_INIT_HTACCESS
       value: "true"
   podSecurityContext:
