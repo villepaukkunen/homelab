@@ -13,6 +13,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nfs-csi
   mountOptions:
+    - async
     - nfsvers=4.1
   csi:
     driver: nfs.csi.k8s.io
