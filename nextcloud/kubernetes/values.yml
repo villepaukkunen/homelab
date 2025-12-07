@@ -37,8 +37,6 @@ externalDatabase:
 
 mariadb:
   enabled: true
-  image:
-    tag: 10.6
   auth:
     existingSecret: envsecrets
   primary:
