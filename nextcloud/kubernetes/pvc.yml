@@ -10,13 +10,12 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  volumeName: nextcloud-db
-  storageClassName: nfs-csi
+  storageClassName: longhorn
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: redis-master
+  name: redis
   namespace: nextcloud
 spec:
   accessModes:
@@ -37,8 +36,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  volumeName: nextcloud-config
-  storageClassName: nfs-csi
+  storageClassName: longhorn
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

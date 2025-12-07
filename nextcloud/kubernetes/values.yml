@@ -17,11 +17,6 @@ nextcloud:
       secure: ""
       port: 587
       authtype: LOGIN
-  extraEnv:
-    - name: APACHE_DISABLE_REWRITE_IP
-      value: "1"
-    - name: NEXTCLOUD_INIT_HTACCESS
-      value: "true"
 
 internalDatabase:
   enabled: false
@@ -52,7 +47,7 @@ redis:
   master:
     persistence:
       enabled: true
-      existingClaim: redis-master
+      existingClaim: redis
   replica:
     persistence:
       enabled: false
