@@ -17,12 +17,20 @@ nextcloud:
       secure: ""
       port: 587
       authtype: LOGIN
+  podSecurityContext:
+    fsGroupChangePolicy: "OnRootMismatch"
 
 internalDatabase:
   enabled: false
 
 externalDatabase:
   enabled: true
+
+  existingSecret:
+    enabled: true
+    secretName: envsecrets
+    usernameKey: mariadb-username
+    passwordKey: mariadb-password
 
 mariadb:
   enabled: true
