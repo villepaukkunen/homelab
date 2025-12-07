@@ -49,5 +49,5 @@ spec:
   resources:
     requests:
       storage: 500Gi
-  volumeName: nextcloud-data
+  volumeName: data
   storageClassName: nfs-csi
