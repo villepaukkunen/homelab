@@ -14,11 +14,11 @@ spec:
       targetRevision: 8.6.0
       helm:
         valueFiles:
-          - $values/nextcloud/kubernetes/values.yml
+          - $values/nextcloud/values.yml
     - repoURL: https://github.com/villepaukkunen/homelab.git
       targetRevision: HEAD
       ref: values
-      path: nextcloud/kubernetes
+      path: nextcloud
   destination:
     server: "https://kubernetes.default.svc"
     namespace: nextcloud
