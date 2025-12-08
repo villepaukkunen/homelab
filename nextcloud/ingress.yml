@@ -16,8 +16,5 @@ spec:
         - name: nextcloud
           namespace: nextcloud
           port: 8080
-      middlewares:
-        - name: nextcloud
-          namespace: nextcloud
   tls:
     secretName: mandariini-uk-tls
