@@ -10,7 +10,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`pdf.mandariini.uk`)
+    - match: Host(`stirling.mandariini.uk`)
       kind: Rule
       services:
         - name: stirling-pdf
