@@ -6,6 +6,7 @@ persistence:
 
 defaultSettings:
   replicaAutoBalance: best-effort
+  concurrentReplicaRebuildPerNodeLimit: "3"
   concurrentAutomaticEngineUpgradePerNodeLimit: "3"
   removeSnapshotsDuringFilesystemTrim: "true"
 
