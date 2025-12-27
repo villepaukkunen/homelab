@@ -28,7 +28,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       initContainers:
         - name: unbound-dk-gluetun
-          image: qmcgaw/gluetun:v3.40.3
+          image: qmcgaw/gluetun:v3.41.0
           imagePullPolicy: IfNotPresent
           restartPolicy: Always
           securityContext:
