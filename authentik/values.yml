@@ -10,14 +10,14 @@ authentik:
     use_ssl: ""
     timeout: ""
 
-server:
-  volumeMounts:
-    - name: media
-      mountPath: /media
-  volumes:
-    - name: media
-      persistentVolumeClaim:
-        claimName: media
+#server:
+#  volumeMounts:
+#    - name: media
+#      mountPath: /media
+#  volumes:
+#    - name: media
+#      persistentVolumeClaim:
+#        claimName: media
 
 postgresql:
   enabled: true
