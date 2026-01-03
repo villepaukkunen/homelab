@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: redis
+  name: valkey
   namespace: searxng
 spec:
   accessModes:
