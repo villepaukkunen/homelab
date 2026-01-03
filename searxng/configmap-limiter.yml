@@ -5,6 +5,8 @@ metadata:
   namespace: searxng
 data:
   limiter.toml: |
+    [botdetection]
+    
     trusted_proxies = [
       '127.0.0.0/8',
       '::1',
