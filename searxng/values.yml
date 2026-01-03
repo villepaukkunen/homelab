@@ -5,4 +5,4 @@ auth:
 persistence:
   size: 500Mi
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
