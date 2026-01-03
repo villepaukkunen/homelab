@@ -1,0 +1,8 @@
+auth:
+  existingSecret: "searxng-valkey"
+  existingSecretPasswordKey: "auth"
+
+persistence:
+  size: 500Mi
+  accessModes:
+    - ReadWriteMany
