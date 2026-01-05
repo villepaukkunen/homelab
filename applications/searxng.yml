@@ -9,15 +9,8 @@ spec:
     automated:
       selfHeal: true
   sources:
-    - repoURL: registry-1.docker.io/cloudpirates
-      chart: valkey
-      targetRevision: 0.13.0
-      helm:
-        valueFiles:
-          - $values/searxng/values.yml
     - repoURL: https://github.com/villepaukkunen/homelab.git
       targetRevision: HEAD
-      ref: values
       path: searxng
   destination:
     server: "https://kubernetes.default.svc"
