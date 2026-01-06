@@ -9,6 +9,9 @@ authentik:
     use_tls: ""
     use_ssl: ""
     timeout: ""
+  postgresql:
+    host: authentik-pg-rw
+    password: $AUTHENTIK_POSTGRESQL__PASSWORD
 
 server:
   volumeMounts:
@@ -18,15 +21,3 @@ server:
     - name: media
       persistentVolumeClaim:
         claimName: media
-
-postgresql:
-  enabled: true
-  auth:
-    enablePostgresUser: false
-    existingSecret: "envsecrets"
-    secretKeys:
-      userPasswordKey: AUTHENTIK_POSTGRESQL__PASSWORD
-  primary:
-    persistence:
-      enabled: true
-      existingClaim: "postgresql"
