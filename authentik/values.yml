@@ -9,24 +9,31 @@ authentik:
     use_tls: ""
     use_ssl: ""
     timeout: ""
+  postgresql:
+    host: authentik-pg-rw
+    password: file:///postgres-creds/password
 
 server:
   volumeMounts:
+    - name: postgres-creds
+      mountPath: /postgres-creds
+      readOnly: true
     - name: media
       mountPath: /media
   volumes:
+    - name: postgres-creds
+      secret:
+        secretName: authentik-postgres-credentials
     - name: media
       persistentVolumeClaim:
         claimName: media
 
-postgresql:
-  enabled: true
-  auth:
-    enablePostgresUser: false
-    existingSecret: "envsecrets"
-    secretKeys:
-      userPasswordKey: AUTHENTIK_POSTGRESQL__PASSWORD
-  primary:
-    persistence:
-      enabled: true
-      existingClaim: "postgresql"
+worker:
+  volumeMounts:
+    - name: postgres-creds
+      mountPath: /postgres-creds
+      readOnly: true
+  volumes:
+    - name: postgres-creds
+      secret:
+        secretName: authentik-postgres-credentials
