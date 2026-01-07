@@ -31,7 +31,7 @@ server:
       cpu: 100m
       memory: 512Mi
     limits:
-      memory: 512Mi
+      memory: 1024Mi
 
 worker:
   autoscaling:
@@ -51,4 +51,4 @@ worker:
       cpu: 100m
       memory: 512Mi
     limits:
-      memory: 512Mi
+      memory: 1024Mi
