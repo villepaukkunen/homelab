@@ -22,15 +22,10 @@ server:
     - name: postgres-creds
       mountPath: /postgres-creds
       readOnly: true
-    - name: media
-      mountPath: /media
   volumes:
     - name: postgres-creds
       secret:
         secretName: authentik-postgres-credentials
-    - name: media
-      persistentVolumeClaim:
-        claimName: media
   resources:
     requests:
       cpu: 100m
