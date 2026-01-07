@@ -14,6 +14,10 @@ authentik:
     password: file:///postgres-creds/password
 
 server:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 5
   volumeMounts:
     - name: postgres-creds
       mountPath: /postgres-creds
@@ -22,8 +26,18 @@ server:
     - name: postgres-creds
       secret:
         secretName: authentik-postgres-credentials
+  resources:
+    requests:
+      cpu: 100m
+      memory: 512Mi
+    limits:
+      memory: 512Mi
 
 worker:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 5
   volumeMounts:
     - name: postgres-creds
       mountPath: /postgres-creds
@@ -32,3 +46,9 @@ worker:
     - name: postgres-creds
       secret:
         secretName: authentik-postgres-credentials
+  resources:
+    requests:
+      cpu: 100m
+      memory: 512Mi
+    limits:
+      memory: 512Mi
