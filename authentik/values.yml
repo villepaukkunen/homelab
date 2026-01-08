@@ -1,7 +1,4 @@
 global:
-  env:
-    - name: AUTHENTIK_POSTGRESQL__CONN_MAX_AGE
-      value: "0"
   envFrom:
     - secretRef:
         name: envsecrets
