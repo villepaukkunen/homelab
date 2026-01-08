@@ -1,4 +1,7 @@
 global:
+  env:
+    - name: AUTHENTIK_POSTGRESQL__DISABLE_SERVER_SIDE_CURSORS
+      value: "true"
   envFrom:
     - secretRef:
         name: envsecrets
