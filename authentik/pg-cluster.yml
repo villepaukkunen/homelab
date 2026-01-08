@@ -15,4 +15,4 @@ spec:
       secret:
         name: authentik-postgres-credentials
   storage:
-    size: 1Gi
+    size: 2Gi
