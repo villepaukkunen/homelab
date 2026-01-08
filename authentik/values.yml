@@ -1,4 +1,7 @@
 global:
+  env:
+    - name: AUTHENTIK_POSTGRESQL__DISABLE_SERVER_SIDE_CURSORS
+      value: true
   envFrom:
     - secretRef:
         name: envsecrets
@@ -10,7 +13,7 @@ authentik:
     use_ssl: ""
     timeout: ""
   postgresql:
-    host: authentik-pg-rw
+    host: pooler-authentik-rw
     password: file:///postgres-creds/password
 
 server:
