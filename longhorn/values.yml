@@ -5,7 +5,7 @@ persistence:
   migratable: "true"
 
 defaultSettings:
-  replicaAutoBalance: best-effort
+  replicaAutoBalance: least-effort
   defaultLonghornStaticStorageClass: longhorn
   concurrentReplicaRebuildPerNodeLimit: "3"
   concurrentAutomaticEngineUpgradePerNodeLimit: "3"
