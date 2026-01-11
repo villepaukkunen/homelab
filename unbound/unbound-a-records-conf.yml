@@ -13,6 +13,7 @@ data:
       local-data: "m73-2.mandariini.uk. A 192.168.10.42"
       local-data: "m73-3.mandariini.uk. A 192.168.10.43"
       local-data: "m720q-1.mandariini.uk. A 192.168.10.44"
+      local-data: "m600-2.mandariini.uk. A 192.168.10.45"
       local-data: "kube.mandariini.uk. A 192.168.10.55"
       local-data: "m600-1.mandariini.uk. A 192.168.20.15"
 
