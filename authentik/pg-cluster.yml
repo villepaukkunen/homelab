@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: authentik-pg
+  name: authentik-postgresql
   namespace: authentik
 spec:
   managed:
@@ -15,4 +15,5 @@ spec:
       secret:
         name: authentik-postgres-credentials
   storage:
+    storageClass: longhorn-strict-local
     size: 2Gi

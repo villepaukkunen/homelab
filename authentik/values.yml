@@ -10,7 +10,7 @@ authentik:
     use_ssl: ""
     timeout: ""
   postgresql:
-    host: authentik-pg-rw
+    host: authentik-postgresql-rw
     password: file:///postgres-creds/password
 
 server:
