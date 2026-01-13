@@ -7,6 +7,7 @@ persistence:
 defaultSettings:
   replicaAutoBalance: least-effort
   defaultLonghornStaticStorageClass: longhorn
+  nodeDrainPolicy: allow-if-replica-is-stopped
   concurrentReplicaRebuildPerNodeLimit: "3"
   concurrentAutomaticEngineUpgradePerNodeLimit: "3"
   removeSnapshotsDuringFilesystemTrim: "true"
