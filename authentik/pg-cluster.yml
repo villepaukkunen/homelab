@@ -8,6 +8,8 @@ spec:
     services:
       disabledDefaultServices: ["ro", "r"]
   instances: 2
+  affinity:
+    podAntiAffinityType: required
   bootstrap:
     initdb:
       database: authentik
