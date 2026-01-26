@@ -38,11 +38,11 @@ ports:
         allowEncodedPercent: false
         allowEncodedQuestionMark: false
         allowEncodedHash: false
-    redirections:
-      entryPoint:
-        to: websecure
-        scheme: https
-        priority: 10
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+          priority: 10
   websecure:
     http:
       encodedCharacters:
