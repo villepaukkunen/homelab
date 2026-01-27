@@ -11,7 +11,7 @@ spec:
   sources:
     - repoURL: https://charts.jenkins.io/
       chart: jenkins
-      targetRevision: 5.8.131
+      targetRevision: 5.8.133
       helm:
         valueFiles:
           - $values/jenkins/values.yml
