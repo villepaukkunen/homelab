@@ -30,14 +30,6 @@ providers:
 ports:
   web:
     http:
-      encodedCharacters:
-        allowEncodedSlash: false
-        allowEncodedBackSlash: false
-        allowEncodedNullCharacter: false
-        allowEncodedSemicolon: false
-        allowEncodedPercent: false
-        allowEncodedQuestionMark: false
-        allowEncodedHash: false
       redirections:
         entryPoint:
           to: websecure
@@ -63,14 +55,11 @@ ports:
       default: true
     exposedPort: 81
     http:
-      encodedCharacters:
-        allowEncodedSlash: false
-        allowEncodedBackSlash: false
-        allowEncodedNullCharacter: false
-        allowEncodedSemicolon: false
-        allowEncodedPercent: false
-        allowEncodedQuestionMark: false
-        allowEncodedHash: false
+      redirections:
+        entryPoint:
+          to: websecxt
+          scheme: https
+          permanent: true
   websecxt:
     port: 8444
     expose:
