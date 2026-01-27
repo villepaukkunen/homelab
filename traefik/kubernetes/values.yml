@@ -53,10 +53,10 @@ ports:
         allowEncodedPercent: false
         allowEncodedQuestionMark: false
         allowEncodedHash: false
+      tls:
+        enabled: true
     http3:
       enabled: false
-    tls:
-      enabled: true
   webext:
     port: 8001
     expose:
@@ -85,10 +85,10 @@ ports:
         allowEncodedPercent: false
         allowEncodedQuestionMark: false
         allowEncodedHash: false
+      tls:
+        enabled: true
     http3:
       enabled: false
-    tls:
-      enabled: true
 
 service:
   enabled: true
