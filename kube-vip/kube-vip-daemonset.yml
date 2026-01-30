@@ -5,7 +5,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/name: kube-vip-ds
-    app.kubernetes.io/version: v1.0.3
+    app.kubernetes.io/version: v1.0.4
   name: kube-vip-ds
   namespace: kube-system
 spec:
@@ -17,7 +17,7 @@ spec:
       creationTimestamp: null
       labels:
         app.kubernetes.io/name: kube-vip-ds
-        app.kubernetes.io/version: v1.0.3
+        app.kubernetes.io/version: v1.0.4
     spec:
       affinity:
         nodeAffinity:
@@ -71,7 +71,7 @@ spec:
           value: :2112
         - name: svc_election
           value: "true"
-        image: ghcr.io/kube-vip/kube-vip:v1.0.3
+        image: ghcr.io/kube-vip/kube-vip:v1.0.4
         imagePullPolicy: IfNotPresent
         name: kube-vip
         resources: {}
