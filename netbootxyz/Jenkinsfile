@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script{
                     env.GIT_SUBDIR = "netbootxyz"
-                    env.HOST = "acer.mandariini.uk"
+                    env.HOST = "m73-1.mandariini.uk"
                     env.DIR = "/opt/netbootxyz"
                 }
             }

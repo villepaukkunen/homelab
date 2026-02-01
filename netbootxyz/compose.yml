@@ -9,7 +9,7 @@ services:
       - WEB_APP_PORT=3000
     volumes:
       - ./config:/config
-      - /mnt/nfs/nfs/netbootxyz/assets:/assets
+      - /srv/nfs/netbootxyz/assets:/assets
     ports:
 #      - 3000:3000
       - 69:69/udp
