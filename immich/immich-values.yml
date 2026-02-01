@@ -1,0 +1,26 @@
+common:
+  config:
+    vectorExtension: ""
+  postgres:
+    host: immich-pg-rw
+    existingSecret:
+      enabled: true
+      secretName: immich-postgres-credentials
+      usernameKey: username
+      passwordKey: password
+  redis:
+    host: immich-valkey-headless
+    existingSecret:
+      enabled: true
+      secretName: immich-valkey-credentials
+      passwordKey: password
+server:
+  volumeMounts:
+    - name: uploads
+      mountPath: /data
+  volumes:
+    - name: uploads
+      persistentVolumeClaim:
+        claimName: data
+machineLearning:
+  enabled: true

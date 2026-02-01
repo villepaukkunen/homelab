@@ -1,0 +1,33 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: immich-pg
+  namespace: immich
+spec:
+  managed:
+    roles:
+      - name: immich
+        createdb: true
+        login: true
+        superuser: true
+        passwordSecret:
+          name: immich-postgres-credentials
+    services:
+      disabledDefaultServices: ["ro", "r"]
+  instances: 2
+  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:18.1
+  bootstrap:
+    initdb:
+      database: immich
+      postInitApplicationSQL:
+        - CREATE EXTENSION IF NOT EXISTS vchord CASCADE;
+      owner: immich
+      secret:
+        name: immich-postgres-credentials
+      dataChecksums: true
+  storage:
+    storageClass: longhorn-single-replica
+    size: 2Gi
+  postgresql:
+    shared_preload_libraries: # load vchord shared library
+      - "vchord"

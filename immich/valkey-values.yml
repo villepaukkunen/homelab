@@ -1,0 +1,8 @@
+fullnameOverride: immich-valkey
+
+auth:
+  existingSecret: "immich-valkey-credentials"
+  existingSecretPasswordKey: "password"
+
+persistence:
+  existingClaim: valkey
