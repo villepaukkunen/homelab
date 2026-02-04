@@ -6,7 +6,7 @@ metadata:
   namespace: longhorn-system
 spec:
   task: system-backup
-  cron: '0 5 * * *'
+  cron: '30 6 * * *'
   retain: 1
   parameters:
     volume-backup-policy: if-not-present
@@ -18,7 +18,7 @@ metadata:
   namespace: longhorn-system
 spec:
   task: filesystem-trim
-  cron: '0 4 * * *'
+  cron: '0 6 * * *'
   groups:
     - default
   concurrency: 1
