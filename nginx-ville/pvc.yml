@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: nginx-ville
-  namespace: default
+  namespace: nginx-ville
 spec:
   accessModes:
     - ReadWriteMany

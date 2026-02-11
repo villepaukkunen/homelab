@@ -15,16 +15,21 @@ spec:
       kind: Rule
       services:
         - name: nginx-ville
+          namespace: nginx-ville
           port: 80
       middlewares:
         - name: default-headers
+          namespace: default
     - match: Host(`www.paukkunen.de`)
       kind: Rule
       services:
         - name: nginx-ville
+          namespace: nginx-ville
           port: 80
       middlewares:
         - name: default-headers
+          namespace: default
         - name: redirect-to-non-www
+          namespace: nginx-ville
   tls:
     secretName: paukkunen-de-tls

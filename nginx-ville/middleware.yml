@@ -2,7 +2,7 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: redirect-to-non-www
-  namespace: default
+  namespace: nginx-ville
 spec:
   redirectRegex:
     regex: ^https?://www.paukkunen.de/(.*)
