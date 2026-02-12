@@ -11,7 +11,7 @@ spec:
   sources:
     - repoURL: registry-1.docker.io/cloudpirates
       chart: valkey
-      targetRevision: 0.15.3
+      targetRevision: 0.15.4
       helm:
         valueFiles:
           - $values/immich/valkey-values.yml
