@@ -13,6 +13,7 @@ containerSecurityContext:
   capabilities:
     drop:
       - ALL
+podSecurityContext:
   seccompProfile:
     type: RuntimeDefault
 extraVolumes:
