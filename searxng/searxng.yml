@@ -50,7 +50,10 @@ spec:
             - name: TZ
               value: Europe/Helsinki
             - name: SERVER_REGIONS
-              value: FI Helsinki
+              valueFrom:
+                secretKeyRef:
+                  name: envsecrets
+                  key: SERVER_REGIONS
             - name: DNS_KEEP_NAMESERVER
               value: 'on'
             - name: FIREWALL_OUTBOUND_SUBNETS
