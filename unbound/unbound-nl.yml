@@ -26,13 +26,16 @@ spec:
                     values:
                       - pihole
               topologyKey: "kubernetes.io/hostname"
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       initContainers:
         - name: unbound-nl-gluetun
           image: qmcgaw/gluetun:v3.41.1
           imagePullPolicy: IfNotPresent
           restartPolicy: Always
           securityContext:
-            privileged: true
+            allowPrivilegeEscalation: false
             capabilities:
               add:
                 - NET_ADMIN
@@ -62,6 +65,8 @@ spec:
         - name: unbound-nl
           image: mvance/unbound:1.22.0
           imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
           volumeMounts:
             - name: unbound-main-conf-volume
               mountPath: /opt/unbound/etc/unbound/unbound.conf
