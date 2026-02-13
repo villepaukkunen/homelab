@@ -20,13 +20,16 @@ spec:
     spec:
       nodeSelector:
         streaming: "true"
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       initContainers:
         - name: jellyfin-gluetun
           image: qmcgaw/gluetun:v3.41.1
           imagePullPolicy: IfNotPresent
           restartPolicy: Always
           securityContext:
-            privileged: true
+            allowPrivilegeEscalation: false
             capabilities:
               add:
                 - NET_ADMIN
@@ -50,6 +53,8 @@ spec:
         - name: jellyfin
           image: lscr.io/linuxserver/jellyfin:10.11.6ubu2404-ls20
           imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
           env:
             - name: PUID
               value: '1000'
