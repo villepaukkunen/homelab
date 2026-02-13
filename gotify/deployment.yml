@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: gotify
-          image: gotify/server:2.8.0
+          image: gotify/server:2.9.0
           env:
             - name: TZ
               value: Europe/Helsinki
