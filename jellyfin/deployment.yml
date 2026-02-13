@@ -4,7 +4,7 @@ metadata:
   labels:
     app: jellyfin
   name: jellyfin
-  namespace: media
+  namespace: jellyfin
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -48,7 +48,7 @@ spec:
               value: '10.43.0.10/32,192.168.10.55/32'
           envFrom:
             - secretRef:
-                name: envsecrets
+                name: vpn-credentials
       containers:
         - name: jellyfin
           image: lscr.io/linuxserver/jellyfin:10.11.6ubu2404-ls20

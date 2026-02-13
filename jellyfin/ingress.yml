@@ -14,7 +14,7 @@ spec:
       kind: Rule
       services:
         - name: jellyfin
-          namespace: media
+          namespace: jellyfin
           port: 8096
   tls:
     secretName: mandariini-uk-tls

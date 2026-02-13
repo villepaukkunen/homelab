@@ -5,7 +5,7 @@ metadata:
   labels:
     app: jellyfin
   name: jellyfin
-  namespace: media
+  namespace: jellyfin
 spec:
   selector:
     app: jellyfin

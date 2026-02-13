@@ -14,4 +14,4 @@ spec:
     path: jellyfin
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: media
+    namespace: jellyfin
