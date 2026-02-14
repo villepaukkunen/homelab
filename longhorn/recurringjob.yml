@@ -36,4 +36,4 @@ spec:
   retain: 1
   concurrency: 1
   parameters:
-    full-backup-interval: 6
+    full-backup-interval: '6'
