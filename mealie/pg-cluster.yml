@@ -1,0 +1,21 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: mealie-pg
+  namespace: mealie
+spec:
+  managed:
+    services:
+      disabledDefaultServices: ["ro", "r"]
+  instances: 2
+  affinity:
+    podAntiAffinityType: required
+  bootstrap:
+    initdb:
+      database: mealie
+      owner: mealie
+      secret:
+        name: mealie-postgres-credentials
+  storage:
+    storageClass: longhorn-single-replica
+    size: 2Gi
