@@ -18,6 +18,7 @@ spec:
     - repoURL: https://github.com/villepaukkunen/homelab.git
       targetRevision: HEAD
       ref: values
+      path: multus
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kube-system
