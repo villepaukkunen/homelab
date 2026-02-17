@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: supertuxkart
+  name: supertuxkart
+  namespace: supertuxkart
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: supertuxkart
+  template:
+    metadata:
+      labels:
+        app: supertuxkart
+      annotations:
+        k8s.v1.cni.cncf.io/networks: |
+          [{
+            "name": "multus-srv",
+            "namespace": "default",
+            "mac": "00:23:24:93:2a:0a",
+            "ips": ["192.168.10.36/27"]
+          }]
+    spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: supertuxkart
+          image: dobernoeder/supertuxkart:1.4.0
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+          ports:
+            - containerPort: 2759
+              name: server
+              protocol: TCP
+            - containerPort: 2757
+              name: discovery
+              protocol: TCP
+          volumeMounts:
+            - name: supertuxkart-conf-volume
+              mountPath: /stk
+      volumes:
+        - name: supertuxkart-conf-volume
+          secret:
+            secretName: supertuxkart-conf
