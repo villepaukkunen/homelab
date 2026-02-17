@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: netbootxyz
+  name: netbootxyz
+  namespace: netbootxyz
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: netbootxyz
+  template:
+    metadata:
+      labels:
+        app: netbootxyz
+      annotations:
+        k8s.v1.cni.cncf.io/networks: |
+          [{
+            "name": "multus-srv",
+            "namespace": "default",
+            "mac": "e8:6a:64:cb:7a:ca",
+            "ips": ["192.168.10.35/27"]
+          }]
+    spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: netbootxyz
+          image: ghcr.io/netbootxyz/netbootxyz:0.7.6-nbxyz10
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+          env:
+            - name: PUID
+              value: '1000'
+            - name: PGID
+              value: '1000'
+            - name: NGINX_PORT
+              value: '80'
+            - name: WEB_APP_PORT
+              value: '3000'
+          ports: 
+            - containerPort: 3000
+              name: web
+              protocol: TCP
+            - containerPort: 69
+              name: tftp
+              protocol: UDP
+            - containerPort: 80
+              name: assets
+              protocol: TCP
+          volumeMounts:
+              - name: config
+                mountPath: /config
+              - name: assets
+                mountPath: /assets
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: config
+        - name: assets
+          persistentVolumeClaim:
+            claimName: assets
