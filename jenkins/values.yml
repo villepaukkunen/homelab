@@ -144,41 +144,6 @@ controller:
                   }
                 }
               }
-          - script: >
-              pipelineJob('netbootxyz') {
-                definition {
-                  cpsScm {
-                    scm {
-                      git {
-                        remote {
-                          url('https://github.com/villepaukkunen/homelab.git')
-                        }
-                        branch('*/main')
-                        extensions {
-                          sparseCheckout {
-                            sparseCheckoutPaths {
-                              sparseCheckoutPath {
-                                path('/netbootxyz')
-                              }
-                            }
-                          }
-                        }
-                        configure {
-                          it / extensions / "hudson.plugins.git.extensions.impl.PathRestriction" {
-                            includedRegions("netbootxyz/.*")
-                          }
-                        }
-                      }
-                    }
-                    scriptPath('netbootxyz/Jenkinsfile')
-                  }
-                }
-                triggers {
-                  pollSCM {
-                    scmpoll_spec('H/5 * * * *')
-                  }
-                }
-              }
     securityRealm: |-
       oic:
         serverConfiguration:
