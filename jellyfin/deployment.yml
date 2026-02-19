@@ -70,10 +70,17 @@ spec:
               limits:
                   gpu.intel.com/i915: "1"
           volumeMounts:
-            - name: config
-              mountPath: /config
-            - name: data
-              mountPath: /data
+            - mountPath: /config
+              name: config
+            - mountPath: /media/movies
+              name: data
+              subPath: movies
+            - mountPath: /media/tvseries
+              name: data
+              subPath: tvseries
+            - mountPath: /media/livetv
+              name: data
+              subPath: livetv
       volumes:
         - name: config
           persistentVolumeClaim:
