@@ -72,13 +72,13 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
-            - mountPath: /media/movies
+            - mountPath: /data/movies
               name: data
               subPath: movies
-            - mountPath: /media/tvseries
+            - mountPath: /data/tvseries
               name: data
               subPath: tvseries
-            - mountPath: /media/livetv
+            - mountPath: /data/livetv
               name: data
               subPath: livetv
       volumes:
