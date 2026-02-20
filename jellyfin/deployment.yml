@@ -24,7 +24,7 @@ spec:
         seccompProfile:
           type: RuntimeDefault
       initContainers:
-        - name: jellyfin-gluetun
+        - name: gluetun
           image: qmcgaw/gluetun:v3.41.1
           imagePullPolicy: IfNotPresent
           restartPolicy: Always
@@ -70,21 +70,25 @@ spec:
               limits:
                   gpu.intel.com/i915: "1"
           volumeMounts:
+            - mountPath: /run
+              name: jellyfin
+              subPath: run
             - mountPath: /config
-              name: config
+              name: jellyfin
+              subPath: config
             - mountPath: /data/movies
-              name: data
+              name: media
               subPath: movies
             - mountPath: /data/tvseries
-              name: data
+              name: media
               subPath: tvseries
             - mountPath: /data/livetv
-              name: data
+              name: media
               subPath: livetv
       volumes:
-        - name: config
+        - name: jellyfin
           persistentVolumeClaim:
             claimName: jellyfin
-        - name: data
+        - name: media
           persistentVolumeClaim:
             claimName: media
