@@ -14,4 +14,4 @@ spec:
       targetRevision: 0.34.1
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: intel-device-plugins
+    namespace: kube-system
