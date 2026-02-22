@@ -12,7 +12,6 @@ serviceDhcp:
 # will create kubernetes services for web admin
 serviceWeb:
   type: ClusterIP
-  loadBalancerIP: 192.168.10.50
 
 virtualHost: pihole.mandariini.uk
   
@@ -38,7 +37,7 @@ extraEnvVars:
   REV_SERVER_TARGET: 192.168.10.1
   REV_SERVER_CIDR: 192.168.10.0/24
   DNSMASQ_LISTENING: all
-  PIHOLE_DNS_: 10.43.217.41;10.43.136.38;10.43.127.214
+  PIHOLE_DNS_: unbound-nl.unbound.svc.cluster.local;unbound-ee.unbound.svc.cluster.local;unbound-lv.unbound.svc.cluster.local
 
 # -- default upstream DNS 1 server to use
 DNS1: ""
@@ -77,8 +76,4 @@ extraVolumeMounts:
     subPath: 05-pihole-custom-cname.conf
 
 podDnsConfig:
-  enabled: true
-  policy: "None"
-  nameservers:
-    - 127.0.0.1
-    - 9.9.9.9
+  enabled: false
