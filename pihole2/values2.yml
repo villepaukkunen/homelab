@@ -38,7 +38,7 @@ extraEnvVars:
   REV_SERVER_TARGET: 192.168.10.1
   REV_SERVER_CIDR: 192.168.10.0/24
   DNSMASQ_LISTENING: all
-  PIHOLE_DNS_: 10.43.248.179;10.43.105.59;10.43.30.141
+  PIHOLE_DNS_: unbound-se.unbound.svc.cluster.local;unbound-no.unbound.svc.cluster.local;unbound-dk.unbound.svc.cluster.local
 
 # -- default upstream DNS 1 server to use
 DNS1: ""
@@ -77,8 +77,4 @@ extraVolumeMounts:
     subPath: 05-pihole-custom-cname.conf
 
 podDnsConfig:
-  enabled: true
-  policy: "None"
-  nameservers:
-    - 127.0.0.1
-    - 9.9.9.9
+  enabled: false
