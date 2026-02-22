@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: unbound-main-conf
-  namespace: pihole
+  namespace: unbound
 data:
   unbound.conf: |
     server:

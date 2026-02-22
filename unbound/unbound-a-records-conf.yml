@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: unbound-a-records-conf
-  namespace: pihole
+  namespace: unbound
 data:
   a-records.conf: |
     # A Record
