@@ -20,7 +20,7 @@ spec:
         seccompProfile:
           type: RuntimeDefault
       initContainers:
-        - name: unbound-ee-gluetun
+        - name: gluetun
           image: qmcgaw/gluetun:v3.41.1
           imagePullPolicy: IfNotPresent
           restartPolicy: Always
