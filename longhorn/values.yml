@@ -1,3 +1,7 @@
+networkPolicies:
+  enabled: true
+  type: ""
+
 persistence:
   defaultClassReplicaCount: 2
   defaultDataLocality: best-effort
