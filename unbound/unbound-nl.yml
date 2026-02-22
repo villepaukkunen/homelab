@@ -5,7 +5,7 @@ metadata:
   labels:
     app: unbound-nl
   name: unbound-nl
-  namespace: pihole
+  namespace: unbound
 spec:
   replicas: 1
   selector:
@@ -16,16 +16,6 @@ spec:
       labels:
         app: unbound-nl
     spec:
-      affinity:
-        podAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                  - key: release
-                    operator: In
-                    values:
-                      - pihole
-              topologyKey: "kubernetes.io/hostname"
       securityContext:
         seccompProfile:
           type: RuntimeDefault
@@ -91,7 +81,7 @@ metadata:
   labels:
     app: unbound-nl
   name: unbound-nl
-  namespace: pihole
+  namespace: unbound
 spec:
   selector:
     app: unbound-nl
