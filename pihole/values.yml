@@ -21,6 +21,9 @@ persistentVolumeClaim:
   enabled: true
   existingClaim: "pihole"
 
+nodeSelector:
+  node-role.kubernetes.io/control-plane: "true"
+
 # -- Use an existing secret for the admin password.
 admin:
   # -- If set to false admin password will be disabled, adminPassword specified above and the pre-existing secret (if specified) will be ignored.
