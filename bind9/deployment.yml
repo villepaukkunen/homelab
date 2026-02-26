@@ -38,7 +38,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: bind9
-          image: internetsystemsconsortium/bind9:9.20
+          image: internetsystemsconsortium/bind9:9.21
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
