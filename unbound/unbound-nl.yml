@@ -61,9 +61,6 @@ spec:
             - name: unbound-main-conf-volume
               mountPath: /opt/unbound/etc/unbound/unbound.conf
               subPath: unbound.conf
-            - name: unbound-a-conf-volume
-              mountPath: /opt/unbound/etc/unbound/a-records.conf
-              subPath: a-records.conf
       volumes:
         - name: gluetun-wg0-conf-nl-volume
           secret:
@@ -71,9 +68,6 @@ spec:
         - name: unbound-main-conf-volume
           configMap:
             name: unbound-main-conf
-        - name: unbound-a-conf-volume
-          configMap:
-            name: unbound-a-records-conf
 ---
 apiVersion: v1
 kind: Service
