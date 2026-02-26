@@ -1,0 +1,76 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: bind9-1
+  namespace: bind9
+  labels:
+    app: bind9-1
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: bind9-1
+  template:
+    metadata:
+      labels:
+        app: bind9-1
+    spec:
+      securityContext:
+        fsGroup: 53
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      nodeSelector:
+        node-role.kubernetes.io/control-plane: "true"
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - bind9-2
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: bind9
+          image: internetsystemsconsortium/bind9:9.20
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsUser: 53
+            runAsGroup: 53
+            capabilities:
+              drop:
+              - ALL
+          ports:
+            - name: dns-tcp
+              containerPort: 53
+              protocol: TCP
+            - name: dns-udp
+              containerPort: 53
+              protocol: UDP
+            - name: rndc
+              containerPort: 953
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /etc/bind/named.conf
+              name: configmap
+              subPath: named.conf
+            - mountPath: /var/cache/bind/mandariini.uk
+              name: secret
+              subPath: mandariini.uk
+            - mountPath: /var/cache/bind/paukkunen.de
+              name: secret
+              subPath: paukkunen.de
+      volumes:
+        - name: configmap
+          configMap:
+            name: bind9
+        - name: secret
+          secret:
+            secretName: bind9

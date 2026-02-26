@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bind9
+  namespace: bind9
+data:
+  named.conf: |
+    acl internal {
+      10.0.0.0/8;
+      172.16.0.0/12;
+      192.168.0.0/16;
+    };
+
+    options {
+      directory "/var/cache/bind";
+      allow-query { internal; };
+      forwarders {
+        10.43.146.151;
+        10.43.36.158;
+        10.43.59.107;
+        10.43.110.112;
+      };
+    };
+
+    zone "mandariini.uk" {
+      type primary;
+      file "mandariini.uk";
+    };
+
+    zone "paukkunen.de" {
+      type primary;
+      file "paukkunen.de";
+    };
