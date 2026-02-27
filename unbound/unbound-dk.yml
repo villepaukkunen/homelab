@@ -3,22 +3,35 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: unbound-dk
+    app: unbound
+    release: unbound-dk
   name: unbound-dk
   namespace: unbound
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: unbound-dk
+      app: unbound
+      release: unbound-dk
   template:
     metadata:
       labels:
-        app: unbound-dk
+        app: unbound
+        release: unbound-dk
     spec:
       securityContext:
         seccompProfile:
           type: RuntimeDefault
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - unbound
+              topologyKey: "kubernetes.io/hostname"
       initContainers:
         - name: gluetun
           image: qmcgaw/gluetun:v3.41.1
@@ -69,12 +82,14 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: unbound-dk
+    app: unbound
+    release: unbound-dk
   name: unbound-dk
   namespace: unbound
 spec:
   selector:
-    app: unbound-dk
+    app: unbound
+    release: unbound-dk
   type: ClusterIP
   ports:
     - name: dns
