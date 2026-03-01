@@ -1,5 +1,7 @@
 global:
   domain: argocd.mandariini.uk
+  networkPolicy:
+    create: true
 configs:
   cm:
     admin.enabled: false
