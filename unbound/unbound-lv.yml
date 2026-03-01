@@ -93,6 +93,7 @@ spec:
     app: unbound
     release: unbound-lv
   type: ClusterIP
+  clusterIP: 10.43.0.13
   ports:
     - name: dns
       port: 53

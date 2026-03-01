@@ -93,6 +93,7 @@ spec:
     app: unbound
     release: unbound-se
   type: ClusterIP
+  clusterIP: 10.43.0.16
   ports:
     - name: dns
       port: 53

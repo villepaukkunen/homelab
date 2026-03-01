@@ -97,6 +97,7 @@ spec:
     app: unbound
     release: unbound-nl
   type: ClusterIP
+  clusterIP: 10.43.0.14
   ports:
     - name: dns
       port: 53
