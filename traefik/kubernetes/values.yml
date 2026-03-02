@@ -33,6 +33,11 @@ providers:
     publishedService:
       enabled: true
 
+volumes:
+  - name: lapi-key
+    mountPath: /lapi-key
+    type: secret
+
 ports:
   web:
     http:

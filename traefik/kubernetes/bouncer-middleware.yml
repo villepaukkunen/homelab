@@ -16,7 +16,7 @@ spec:
       crowdsecAppsecFailureBlock: true
       crowdsecAppsecUnreachableBlock: true
       crowdsecAppsecBodyLimit: 10485760
-      crowdsecLapiKey: BOUNCER_KEY_traefik
+      crowdsecLapiKeyFile: /lapi-key
       crowdsecLapiPath: "/"
       forwardedHeadersTrustedIps:
         - "10.42.0.0/16"
