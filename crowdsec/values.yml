@@ -12,6 +12,9 @@ config:
         api_key: 1h
       agents_autodelete:
         login_password: 1h
+secrets:
+  externalSecret:
+    name: lapi-secrets
 lapi:
   env:
     - name: ENROLL_KEY
