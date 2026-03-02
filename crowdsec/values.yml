@@ -1,0 +1,67 @@
+container_runtime: containerd
+config:
+  db_config:
+    type: postgresql
+    user: ${DB_USER}
+    password: ${DB_PASSWORD}
+    db_name: crowdsec
+    host: crowdsec-pg-rw
+    port: 5432
+    flush:
+      bouncers_autodelete:
+        api_key: 1h
+      agents_autodelete:
+        login_password: 1h
+lapi:
+  env:
+    - name: ENROLL_KEY
+      valueFrom:
+        secretKeyRef:
+          name: envsecrets
+          key: ENROLL_KEY
+    - name: ENROLL_INSTANCE_NAME
+      value: "k3s-cluster"
+    - name: ENROLL_TAGS
+      value: "k8s"
+    - name: BOUNCER_KEY_traefik
+      valueFrom:
+        secretKeyRef:
+          name: envsecrets
+          key: BOUNCER_KEY_traefik
+    - name: DB_USER
+      valueFrom:
+        secretKeyRef:
+          name: crowdsec-postgres-credentials
+          key: username
+    - name: DB_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: crowdsec-postgres-credentials
+          key: password
+  persistentVolume:
+    data:
+      enabled: false
+    config:
+      enabled: false
+agent:
+  acquisition:
+    - namespace: traefik
+      podName: traefik-*
+      program: traefik
+  env:
+    - name: COLLECTIONS
+      value: "crowdsecurity/traefik"
+appsec:
+  enabled: true
+  acquisitions:
+    - source: appsec
+      listen_addr: "0.0.0.0:7422"
+      path: /
+      appsec_configs:
+        - crowdsecurity/appsec-default
+        - crowdsecurity/crs
+      labels:
+        type: appsec
+  env:
+    - name: COLLECTIONS
+      value: "crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-crs crowdsecurity/appsec-generic-rules"

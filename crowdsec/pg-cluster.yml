@@ -1,0 +1,21 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: crowdsec-pg
+  namespace: crowdsec
+spec:
+  managed:
+    services:
+      disabledDefaultServices: ["ro", "r"]
+  instances: 2
+  affinity:
+    podAntiAffinityType: required
+  bootstrap:
+    initdb:
+      database: crowdsec
+      owner: crowdsec
+      secret:
+        name: crowdsec-postgres-credentials
+  storage:
+    storageClass: longhorn-single-replica
+    size: 2Gi
