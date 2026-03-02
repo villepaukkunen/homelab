@@ -84,6 +84,8 @@ ports:
         allowEncodedPercent: false
         allowEncodedQuestionMark: false
         allowEncodedHash: false
+      middlewares:
+        - traefik-bouncer@kubernetescrd
       tls:
         enabled: true
     http3:
