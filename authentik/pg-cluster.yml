@@ -6,7 +6,7 @@ metadata:
 spec:
   managed:
     services:
-      disabledDefaultServices: ["ro", "r"]
+      disabledDefaultServices: ["r"]
   instances: 2
   affinity:
     podAntiAffinityType: required
