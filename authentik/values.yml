@@ -14,7 +14,7 @@ authentik:
     password: file:///postgres-creds/password
 
 server:
-  replicas: 1
+  replicas: 2
   volumeMounts:
     - name: postgres-creds
       mountPath: /postgres-creds
