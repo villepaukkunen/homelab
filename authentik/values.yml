@@ -25,7 +25,7 @@ server:
         secretName: authentik-postgres-credentials
 
 worker:
-  replicas: 1
+  replicas: 2
   volumeMounts:
     - name: postgres-creds
       mountPath: /postgres-creds
