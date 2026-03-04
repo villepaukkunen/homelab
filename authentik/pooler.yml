@@ -1,0 +1,12 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Pooler
+metadata:
+  name: pooler-authentik-rw
+  namespace: authentik
+spec:
+  cluster:
+    name: authentik-pg
+  instances: 2
+  type: rw
+  pgbouncer:
+    poolMode: session
