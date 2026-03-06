@@ -17,10 +17,21 @@ nextcloud:
       secure: ""
       port: 587
       authtype: LOGIN
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
   podSecurityContext:
     seccompProfile:
       type: RuntimeDefault
     fsGroupChangePolicy: "OnRootMismatch"
+  mariaDbInitContainer:
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
 
 internalDatabase:
   enabled: false
@@ -58,6 +69,12 @@ redis:
 
 cronjob:
   enabled: true
+  sidecar:
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
 
 persistence:
   enabled: true
