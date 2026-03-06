@@ -19,6 +19,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
+      app.kubernetes.io/component: server
       app.kubernetes.io/name: immich
   policyTypes:
     - Ingress
