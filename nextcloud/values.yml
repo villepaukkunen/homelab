@@ -19,9 +19,6 @@ nextcloud:
       authtype: LOGIN
   securityContext:
     allowPrivilegeEscalation: false
-    capabilities:
-      drop:
-      - ALL
   podSecurityContext:
     seccompProfile:
       type: RuntimeDefault
@@ -29,9 +26,6 @@ nextcloud:
   mariaDbInitContainer:
     securityContext:
       allowPrivilegeEscalation: false
-      capabilities:
-        drop:
-        - ALL
 
 internalDatabase:
   enabled: false
@@ -72,9 +66,6 @@ cronjob:
   sidecar:
     securityContext:
       allowPrivilegeEscalation: false
-      capabilities:
-        drop:
-        - ALL
 
 persistence:
   enabled: true
