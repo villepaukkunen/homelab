@@ -51,9 +51,12 @@ agent:
     - namespace: traefik
       podName: traefik-*
       program: traefik
+    - namespace: authentik
+      podName: authentik-server-*
+      program: authentik
   env:
     - name: COLLECTIONS
-      value: "crowdsecurity/traefik"
+      value: "crowdsecurity/traefik firix/authentik"
 appsec:
   enabled: true
   acquisitions:
