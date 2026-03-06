@@ -9,6 +9,7 @@ metadata:
 spec:
   entryPoints:
     - websecure
+    - websecxt
   routes:
     - kind: Rule
       match: Host(`auth.mandariini.uk`)
