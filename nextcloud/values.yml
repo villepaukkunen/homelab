@@ -18,9 +18,6 @@ nextcloud:
       port: 587
       authtype: LOGIN
   podSecurityContext:
-    runAsUser: 33
-    runAsGroup: 33
-    runAsNonRoot: true
     seccompProfile:
       type: RuntimeDefault
     fsGroupChangePolicy: "OnRootMismatch"
