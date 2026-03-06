@@ -56,9 +56,13 @@ agent:
       podName: authentik-server-*
       program: authentik
       poll_without_inotify: true
+    - namespace: nextcloud
+      podName: nextcloud-*
+      program: nextcloud
+      poll_without_inotify: true
   env:
     - name: COLLECTIONS
-      value: "crowdsecurity/traefik firix/authentik"
+      value: "crowdsecurity/traefik firix/authentik crowdsecurity/nextcloud"
 appsec:
   enabled: true
   acquisitions:
@@ -72,4 +76,6 @@ appsec:
         type: appsec
   env:
     - name: COLLECTIONS
-      value: "crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-crs crowdsecurity/appsec-generic-rules"
+      value: >-
+        crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-crs crowdsecurity/appsec-generic-rules
+        crowdsecurity/appsec-crs-exclusion-plugin-nextcloud
