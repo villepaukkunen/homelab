@@ -29,3 +29,5 @@ spec:
           protocol: TCP
         - port: 9443
           protocol: TCP
+        - port: 9300
+          protocol: TCP
