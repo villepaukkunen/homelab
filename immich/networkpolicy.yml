@@ -31,7 +31,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-argocd-to-pg-cluster-status
+  name: allow-cnpg-operator-to-cluster-status
   namespace: immich
 spec:
   podSelector:
@@ -43,7 +43,10 @@ spec:
     - from:
         - namespaceSelector:
             matchLabels:
-              kubernetes.io/metadata.name: argocd
+              kubernetes.io/metadata.name: cnpg-system
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/instance: cloudnative-pg
       ports:
         - port: 8000
           protocol: TCP
