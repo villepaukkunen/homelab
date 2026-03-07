@@ -41,6 +41,21 @@ lapi:
         secretKeyRef:
           name: crowdsec-postgres-credentials
           key: password
+    - name: BOUNCER_KEY_pfsense
+      valueFrom:
+        secretKeyRef:
+          name: envsecrets
+          key: BOUNCER_KEY_pfsense
+    - name: AGENT_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: envsecrets
+          key: AGENT_USERNAME
+    - name: AGENT_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: envsecrets
+          key: AGENT_PASSWORD
   persistentVolume:
     data:
       enabled: false
