@@ -31,12 +31,12 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-cnpg-operator-to-cluster-status
+  name: allow-cnpg-operator-to-cluster
   namespace: immich
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/instance: immich-pg
+      app.kubernetes.io/name: postgresql
   policyTypes:
     - Ingress
   ingress:
@@ -47,6 +47,3 @@ spec:
           podSelector:
             matchLabels:
               app.kubernetes.io/instance: cloudnative-pg
-      ports:
-        - port: 8000
-          protocol: TCP
