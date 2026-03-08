@@ -16,6 +16,8 @@ spec:
       labels:
         app: mollysocket
     spec:
+      nodeSelector:
+        storage: longhorn
       containers:
         - name: mollysocket
           image: ghcr.io/mollyim/mollysocket:1.7.0

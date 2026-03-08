@@ -29,6 +29,8 @@ spec:
       securityContext:
         seccompProfile:
           type: RuntimeDefault
+      nodeSelector:
+        storage: longhorn
       containers:
         - name: netbootxyz
           image: ghcr.io/netbootxyz/netbootxyz:0.7.6-nbxyz10
