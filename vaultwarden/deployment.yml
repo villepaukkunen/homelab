@@ -19,6 +19,8 @@ spec:
       labels:
         app: vaultwarden
     spec:
+      nodeSelector:
+        storage: longhorn
       containers:
         - name: vaultwarden
           image: vaultwarden/server:1.35.4
