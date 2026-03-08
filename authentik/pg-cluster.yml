@@ -10,6 +10,8 @@ spec:
   instances: 2
   affinity:
     podAntiAffinityType: required
+    nodeSelector:
+      storage: longhorn
   bootstrap:
     initdb:
       database: authentik
