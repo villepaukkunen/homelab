@@ -65,9 +65,13 @@ agent:
       podName: nextcloud-*
       program: nextcloud
       poll_without_inotify: true
+    - namespace: nginx-ville
+      podName: nginx-ville-*
+      program: nginx
+      poll_without_inotify: true
   env:
     - name: COLLECTIONS
-      value: "crowdsecurity/traefik firix/authentik crowdsecurity/nextcloud"
+      value: "crowdsecurity/traefik firix/authentik crowdsecurity/nextcloud crowdsecurity/nginx"
 appsec:
   enabled: true
   acquisitions:
