@@ -15,6 +15,10 @@ spec:
     services:
       disabledDefaultServices: ["ro", "r"]
   instances: 2
+  affinity:
+    podAntiAffinityType: required
+    nodeSelector:
+      storage: longhorn
   imageName: ghcr.io/tensorchord/cloudnative-vectorchord:18.1
   bootstrap:
     initdb:
