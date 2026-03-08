@@ -1,3 +1,7 @@
+global:
+  nodeSelector:
+    storage: longhorn
+
 networkPolicies:
   enabled: true
   type: ""
@@ -12,6 +16,7 @@ defaultSettings:
   replicaAutoBalance: least-effort
   defaultLonghornStaticStorageClass: longhorn
   recurringJobMaxRetention: 30
+  systemManagedComponentsNodeSelector: storage:longhorn
   nodeDrainPolicy: allow-if-replica-is-stopped
   concurrentReplicaRebuildPerNodeLimit: "3"
   concurrentAutomaticEngineUpgradePerNodeLimit: "3"
