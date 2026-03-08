@@ -35,6 +35,8 @@ spec:
       securityContext:
         seccompProfile:
           type: RuntimeDefault
+      nodeSelector:
+        storage: longhorn
       initContainers:
         - name: gluetun
           image: qmcgaw/gluetun:v3.41.1
