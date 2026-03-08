@@ -14,7 +14,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-all-authentik-server
+  name: allow-traefik-to-authentik-server
   namespace: authentik
 spec:
   podSelector:
@@ -24,12 +24,15 @@ spec:
   policyTypes:
     - Ingress
   ingress:
-    - ports:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: traefik
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/name: traefik
+      ports:
         - port: 9000
-          protocol: TCP
-        - port: 9443
-          protocol: TCP
-        - port: 9300
           protocol: TCP
 ---
 apiVersion: networking.k8s.io/v1
