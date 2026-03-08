@@ -6,3 +6,6 @@ auth:
 
 persistence:
   existingClaim: valkey
+
+nodeSelector:
+  storage: longhorn

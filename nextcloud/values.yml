@@ -74,3 +74,6 @@ persistence:
   nextcloudData:
     enabled: true
     existingClaim: data
+
+nodeSelector:
+  storage: longhorn
