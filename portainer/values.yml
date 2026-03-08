@@ -1,3 +1,6 @@
+nodeSelector:
+  storage: longhorn
+
 service:
   type: ClusterIP
 
