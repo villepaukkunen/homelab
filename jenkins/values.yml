@@ -164,6 +164,8 @@ controller:
               username: ${escapeHatch.username}
               group: ${escapeHatch.group}
           - "pkce"
+  nodeSelector:
+    storage: longhorn
 
 additionalAgents:
   hugo:
