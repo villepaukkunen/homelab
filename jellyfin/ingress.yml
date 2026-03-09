@@ -9,6 +9,7 @@ metadata:
 spec:
   entryPoints:
     - websecure
+    - websecxt
   routes:
     - match: Host(`jellyfin.mandariini.uk`)
       kind: Rule
