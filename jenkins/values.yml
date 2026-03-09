@@ -178,3 +178,6 @@ additionalAgents:
 persistence:
   enabled: true
   existingClaim: jenkins
+
+networkPolicy:
+  enabled: true
