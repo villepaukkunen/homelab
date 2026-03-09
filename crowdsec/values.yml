@@ -31,18 +31,29 @@ config:
       - http_default   # Set the required http parameters in /etc/crowdsec/notifications/http.yaml before enabling this.
     #   - email_default  # Set the required email parameters in /etc/crowdsec/notifications/email.yaml before enabling this.
     on_success: break
-  db_config:
-    type: postgresql
-    user: ${DB_USER}
-    password: ${DB_PASSWORD}
-    db_name: crowdsec
-    host: crowdsec-pg-rw
-    port: 5432
-    flush:
-      bouncers_autodelete:
-        api_key: 1h
-      agents_autodelete:
-        login_password: 1h
+  config.yaml.local: |
+    api:
+      server:
+        auto_registration: # Activate if not using TLS for authentication
+          enabled: true
+          token: "${REGISTRATION_TOKEN}" # /!\ Do not modify this variable (auto-generated and handled by the chart)
+          allowed_ranges: # /!\ Make sure to adapt to the pod IP ranges used by your cluster
+            - "127.0.0.1/32"
+            - "192.168.0.0/16"
+            - "10.0.0.0/8"
+            - "172.16.0.0/12"
+    db_config:
+      type: postgresql
+      user: ${DB_USER}
+      password: ${DB_PASSWORD}
+      db_name: crowdsec
+      host: crowdsec-pg-rw
+      port: 5432
+      flush:
+        bouncers_autodelete:
+          api_key: 1h
+        agents_autodelete:
+          login_password: 1h
   notifications:
     http.yaml: |
       type: http
