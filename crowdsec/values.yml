@@ -1,4 +1,5 @@
 container_runtime: containerd
+
 config:
   db_config:
     type: postgresql
@@ -12,9 +13,37 @@ config:
         api_key: 1h
       agents_autodelete:
         login_password: 1h
+  notifications:
+    http.yaml: |
+      type: http
+      name: http_default
+      log_level: info
+      format: |
+        {{ range . -}}
+        {{ $alert := . -}}
+        {
+          "extras": {
+            "client::display": {
+            "contentType": "text/markdown"
+          }
+        },
+        "priority": 3,
+        {{range .Decisions -}}
+        "title": "{{.Type }} {{ .Value }} for {{.Duration}}",
+        "message": "{{.Scenario}}  \n\n[crowdsec cti](https://app.crowdsec.net/cti/{{.Value -}})  \n\n[shodan](https://shodan.io/host/{{.Value -}})"
+        {{end -}}
+        }
+        {{ end -}}
+      url: http://gotify.gotify.svc.cluster.local/message
+      method: POST
+      headers:
+        X-Gotify-Key: ${GOTIFY_API_KEY}
+        Content-Type: application/json
+
 secrets:
   externalSecret:
     name: lapi-secrets
+
 lapi:
   env:
     - name: ENROLL_KEY
@@ -26,6 +55,11 @@ lapi:
       value: "k3s-cluster"
     - name: ENROLL_TAGS
       value: "k8s"
+    - name: BOUNCER_KEY_pfsense
+      valueFrom:
+        secretKeyRef:
+          name: envsecrets
+          key: BOUNCER_KEY_pfsense
     - name: BOUNCER_KEY_traefik
       valueFrom:
         secretKeyRef:
@@ -41,16 +75,17 @@ lapi:
         secretKeyRef:
           name: crowdsec-postgres-credentials
           key: password
-    - name: BOUNCER_KEY_pfsense
+    - name: GOTIFY_API_KEY
       valueFrom:
         secretKeyRef:
           name: envsecrets
-          key: BOUNCER_KEY_pfsense
+          key: GOTIFY_API_KEY
   persistentVolume:
     data:
       enabled: false
     config:
       enabled: false
+
 agent:
   acquisition:
     - namespace: traefik
@@ -75,7 +110,10 @@ agent:
       poll_without_inotify: true
   env:
     - name: COLLECTIONS
-      value: "crowdsecurity/traefik firix/authentik crowdsecurity/nextcloud crowdsecurity/nginx LePresidente/jellyfin"
+      value: >-
+        crowdsecurity/traefik firix/authentik crowdsecurity/nextcloud crowdsecurity/nginx
+        LePresidente/jellyfin
+
 appsec:
   enabled: true
   acquisitions:
