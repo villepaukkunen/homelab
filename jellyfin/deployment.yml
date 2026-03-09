@@ -85,6 +85,9 @@ spec:
             - mountPath: /data/livetv
               name: media
               subPath: livetv
+            - mountPath: /config/logging.json
+              name: config
+              subPath: logging.json
       volumes:
         - name: jellyfin
           persistentVolumeClaim:
@@ -92,3 +95,6 @@ spec:
         - name: media
           persistentVolumeClaim:
             claimName: media
+        - name: config
+          configMap:
+            name: config
