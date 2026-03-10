@@ -1,0 +1,11 @@
+fullnameOverride: tracearr-redis
+
+auth:
+  existingSecret: "tracearr-redis-credentials"
+  existingSecretPasswordKey: "password"
+
+persistence:
+  existingClaim: redis
+
+nodeSelector:
+  storage: longhorn

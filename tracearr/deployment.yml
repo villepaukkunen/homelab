@@ -1,0 +1,68 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tracearr
+  namespace: tracearr
+  labels:
+    app: tracearr
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: tracearr
+  template:
+    metadata:
+      labels:
+        app: tracearr
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: tracearr
+          image: ghcr.io/connorgallopo/tracearr:1.4.22
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsUser: 1001
+            capabilities:
+              drop:
+              - ALL
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: TZ
+              value: Europe/Helsinki
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: envsecrets
+                  key: DATABASE_URL
+            - name: REDIS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: envsecrets
+                  key: REDIS_URL
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: envsecrets
+                  key: JWT_SECRET
+            - name: COOKIE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: envsecrets
+                  key: COOKIE_SECRET
+            - name: LOG_LEVEL
+              value: info
+            - name: DATABASE_POOL_MAX
+              value: '50'
+          ports:
+            - containerPort: 3000
+              name: web
+              protocol: TCP
