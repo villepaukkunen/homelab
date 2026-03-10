@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/component: server
     app.kubernetes.io/name: tracearr
-  name: tracearr
+  name: tracearr-server
   namespace: tracearr
 spec:
   selector:
