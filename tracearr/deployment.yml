@@ -2,10 +2,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tracearr
+  name: tracearr-server
   namespace: tracearr
   labels:
-    app: tracearr
+    app.kubernetes.io/component: server
+    app.kubernetes.io/name: tracearr
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -13,18 +14,20 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: tracearr
+      app.kubernetes.io/component: server
+      app.kubernetes.io/name: tracearr
   template:
     metadata:
       labels:
-        app: tracearr
+        app.kubernetes.io/component: server
+        app.kubernetes.io/name: tracearr
     spec:
       securityContext:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
       containers:
-        - name: tracearr
+        - name: server
           image: ghcr.io/connorgallopo/tracearr:1.4.22
           imagePullPolicy: IfNotPresent
           securityContext:
