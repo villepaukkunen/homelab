@@ -171,10 +171,10 @@ appsec:
     jellyfin-crs-exclusion.yaml: |
       name: custom/jellyfin-crs-exclusion
       pre_eval:
-       - filter: IsOutBand == true && req.URL.Path startsWith "/Sessions/Capabilities/Full"
+       - filter: IsInBand == true && req.URL.Path startsWith "/Sessions/Capabilities/Full"
          apply:
           - RemoveOutBandRuleByID(942190)
-       - filter: IsOutBand == true && req.URL.Path startsWith "/Sessions/Playing/Progress"
+       - filter: IsInBand == true && req.URL.Path startsWith "/Sessions/Playing/Progress"
          apply:
           - RemoveOutBandRuleByID(932370)
   env:
