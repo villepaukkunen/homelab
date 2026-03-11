@@ -180,13 +180,13 @@ appsec:
     nextcloud-crs-exclusion.yaml: |
       name: custom/nextcloud-crs-exclusion
       pre_eval:
-       - filter: IsOutBand == true && req.URL.Path startsWith "/remote.php/dav/"
+       - filter: IsOutBand == true && req.URL.Path startsWith "/remote.php/dav/*"
          apply:
           - RemoveOutBandRuleByID(920450)
-       - filter: IsOutBand == true && req.URL.Path startsWith "/remote.php/dav/"
+       - filter: IsOutBand == true && req.URL.Path startsWith "/remote.php/dav/*"
          apply:
           - RemoveOutBandRuleByID(941100)
-       - filter: IsOutBand == true && req.URL.Path startsWith "/remote.php/dav/"
+       - filter: IsOutBand == true && req.URL.Path startsWith "/remote.php/dav/*"
          apply:
           - RemoveOutBandRuleByID(941130)
   env:
