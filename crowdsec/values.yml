@@ -164,8 +164,19 @@ appsec:
       appsec_configs:
         - crowdsecurity/appsec-default
         - crowdsecurity/crs
+        - custom/jellyfin-crs-exclusion
       labels:
         type: appsec
+  configs:
+    jellyfin-crs-exclusion.yaml: |
+      name: custom/jellyfin-crs-exclusion
+      pre_eval:
+       - filter: IsInBand == true && req.URL.Path startsWith "/Sessions/Capabilities/Full"
+         apply:
+          - RemoveInBandRuleByID("native_rule:942190")
+       - filter: IsInBand == true && req.URL.Path startsWith "/Sessions/Playing/Progress"
+         apply:
+          - RemoveInBandRuleByID("native_rule:932370")
   env:
     - name: COLLECTIONS
       value: >-
