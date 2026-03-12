@@ -69,7 +69,7 @@ collabora:
   enabled: true
   collabora:
     aliasgroups:
-      - host: "https://cloud.mandariini.uk"
+      - host: "https://cloud.mandariini.uk:443"
     extra_params: --o:ssl.enable=false --o:ssl.termination=true
     server_name: collabora.mandariini.uk
     existingSecret:
