@@ -68,6 +68,8 @@ redis:
 collabora:
   enabled: true
   collabora:
+    aliasgroups:
+      - host: "https://cloud.mandariini.uk"
     server_name: collabora.mandariini.uk
     existingSecret:
       enabled: true
