@@ -30,3 +30,6 @@ spec:
   storage:
     storageClass: longhorn-single-replica
     size: 2Gi
+  postgresql:
+    shared_preload_libraries:
+      - "timescaledb"
