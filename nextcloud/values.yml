@@ -65,6 +65,15 @@ redis:
     persistence:
       enabled: false
 
+collabora:
+  enabled: true
+  collabora:
+    existingSecret:
+      enabled: true
+      secretName: "collabora-admin-credentials"
+      usernameKey: "username"
+      passwordKey: "password"
+
 cronjob:
   enabled: true
   sidecar:
