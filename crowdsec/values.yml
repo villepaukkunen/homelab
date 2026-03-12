@@ -181,7 +181,10 @@ appsec:
     nextcloud.yaml: |
       name: custom/nextcloud
       pre_eval:
-       - filter: IsOutBand == true && req.URL.Path startsWith "/remote.php/dav/calendars/"
+       - filter: IsInBand == true && req.URL.Path startsWith "/remote.php/dav/"
+         apply:
+          - RemoveInBandRuleByName("crowdsecurity/crs")
+       - filter: IsOutBand == true && req.URL.Path startsWith "/remote.php/dav/"
          apply:
           - RemoveOutBandRuleByName("crowdsecurity/crs")
        - filter: IsInBand == true && req.URL.Path startsWith "/remote.php/dav/files/"
