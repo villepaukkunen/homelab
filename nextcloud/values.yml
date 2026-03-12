@@ -69,8 +69,8 @@ collabora:
   enabled: true
   collabora:
     aliasgroups:
-      - host: "https://cloud.mandariini.uk:443"
-    extra_params: --o:ssl.enable=false --o:ssl.termination=true
+      - host: "http://nextcloud.nextcloud.svc.cluster.local:8080"
+    extra_params: --o:ssl.enable=false
     server_name: collabora.mandariini.uk
     existingSecret:
       enabled: true
