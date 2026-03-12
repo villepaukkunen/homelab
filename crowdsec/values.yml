@@ -163,8 +163,16 @@ appsec:
       path: /
       appsec_configs:
         - crowdsecurity/appsec-default
+        - custom/nextcloud
       labels:
         type: appsec
+  configs:
+    nextcloud.yaml: |
+      name: custom/nextcloud
+      pre_eval:
+       - filter: IsInBand == true && req.URL.Path startsWith "/remote.php/dav/files/"
+         apply:
+          - RemoveInBandRuleByName("crowdsecurity/vpatch-git-config")
   env:
     - name: COLLECTIONS
       value: crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-generic-rules
