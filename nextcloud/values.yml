@@ -68,6 +68,7 @@ redis:
 collabora:
   enabled: true
   collabora:
+    server_name: collabora.mandariini.uk
     existingSecret:
       enabled: true
       secretName: "collabora-admin-credentials"
