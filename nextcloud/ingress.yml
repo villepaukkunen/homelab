@@ -22,23 +22,3 @@ spec:
           namespace: default
   tls:
     secretName: mandariini-uk-tls
----
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
-metadata:
-  name: collabora
-  namespace: default
-  annotations: 
-    kubernetes.io/ingress.class: traefik-external
-spec:
-  entryPoints:
-    - websecure
-  routes:
-    - kind: Rule
-      match: Host(`collabora.mandariini.uk`)
-      services:
-        - name: nextcloud-collabora
-          namespace: nextcloud
-          port: 9980
-  tls:
-    secretName: mandariini-uk-tls
