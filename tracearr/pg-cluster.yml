@@ -22,6 +22,8 @@ spec:
   bootstrap:
     initdb:
       database: tracearr
+      postInitApplicationSQL:
+        - CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
       owner: tracearr
       secret:
         name: tracearr-postgres-credentials
