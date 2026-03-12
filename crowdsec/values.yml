@@ -187,6 +187,12 @@ appsec:
        - filter: IsOutBand == true && req.URL.Path startsWith "/remote.php/dav/"
          apply:
           - RemoveOutBandRuleByName("crowdsecurity/crs")
+       - filter: IsInBand == true && req.URL.Path startsWith "/remote.php/dav/"
+         apply:
+          - RemoveInBandRuleByTag("native_rule")
+       - filter: IsOutBand == true && req.URL.Path startsWith "/remote.php/dav/"
+         apply:
+          - RemoveOutBandRuleByTag("native_rule")
        - filter: IsInBand == true && req.URL.Path startsWith "/remote.php/dav/files/"
          apply:
           - RemoveInBandRuleByName("crowdsecurity/vpatch-git-config")
