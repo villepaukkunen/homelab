@@ -163,10 +163,21 @@ appsec:
       path: /
       appsec_configs:
         - crowdsecurity/appsec-default
+        - crowdsecurity/crs
+        - custom/jellyfin-crs-exclusion
         - custom/nextcloud
       labels:
         type: appsec
   configs:
+    jellyfin-crs-exclusion.yaml: |
+      name: custom/jellyfin-crs-exclusion
+      pre_eval:
+       - filter: IsOutBand == true && req.URL.Path startsWith "/Sessions/Capabilities/Full"
+         apply:
+          - RemoveOutBandRuleByID(942190)
+       - filter: IsOutBand == true && req.URL.Path startsWith "/Sessions/Playing/Progress"
+         apply:
+          - RemoveOutBandRuleByID(932370)
     nextcloud.yaml: |
       name: custom/nextcloud
       pre_eval:
@@ -175,4 +186,6 @@ appsec:
           - RemoveInBandRuleByName("crowdsecurity/vpatch-git-config")
   env:
     - name: COLLECTIONS
-      value: crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-generic-rules
+      value: >-
+        crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-crs crowdsecurity/appsec-generic-rules
+        crowdsecurity/appsec-crs-exclusion-plugin-nextcloud
