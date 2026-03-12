@@ -70,7 +70,7 @@ collabora:
   collabora:
     aliasgroups:
       - host: "http://nextcloud.nextcloud.svc.cluster.local:8080"
-    extra_params: --o:ssl.enable=false
+    extra_params: --o:ssl.enable=false --o:ssl.termination=true
     server_name: collabora.mandariini.uk
     existingSecret:
       enabled: true
