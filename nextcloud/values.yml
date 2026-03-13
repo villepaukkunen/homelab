@@ -68,7 +68,12 @@ redis:
 collabora:
   enabled: true
   collabora:
-    extra_params: --o:ssl.enable=false --o:ssl.termination=true --o:net.proto=IPv4 --o:net.post_allow.host=10\.42\.0\.0/16 --o:net.post_allow.host=10\.43\.0\.0/16
+    extra_params: >
+      --o:ssl.enable=false
+      --o:ssl.termination=true
+      --o:net.proto=IPv4
+      --o:net.post_allow.host=10\\.42\\.0\\.0/16
+      --o:net.post_allow.host=10\\.43\\.0\\.0/16
     existingSecret:
       enabled: true
       secretName: "collabora-admin-credentials"
