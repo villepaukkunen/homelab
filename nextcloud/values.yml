@@ -72,7 +72,7 @@ collabora:
       - host: "https://cloud.mandariini.uk:443"
       - host: "http://nextcloud.nextcloud.svc.cluster.local:8080"
     extra_params: --o:ssl.enable=false --o:ssl.termination=true
-    server_name: collabora.mandariini.uk
+    server_name: nextcloud-collabora.nextcloud.svc.cluster.local:9980
     existingSecret:
       enabled: true
       secretName: "collabora-admin-credentials"
