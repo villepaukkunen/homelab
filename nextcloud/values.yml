@@ -68,6 +68,7 @@ redis:
 collabora:
   enabled: true
   collabora:
+    extra_params: --o:ssl.enable=false --o:ssl.termination=true
     existingSecret:
       enabled: true
       secretName: "collabora-admin-credentials"
