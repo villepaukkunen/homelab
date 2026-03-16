@@ -49,12 +49,12 @@ ports:
   websecure:
     http:
       encodedCharacters:
-        allowEncodedSlash: true
-        allowEncodedBackSlash: true
+        allowEncodedSlash: false
+        allowEncodedBackSlash: false
         allowEncodedNullCharacter: false
         allowEncodedSemicolon: false
-        allowEncodedPercent: true
-        allowEncodedQuestionMark: true
+        allowEncodedPercent: false
+        allowEncodedQuestionMark: false
         allowEncodedHash: false
       tls:
         enabled: true
