@@ -16,13 +16,49 @@ spec:
       labels:
         app: it-tools
     spec:
+      securityContext:
+        fsGroup: 101
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: it-tools
           image: corentinth/it-tools:2024.10.22-7ca5933
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsUser: 101
+            capabilities:
+              drop:
+              - ALL
           ports:
             - containerPort: 80
               name: web
               protocol: TCP
+          volumeMounts:
+            - mountPath: /tmp
+              name: emptydir
+              subPath: tmp-dir
+            - mountPath: /run
+              name: emptydir
+              subPath: run-dir
+            - mountPath: /var/cache/nginx/client_temp
+              name: emptydir
+              subPath: client-temp-dir
+            - mountPath: /var/cache/nginx/proxy_temp
+              name: emptydir
+              subPath: proxy-temp-dir
+            - mountPath: /var/cache/nginx/fastcgi_temp
+              name: emptydir
+              subPath: fastcgi-temp-dir
+            - mountPath: /var/cache/nginx/uwsgi_temp
+              name: emptydir
+              subPath: uwsgi-temp-dir
+            - mountPath: /var/cache/nginx/scgi_temp
+              name: emptydir
+              subPath: scgi-temp-dir
+      volumes:
+        - emptyDir: {}
+          name: emptydir
 ---
 apiVersion: v1
 kind: Service
