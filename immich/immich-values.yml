@@ -34,3 +34,13 @@ server:
         claimName: data
 machineLearning:
   enabled: true
+  podSecurityContext:
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
+  securityContext:
+    allowPrivilegeEscalation: false
+    runAsUser: 1000
+    capabilities:
+      drop:
+      - ALL
