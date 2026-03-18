@@ -17,9 +17,19 @@ spec:
       labels:
         app: bentopdf
     spec:
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: bentopdf
           image: ghcr.io/alam00000/bentopdf-simple:2.6.0
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsUser: 101
+            capabilities:
+              drop:
+              - ALL
           ports:
             - containerPort: 8080
               name: web
