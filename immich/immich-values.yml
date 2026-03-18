@@ -44,3 +44,10 @@ machineLearning:
     capabilities:
       drop:
       - ALL
+  volumeMounts:
+    - mountPath: /.config
+      name: emptydir
+      subPath: conf-dir
+  volumes:
+    - emptyDir: {}
+      name: emptydir
