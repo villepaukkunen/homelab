@@ -35,7 +35,6 @@ server:
 machineLearning:
   enabled: true
   podSecurityContext:
-    fsGroup: 1000
     runAsNonRoot: true
     seccompProfile:
       type: RuntimeDefault
