@@ -48,6 +48,9 @@ machineLearning:
     - mountPath: /.config
       name: emptydir
       subPath: conf-dir
+    - mountPath: /.cache
+      name: emptydir
+      subPath: cache-dir
   volumes:
     - emptyDir: {}
       name: emptydir
