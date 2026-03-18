@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: it-tools
+  name: it-tools
+  namespace: it-tools
+spec:
+  selector:
+    app: it-tools
+  ports:
+    - name: web
+      port: 80
+      protocol: TCP
+      targetPort: 80
