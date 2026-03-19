@@ -11,7 +11,7 @@ spec:
   sources:
     - repoURL: registry-1.docker.io/cloudpirates
       chart: redis
-      targetRevision: 0.26.5
+      targetRevision: 0.26.6
       helm:
         valueFiles:
           - $values/tracearr/redis-values.yml
