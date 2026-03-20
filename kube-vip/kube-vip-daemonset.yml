@@ -75,7 +75,7 @@ spec:
           value: "10.42.0.0/16"
         - name: egress_servicecidr
           value: "10.43.0.0/16"
-        image: ghcr.io/kube-vip/kube-vip:v1.0.4
+        image: ghcr.io/kube-vip/kube-vip:v1.1.1
         imagePullPolicy: IfNotPresent
         name: kube-vip
         resources: {}
