@@ -23,7 +23,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: bentopdf
-          image: ghcr.io/alam00000/bentopdf-simple:2.6.0
+          image: ghcr.io/alam00000/bentopdf-simple:2.7.0
           securityContext:
             allowPrivilegeEscalation: false
             runAsUser: 101
