@@ -20,7 +20,7 @@ spec:
         storage: longhorn
       containers:
         - name: mollysocket
-          image: ghcr.io/mollyim/mollysocket:1.7.0
+          image: ghcr.io/mollyim/mollysocket:1.7.1
           imagePullPolicy: IfNotPresent
           args: ["server"]
           workingDir: /data
