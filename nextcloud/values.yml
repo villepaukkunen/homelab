@@ -83,10 +83,15 @@ cronjob:
                     - app
             topologyKey: kubernetes.io/hostname
     securityContext:
+      runAsNonRoot: true
+      seccompProfile:
+        type: RuntimeDefault
+      allowPrivilegeEscalation: false
       runAsUser: 33
       runAsGroup: 33
-      runAsNonRoot: true
-      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
 
 persistence:
   enabled: true
