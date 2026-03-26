@@ -32,7 +32,6 @@ internalDatabase:
 
 externalDatabase:
   enabled: true
-
   existingSecret:
     enabled: true
     secretName: envsecrets
@@ -67,14 +66,28 @@ redis:
 
 cronjob:
   enabled: true
-  sidecar:
+  type: cronjob
+  cronjob:
+    affinity:
+      podAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                    - nextcloud
+                - key: app.kubernetes.io/component
+                  operator: In
+                  values:
+                    - app
+            topologyKey: kubernetes.io/hostname
     securityContext:
       allowPrivilegeEscalation: false
 
 persistence:
   enabled: true
   existingClaim: config
-
   nextcloudData:
     enabled: true
     existingClaim: data
