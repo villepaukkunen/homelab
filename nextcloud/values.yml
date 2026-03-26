@@ -20,6 +20,9 @@ nextcloud:
   securityContext:
     allowPrivilegeEscalation: false
   podSecurityContext:
+    runAsUser: 33
+    runAsGroup: 33
+    runAsNonRoot: true
     seccompProfile:
       type: RuntimeDefault
     fsGroupChangePolicy: "OnRootMismatch"
