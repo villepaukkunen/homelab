@@ -73,6 +73,9 @@ spec:
             - mountPath: /run
               name: jellyfin
               subPath: run
+            - mountPath: /config/cache/transcodes
+              name: emptydir
+              subPath: transcodes
             - mountPath: /config
               name: jellyfin
               subPath: config
@@ -92,6 +95,8 @@ spec:
         - name: jellyfin
           persistentVolumeClaim:
             claimName: jellyfin
+        - name: emptydir
+          emptyDir: {}
         - name: media
           persistentVolumeClaim:
             claimName: media
