@@ -1,3 +1,10 @@
+image:
+  registry: docker.io
+  repository: library/nextcloud
+  flavor: apache
+  tag: 32.0.6
+  pullPolicy: IfNotPresent
+
 nextcloud:
   host: cloud.mandariini.uk
   existingSecret:
