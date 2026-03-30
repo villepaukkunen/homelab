@@ -28,7 +28,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: server
-          image: ghcr.io/connorgallopo/tracearr:1.4.24
+          image: ghcr.io/connorgallopo/tracearr:1.4.25
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
