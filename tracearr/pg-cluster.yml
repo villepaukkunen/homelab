@@ -33,3 +33,5 @@ spec:
   postgresql:
     shared_preload_libraries:
       - "timescaledb"
+    parameters:
+      timescaledb.license: "timescale"
