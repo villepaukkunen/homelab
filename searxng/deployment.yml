@@ -68,10 +68,6 @@ spec:
           env:
             - name: SEARXNG_BASE_URL
               value: https://search.mandariini.uk
-            - name: UWSGI_WORKERS
-              value: "4"
-            - name: UWSGI_THREADS
-              value: "4"
           volumeMounts:
             - name: searxng
               mountPath: /etc/searxng
