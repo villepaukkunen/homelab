@@ -59,8 +59,6 @@ spec:
             runAsGroup: 1000
             runAsNonRoot: true
             capabilities:
-              add:
-                - "SYS_ADMIN"
               drop:
                 - "ALL"
           env:
