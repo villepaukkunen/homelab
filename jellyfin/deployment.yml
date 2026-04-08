@@ -51,15 +51,19 @@ spec:
                 name: vpn-credentials
       containers:
         - name: jellyfin
-          image: lscr.io/linuxserver/jellyfin:10.11.8ubu2404-ls27
+          image: ghcr.io/jellyfin/jellyfin:10.11.8
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
+            capabilities:
+              add:
+                - "SYS_ADMIN"
+              drop:
+                - "ALL"
           env:
-            - name: PUID
-              value: '1000'
-            - name: PGID
-              value: '1000'
             - name: TZ
               value: Europe/Helsinki
             - name: JELLYFIN_PublishedServerUrl
@@ -73,12 +77,15 @@ spec:
             - mountPath: /run
               name: jellyfin
               subPath: run
-            - mountPath: /config/cache/transcodes
+            - mountPath: /cache/transcodes
               name: emptydir
               subPath: transcodes
             - mountPath: /config
               name: jellyfin
               subPath: config
+            - mountPath: /cache
+              name: jellyfin
+              subPath: cache
             - mountPath: /data/movies
               name: media
               subPath: movies
@@ -88,7 +95,7 @@ spec:
             - mountPath: /data/livetv
               name: media
               subPath: livetv
-            - mountPath: /config/logging.json
+            - mountPath: /config/config/logging.json
               name: config
               subPath: logging.json
       volumes:
