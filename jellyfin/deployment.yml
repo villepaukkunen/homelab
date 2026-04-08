@@ -75,7 +75,7 @@ spec:
             - mountPath: /run
               name: jellyfin
               subPath: run
-            - mountPath: /cache/transcodes
+            - mountPath: /config/cache/transcodes
               name: emptydir
               subPath: transcodes
             - mountPath: /config
