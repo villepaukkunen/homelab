@@ -16,8 +16,8 @@ services:
       - /mnt/nfs/backup:/backups
       - /opt:/docker
       - /etc/samba:/samba
-      - /home/smb/acer-server:/samba-data
-      - /srv/nfs:/kubernetes
+      - /srv/sftp:/srv/sftp
+      - /srv/nfs:/srv/nfs
 #    ports:
 #      - 8200:8200
     restart: unless-stopped
