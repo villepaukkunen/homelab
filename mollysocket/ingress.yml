@@ -15,5 +15,8 @@ spec:
         - name: mollysocket
           namespace: mollysocket
           port: 8020
+      middlewares:
+        - name: default-headers
+          namespace: default
   tls:
     secretName: mandariini-uk-tls
