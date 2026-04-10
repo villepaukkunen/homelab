@@ -33,6 +33,8 @@ spec:
               value: "0.0.0.0"
             - name: MOLLY_PORT
               value: "8020"
+            - name: MOLLY_ALLOWED_ENDPOINTS
+              value: '["https://cloud.mandariini.uk"]'
             - name: RUST_LOG
               value: "info"
           envFrom:
