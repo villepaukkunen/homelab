@@ -16,12 +16,23 @@ spec:
       labels:
         app: mollysocket
     spec:
+      securityContext:
+        fsGroup: 101
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       nodeSelector:
         storage: longhorn
       containers:
         - name: mollysocket
           image: ghcr.io/mollyim/mollysocket:1.7.1
           imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsUser: 101
+            capabilities:
+              drop:
+              - ALL
           args: ["server"]
           workingDir: /data
           env:
