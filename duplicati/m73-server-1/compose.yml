@@ -1,7 +1,7 @@
 services:
   duplicati:
     container_name: duplicati
-    image: lscr.io/linuxserver/duplicati:v2.3.0.0_stable_2026-04-14-ls288
+    image: lscr.io/linuxserver/duplicati:v2.3.0.0_stable_2026-04-14-ls289
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
