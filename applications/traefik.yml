@@ -11,7 +11,7 @@ spec:
   sources:
     - repoURL: https://traefik.github.io/charts
       chart: traefik
-      targetRevision: v39.0.7
+      targetRevision: 39.0.8
       helm:
         valueFiles:
           - $values/traefik/kubernetes/values.yml
