@@ -46,6 +46,10 @@ ports:
           to: websecure
           scheme: https
           priority: 10
+    forwardedHeaders:
+      trustedIPs:
+        - "10.42.0.0/16"
+        - "10.43.0.0/16"
   websecure:
     http:
       encodedCharacters:
@@ -60,6 +64,10 @@ ports:
         enabled: true
     http3:
       enabled: false
+    forwardedHeaders:
+      trustedIPs:
+        - "10.42.0.0/16"
+        - "10.43.0.0/16"
   webext:
     port: 8001
     expose:
