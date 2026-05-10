@@ -57,7 +57,10 @@ spec:
             - name: VPN_SERVICE_PROVIDER
               value: private internet access
             - name: SERVER_REGIONS
-              value: DK Copenhagen
+              valueFrom:
+                secretKeyRef:
+                  name: envsecrets
+                  key: UNBOUND_1_SERVER_REGIONS
             - name: DNS_KEEP_NAMESERVER
               value: 'on'
             - name: FIREWALL_OUTBOUND_SUBNETS
