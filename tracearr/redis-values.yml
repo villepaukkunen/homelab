@@ -4,6 +4,7 @@ updateStrategy:
   type: RollingUpdate
   rollingUpdate:
     maxUnavailable: ""
+    partition: ""
 
 auth:
   existingSecret: "tracearr-redis-credentials"
