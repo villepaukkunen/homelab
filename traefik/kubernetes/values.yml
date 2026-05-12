@@ -154,8 +154,8 @@ ports:
 
 service:
   enabled: true
-  type: LoadBalancer
   spec:
+    type: LoadBalancer
     externalTrafficPolicy: Local
     loadBalancerIP: 192.168.10.55
 
