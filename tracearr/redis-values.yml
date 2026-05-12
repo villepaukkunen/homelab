@@ -3,8 +3,8 @@ fullnameOverride: tracearr-redis
 updateStrategy:
   type: RollingUpdate
   rollingUpdate:
-    maxUnavailable: ""
-    partition: ""
+    maxUnavailable: 1
+    partition: 0
 
 auth:
   existingSecret: "tracearr-redis-credentials"
