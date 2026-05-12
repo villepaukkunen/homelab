@@ -17,6 +17,10 @@ experimental:
       moduleName: "github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
       version: "v1.5.1"
 
+api:
+  dashboard: true
+  disableDashboardAd: true
+
 ingressRoute:
   dashboard:
     enabled: false
