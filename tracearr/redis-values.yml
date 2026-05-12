@@ -1,7 +1,6 @@
 fullnameOverride: tracearr-redis
 
-updateStrategy:
-  type: ""
+updateStrategy: {}
 
 auth:
   existingSecret: "tracearr-redis-credentials"
