@@ -172,7 +172,7 @@ additionalAgents:
     podName: hugo
     customJenkinsLabels: hugo
     image:
-      repository: villepaukkunen/inbound-agent
+      repository: docker.io/villepaukkunen/inbound-agent
       tag: 3355.v388858a_47b_33-20
 
 persistence:
