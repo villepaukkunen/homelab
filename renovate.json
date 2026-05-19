@@ -61,7 +61,9 @@
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["docker.io/villepaukkunen/inbound-agent"],
-      "versioning": "regex:^(?<major>\\d+)\\.v(\\w+)-(?<patch>\\d+)$"
+      "versioning": "regex:^(?<major>\\d+)\\.v(\\w+)-(?<patch>\\d+)$",
+      "automerge": true,
+      "ignoreTests": true
     }
   ]
 }
