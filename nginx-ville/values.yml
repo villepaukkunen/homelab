@@ -1,7 +1,7 @@
 image:
   registry: docker.io
   repository: nginx
-  tag: 1.30.1-alpine
+  tag: 1.31.1-alpine
   pullPolicy: IfNotPresent
 
 autoscaling:
