@@ -55,7 +55,7 @@ spec:
                 name: envsecrets
       containers:
         - name: searxng
-          image: docker.io/searxng/searxng:2026.5.22-c57f772ad
+          image: docker.io/searxng/searxng:2026.5.23-323ce7600
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
