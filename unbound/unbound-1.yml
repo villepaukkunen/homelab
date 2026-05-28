@@ -60,6 +60,16 @@ spec:
               value: openvpn
             - name: OPENVPN_CUSTOM_CONFIG
               value: /gluetun/custom.conf
+            - name: OPENVPN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: vpn-credentials
+                  key: OPENVPN_USER
+            - name: OPENVPN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: vpn-credentials
+                  key: OPENVPN_PASSWORD
             - name: DNS_KEEP_NAMESERVER
               value: 'on'
             - name: FIREWALL_OUTBOUND_SUBNETS
