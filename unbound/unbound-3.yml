@@ -66,6 +66,9 @@ spec:
           envFrom:
             - secretRef:
                 name: vpn-credentials
+          volumeMounts:
+            - mountPath: /gluetun
+              name: gluetun
       containers:
         - name: unbound-3
           image: mvance/unbound:1.22.0
@@ -77,6 +80,9 @@ spec:
               mountPath: /opt/unbound/etc/unbound/unbound.conf
               subPath: unbound.conf
       volumes:
+        - name: gluetun
+          persistentVolumeClaim:
+            claimName: gluetun
         - name: unbound-main-conf-volume
           configMap:
             name: unbound-main-conf
