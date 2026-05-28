@@ -63,6 +63,10 @@ spec:
               value: 'on'
             - name: FIREWALL_OUTBOUND_SUBNETS
               value: '10.43.0.10/32'
+            - name: UPDATER_PERIOD
+              value: '1h'
+            - name: UPDATER_PREFER_DIRECT_DOWNLOAD
+              value: 'yes'
           envFrom:
             - secretRef:
                 name: vpn-credentials
