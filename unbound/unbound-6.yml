@@ -54,8 +54,6 @@ spec:
           env:
             - name: TZ
               value: Europe/Helsinki
-            - name: VPN_SERVICE_PROVIDER
-              value: private internet access
             - name: SERVER_REGIONS
               valueFrom:
                 secretKeyRef:
