@@ -54,25 +54,20 @@ spec:
           env:
             - name: TZ
               value: Europe/Helsinki
-            - name: SERVER_REGIONS
-              valueFrom:
-                secretKeyRef:
-                  name: envsecrets
-                  key: UNBOUND_1_SERVER_REGIONS
+            - name: VPN_SERVICE_PROVIDER
+              value: custom
+            - name: VPN_TYPE
+              value: openvpn
+            - name: OPENVPN_CUSTOM_CONFIG
+              value: /gluetun/custom.conf
             - name: DNS_KEEP_NAMESERVER
               value: 'on'
             - name: FIREWALL_OUTBOUND_SUBNETS
               value: '10.43.0.10/32'
-            - name: UPDATER_PERIOD
-              value: '1h'
-            - name: UPDATER_PREFER_DIRECT_DOWNLOAD
-              value: 'yes'
-          envFrom:
-            - secretRef:
-                name: vpn-credentials
           volumeMounts:
-            - mountPath: /gluetun
-              name: gluetun
+            - mountPath: /gluetun/custom.conf
+              name: unbound-1-ovpn-conf
+              subPath: custom.conf
       containers:
         - name: unbound-1
           image: mvance/unbound:1.22.0
@@ -84,9 +79,9 @@ spec:
               mountPath: /opt/unbound/etc/unbound/unbound.conf
               subPath: unbound.conf
       volumes:
-        - name: gluetun
-          persistentVolumeClaim:
-            claimName: gluetun
+        - name: unbound-1-ovpn-conf
+          secret:
+            secretName: unbound-1-ovpn-conf
         - name: unbound-main-conf-volume
           configMap:
             name: unbound-main-conf
