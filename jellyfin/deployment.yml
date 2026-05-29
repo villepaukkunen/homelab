@@ -40,15 +40,30 @@ spec:
           env:
             - name: TZ
               value: Europe/Helsinki
-            - name: SERVER_REGIONS
-              value: DE Berlin
+            - name: VPN_SERVICE_PROVIDER
+              value: custom
+            - name: VPN_TYPE
+              value: openvpn
+            - name: OPENVPN_CUSTOM_CONFIG
+              value: /gluetun/custom.conf
+            - name: OPENVPN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: vpn-credentials
+                  key: OPENVPN_USER
+            - name: OPENVPN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: vpn-credentials
+                  key: OPENVPN_PASSWORD
             - name: DNS_KEEP_NAMESERVER
               value: 'on'
             - name: FIREWALL_OUTBOUND_SUBNETS
               value: '10.43.0.10/32,192.168.10.55/32'
-          envFrom:
-            - secretRef:
-                name: vpn-credentials
+          volumeMounts:
+            - mountPath: /gluetun/custom.conf
+              name: jellyfin-ovpn-conf
+              subPath: custom.conf
       containers:
         - name: jellyfin
           image: ghcr.io/jellyfin/jellyfin:10.11.10
@@ -97,6 +112,9 @@ spec:
               name: config
               subPath: logging.json
       volumes:
+        - name: jellyfin-ovpn-conf
+          secret:
+            secretName: jellyfin-ovpn-conf
         - name: jellyfin
           persistentVolumeClaim:
             claimName: jellyfin
