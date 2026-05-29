@@ -41,18 +41,30 @@ spec:
           env:
             - name: TZ
               value: Europe/Helsinki
-            - name: SERVER_REGIONS
+            - name: VPN_SERVICE_PROVIDER
+              value: custom
+            - name: VPN_TYPE
+              value: openvpn
+            - name: OPENVPN_CUSTOM_CONFIG
+              value: /gluetun/custom.conf
+            - name: OPENVPN_USER
               valueFrom:
                 secretKeyRef:
-                  name: envsecrets
-                  key: SERVER_REGIONS
+                  name: vpn-credentials
+                  key: OPENVPN_USER
+            - name: OPENVPN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: vpn-credentials
+                  key: OPENVPN_PASSWORD
             - name: DNS_KEEP_NAMESERVER
               value: 'on'
             - name: FIREWALL_OUTBOUND_SUBNETS
               value: '10.43.0.10/32'
-          envFrom:
-            - secretRef:
-                name: envsecrets
+          volumeMounts:
+            - mountPath: /gluetun/custom.conf
+              name: searxng-ovpn-conf
+              subPath: custom.conf
       containers:
         - name: searxng
           image: docker.io/searxng/searxng:2026.5.29-4ea5c57a8
@@ -77,6 +89,9 @@ spec:
               mountPath: /etc/searxng/settings.yml
               subPath: settings.yml
       volumes:
+        - name: searxng-ovpn-conf
+          secret:
+            secretName: searxng-ovpn-conf
         - name: searxng
           persistentVolumeClaim:
             claimName: searxng
