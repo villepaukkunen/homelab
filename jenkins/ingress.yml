@@ -19,5 +19,7 @@ spec:
       middlewares:
         - name: default-headers
           namespace: default
+        - name: jenkins
+          namespace: jenkins
   tls:
     secretName: mandariini-uk-tls
