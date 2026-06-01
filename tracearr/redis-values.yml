@@ -1,9 +1,9 @@
 fullnameOverride: tracearr-redis
 
 updateStrategy:
-  type: RollingUpdate
   rollingUpdate:
-    maxUnavailable: 2
+    maxUnavailable: 1
+  type: RollingUpdate
 
 auth:
   existingSecret: "tracearr-redis-credentials"
