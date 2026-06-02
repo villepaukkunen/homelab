@@ -32,6 +32,11 @@
   },
   "packageRules": [
     {
+      "matchDatasources": ["docker", "helm"],
+      "matchUpdateTypes": ["major", "minor"],
+      "minimumReleaseAge": "7 days"
+    },
+    {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["lscr.io/linuxserver/ddclient"],
       "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ls(?<build>.+)$"
