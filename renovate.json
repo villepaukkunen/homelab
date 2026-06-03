@@ -41,6 +41,7 @@
         "authentik",
         "docker.io/library/nextcloud",
         "ghcr.io/jellyfin/jellyfin",
+        "ghcr.io/kube-vip/kube-vip",
         "longhorn"
       ],
       "allowedVersions": ">={{newPatch 1}}"
