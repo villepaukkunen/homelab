@@ -37,6 +37,15 @@
       "minimumReleaseAge": "7 days"
     },
     {
+      "matchPackageNames": [
+        "authentik",
+        "docker.io/library/nextcloud",
+        "ghcr.io/jellyfin/jellyfin",
+        "longhorn"
+      ],
+      "allowedVersions": ">={{newPatch 1}}"
+    },
+    {
       "matchPackageNames": ["registry-1.docker.io/cloudpirates/*"],
       "minimumReleaseAge": null
     },
