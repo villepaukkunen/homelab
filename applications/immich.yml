@@ -14,13 +14,13 @@ spec:
       targetRevision: 0.21.2
       helm:
         valueFiles:
-          - $values/immich/valkey-values.yml
+          - $values/immich/valkey/values.yml
     - repoURL: ghcr.io/secustor/helm-charts
       chart: immich
       targetRevision: 1.2.6
       helm:
         valueFiles:
-          - $values/immich/immich-values.yml
+          - $values/immich/values.yml
     - repoURL: https://github.com/villepaukkunen/homelab.git
       targetRevision: HEAD
       ref: values
