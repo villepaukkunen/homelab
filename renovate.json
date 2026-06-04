@@ -53,6 +53,7 @@
       "matchPackageNames": [
         "authentik",
         "docker.io/library/nextcloud",
+        "ghcr.io/immich-app/*",
         "ghcr.io/jellyfin/jellyfin",
         "ghcr.io/kube-vip/kube-vip",
         "quay.io/argoproj/argocd",
