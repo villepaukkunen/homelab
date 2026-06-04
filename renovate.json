@@ -61,6 +61,15 @@
       "minimumReleaseAge": null
     },
     {
+      "matchPackageNames": [
+        "lscr.io/linuxserver/*",
+        "rke2-multus"
+      ],
+      "matchUpdateTypes": ["patch", "build"],
+      "automerge": true,
+      "ignoreTests": true
+    },
+    {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["lscr.io/linuxserver/ddclient"],
       "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ls(?<build>.+)$"
