@@ -68,6 +68,7 @@
     {
       "matchPackageNames": [
         "argo-cd",
+        "ghcr.io/secustor/helm-charts/immich",
         "jenkins",
         "lscr.io/linuxserver/*",
         "rke2-multus"
