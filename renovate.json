@@ -37,7 +37,10 @@
       "minimumReleaseAge": "7 days"
     },
     {
-      "matchPackageNames": ["portainer"],
+      "matchPackageNames": [
+        "jenkins",
+        "portainer"
+      ],
       "matchUpdateTypes": ["minor"],
       "minimumReleaseAge": null
     },
