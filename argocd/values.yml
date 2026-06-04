@@ -1,5 +1,9 @@
 global:
   domain: argocd.mandariini.uk
+  image:
+    repository: quay.io/argoproj/argocd
+    tag: v3.4.3
+    imagePullPolicy: IfNotPresent
   networkPolicy:
     create: true
 configs:
