@@ -14,7 +14,7 @@ spec:
       targetRevision: 0.30.0
       helm:
         valueFiles:
-          - $values/tracearr/redis-values.yml
+          - $values/tracearr/redis/values.yml
     - repoURL: https://github.com/villepaukkunen/homelab.git
       targetRevision: HEAD
       ref: values
