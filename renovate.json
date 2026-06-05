@@ -69,6 +69,7 @@
       "matchPackageNames": [
         "argo-cd",
         "ghcr.io/immich-app/*",
+        "ghcr.io/mealie-recipes/mealie",
         "ghcr.io/secustor/helm-charts/immich",
         "jenkins",
         "lscr.io/linuxserver/*",
