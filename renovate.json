@@ -71,6 +71,7 @@
         "ghcr.io/secustor/helm-charts/immich",
         "jenkins",
         "lscr.io/linuxserver/*",
+        "nextcloud",
         "rke2-multus"
       ],
       "matchUpdateTypes": ["patch", "build"],
