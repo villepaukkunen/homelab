@@ -74,8 +74,8 @@
         "rke2-multus"
       ],
       "matchUpdateTypes": ["patch", "build"],
-      "automerge": true,
-      "ignoreTests": true
+      "minimumReleaseAge": "1 days",
+      "automerge": true
     },
     {
       "matchDatasources": ["docker"],
