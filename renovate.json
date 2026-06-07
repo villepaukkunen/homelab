@@ -76,7 +76,7 @@
         "nextcloud",
         "rke2-multus"
       ],
-      "matchUpdateTypes": ["patch", "build"],
+      "matchUpdateTypes": ["patch", "build", "revision"],
       "minimumReleaseAge": "1 days",
       "automerge": true,
       "ignoreTests": true
