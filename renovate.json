@@ -62,10 +62,6 @@
       "allowedVersions": "!/^v?[0-9]+\\.[0-9]+\\.0$/"
     },
     {
-      "matchPackageNames": ["registry-1.docker.io/cloudpirates/*"],
-      "minimumReleaseAge": null
-    },
-    {
       "matchPackageNames": [
         "argo-cd",
         "ghcr.io/immich-app/*",
@@ -74,6 +70,7 @@
         "jenkins",
         "ghcr.io/linuxserver/*",
         "nextcloud",
+        "registry-1.docker.io/cloudpirates/*",
         "rke2-multus"
       ],
       "matchUpdateTypes": ["patch", "build", "revision"],
