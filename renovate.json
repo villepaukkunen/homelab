@@ -70,6 +70,7 @@
         "jenkins",
         "docker.io/linuxserver/*",
         "nextcloud",
+        "portainer",
         "registry-1.docker.io/cloudpirates/*",
         "rke2-multus"
       ],
