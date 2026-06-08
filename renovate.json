@@ -68,7 +68,7 @@
         "ghcr.io/mealie-recipes/mealie",
         "ghcr.io/secustor/helm-charts/immich",
         "jenkins",
-        "ghcr.io/linuxserver/*",
+        "docker.io/linuxserver/*",
         "nextcloud",
         "registry-1.docker.io/cloudpirates/*",
         "rke2-multus"
@@ -80,7 +80,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["ghcr.io/linuxserver/ddclient"],
+      "matchPackageNames": ["docker.io/linuxserver/ddclient"],
       "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ls(?<build>.+)$"
     },
     {
@@ -98,12 +98,12 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["ghcr.io/linuxserver/jellyfin"],
+      "matchPackageNames": ["docker.io/linuxserver/jellyfin"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)ubu(?<build>\\d+)-ls(?<revision>.+)$"
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["ghcr.io/linuxserver/duplicati"],
+      "matchPackageNames": ["docker.io/linuxserver/duplicati"],
       "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)_stable_(\\d{4}-\\d{2}-\\d{2})-ls(?<revision>.+)$"
     },
     {
