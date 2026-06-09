@@ -39,10 +39,11 @@
     {
       "matchPackageNames": [
         "jenkins",
-        "portainer"
+        "portainer",
+        "traefik"
       ],
       "matchUpdateTypes": ["minor"],
-      "minimumReleaseAge": null
+      "minimumReleaseAge": "1 days"
     },
     {
       "matchPackageNames": ["longhorn"],
