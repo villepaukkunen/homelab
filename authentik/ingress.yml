@@ -4,9 +4,8 @@ kind: IngressRoute
 metadata:
   name: authentik
   namespace: default
-  annotations: 
-    kubernetes.io/ingress.class: traefik-external
 spec:
+  ingressClassName: traefik-external
   entryPoints:
     - websecure
     - websecxt
