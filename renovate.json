@@ -70,6 +70,7 @@
         "ghcr.io/secustor/helm-charts/immich",
         "jenkins",
         "docker.io/linuxserver/*",
+        "docker.io/nginx",
         "nextcloud",
         "portainer",
         "registry-1.docker.io/cloudpirates/*",
