@@ -82,6 +82,11 @@
       "ignoreTests": true
     },
     {
+      "matchPackageNames": ["quay.io/argoproj/argocd"],
+      "matchUpdateTypes": ["patch"],
+      "minimumReleaseAge": "1 hour"
+    },
+    {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["docker.io/linuxserver/ddclient"],
       "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ls(?<build>.+)$"
