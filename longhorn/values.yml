@@ -17,6 +17,7 @@ defaultSettings:
   defaultLonghornStaticStorageClass: longhorn
   recurringJobMaxRetention: 30
   systemManagedComponentsNodeSelector: storage:longhorn
+  nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
   nodeDrainPolicy: allow-if-replica-is-stopped
   concurrentReplicaRebuildPerNodeLimit: "3"
   concurrentAutomaticEngineUpgradePerNodeLimit: "3"
