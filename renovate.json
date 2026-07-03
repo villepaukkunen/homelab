@@ -83,6 +83,12 @@
       "ignoreTests": true
     },
     {
+      "matchPackageNames": [
+        "ghcr.io/kube-vip/kube-vip"
+      ],
+      "minimumReleaseAge": "null"
+    },
+    {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["docker.io/linuxserver/ddclient"],
       "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ls(?<build>.+)$"
