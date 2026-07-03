@@ -66,7 +66,6 @@
       "matchPackageNames": [
         "argo-cd",
         "csi-driver-nfs",
-        "ghcr.io/immich-app/*",
         "ghcr.io/mealie-recipes/mealie",
         "ghcr.io/secustor/helm-charts/immich",
         "jenkins",
@@ -84,6 +83,7 @@
     },
     {
       "matchPackageNames": [
+        "ghcr.io/immich-app/*",
         "ghcr.io/kube-vip/kube-vip"
       ],
       "minimumReleaseAge": "null"
