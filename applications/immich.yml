@@ -17,7 +17,7 @@ spec:
           - $values/immich/valkey/values.yml
     - repoURL: https://secustor.dev/helm-charts
       chart: immich
-      targetRevision: 1.2.6
+      targetRevision: 2.0.0
       helm:
         valueFiles:
           - $values/immich/values.yml
