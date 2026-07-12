@@ -67,7 +67,7 @@
         "argo-cd",
         "csi-driver-nfs",
         "docker.io/hkotel/mealie",
-        "ghcr.io/secustor/helm-charts/immich",
+        "immich",
         "jenkins",
         "docker.io/linuxserver/*",
         "docker.io/nginx",
