@@ -17,7 +17,7 @@ common:
 server:
   image:
     repository: ghcr.io/immich-app/immich-server
-    tag: v2.7.5
+    tag: v3.0.2
     pullPolicy: IfNotPresent
   podSecurityContext:
     runAsNonRoot: true
@@ -40,7 +40,7 @@ machineLearning:
   enabled: true
   image:
     repository: ghcr.io/immich-app/immich-machine-learning
-    tag: v2.7.5
+    tag: v3.0.2
     pullPolicy: IfNotPresent
   podSecurityContext:
     runAsNonRoot: true
