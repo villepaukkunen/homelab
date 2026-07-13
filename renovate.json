@@ -53,6 +53,7 @@
     {
       "matchPackageNames": [
         "authentik",
+        "cert-manager",
         "docker.io/library/nextcloud",
         "ghcr.io/immich-app/*",
         "docker.io/jellyfin/jellyfin",
