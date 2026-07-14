@@ -67,7 +67,7 @@ spec:
               subPath: custom.conf
       containers:
         - name: searxng
-          image: docker.io/searxng/searxng:2026.7.10-6a4d5148d
+          image: docker.io/searxng/searxng:2026.7.11-62a1ab7ed
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
