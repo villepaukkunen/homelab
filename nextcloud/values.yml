@@ -140,5 +140,8 @@ persistence:
     enabled: true
     existingClaim: data
 
+startupProbe:
+  enabled: true
+
 nodeSelector:
   storage: longhorn
