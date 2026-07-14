@@ -15,7 +15,6 @@ nextcloud:
     smtpUsernameKey: smtp-username
     smtpPasswordKey: smtp-password
     smtpHostKey: smtp-host
-  update: 1
   trustedDomains: cloud.mandariini.uk
   mail:
     enabled: true
