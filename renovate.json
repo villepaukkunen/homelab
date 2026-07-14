@@ -85,7 +85,8 @@
     {
       "matchPackageNames": [
         "ghcr.io/immich-app/*",
-        "ghcr.io/kube-vip/kube-vip"
+        "ghcr.io/kube-vip/kube-vip",
+        "docker.io/library/nextcloud"
       ],
       "minimumReleaseAge": "null"
     },
