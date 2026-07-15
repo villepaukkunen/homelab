@@ -65,6 +65,12 @@
     },
     {
       "matchPackageNames": [
+        "portainer"
+      ],
+      "allowedVersions": "!/^v?[0-9]+\\.0\\.[0-9]+$/"
+    },
+    {
+      "matchPackageNames": [
         "argo-cd",
         "csi-driver-nfs",
         "docker.io/hkotel/mealie",
