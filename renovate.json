@@ -60,6 +60,7 @@
         "ghcr.io/kube-vip/kube-vip",
         "quay.io/argoproj/argocd",
         "longhorn",
+        "node-feature-discovery",
         "ghcr.io/connorgallopo/tracearr"
       ],
       "allowedVersions": "!/^v?[0-9]+\\.[0-9]+\\.0$/"
