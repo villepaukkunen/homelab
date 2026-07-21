@@ -22,10 +22,3 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: tracearr
-  ignoreDifferences:
-    - group: apps
-      kind: StatefulSet
-      name: tracearr-redis
-      namespace: tracearr
-      jsonPointers:
-        - /spec/updateStrategy/rollingUpdate/maxUnavailable
