@@ -32,10 +32,11 @@ controller:
                       privateKey: ${ansible.sshPrivateKey}
                   scope: GLOBAL
                   username: ${ansible.sshUsername}
-              - string:
+              - file:
                   id: vault-key
+                  fileName: .vault-key
                   scope: GLOBAL
-                  secret: ${ansible.vaultKey}
+                  secretBytes: ${ansible.vaultKey}
               - usernamePassword:
                   scope:    GLOBAL
                   id:       docker-hub-credentials
