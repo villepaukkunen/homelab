@@ -27,6 +27,7 @@ controller:
                   username: ${ssh.username}
               - file:
                   id: vault-key
+                  fileName: vault-key
                   scope: GLOBAL
                   secretBytes: ${ansible.vaultKey}
               - usernamePassword:
