@@ -25,13 +25,6 @@ controller:
                       privateKey: ${sshPrivateKey}
                   scope: GLOBAL
                   username: ${ssh.username}
-              - basicSSHUserPrivateKey:
-                  id: ansible
-                  privateKeySource:
-                    directEntry:
-                      privateKey: ${ansible.sshPrivateKey}
-                  scope: GLOBAL
-                  username: ${ansible.sshUsername}
               - file:
                   id: vault-key
                   fileName: .vault-key
