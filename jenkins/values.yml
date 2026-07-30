@@ -44,6 +44,27 @@ controller:
       job-dsl: |
         jobs:
           - script: >
+              pipelineJob('ansible') {
+                definition {
+                  cpsScm {
+                    scm {
+                      git {
+                        remote {
+                          url('https://github.com/villepaukkunen/ansible.git')
+                        }
+                        branch('*/main')
+                      }
+                    }
+                    lightweight()
+                  }
+                }
+                triggers {
+                  pollSCM {
+                    scmpoll_spec('H/5 * * * *')
+                  }
+                }
+              }
+          - script: >
               pipelineJob('website') {
                 definition {
                   cpsScm {
