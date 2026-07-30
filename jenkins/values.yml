@@ -29,7 +29,7 @@ controller:
                   id: vault-key
                   fileName: vault-key
                   scope: GLOBAL
-                  secretBytes: ${ansible.vaultKey}
+                  secretBytes: ${vault-key}
               - usernamePassword:
                   scope:    GLOBAL
                   id:       docker-hub-credentials
