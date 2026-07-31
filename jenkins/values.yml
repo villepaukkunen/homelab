@@ -27,9 +27,9 @@ controller:
                   username: ${ssh.username}
               - file:
                   id: vault-key
-                  fileName: vault_key
+                  fileName: .vault_key
                   scope: GLOBAL
-                  secretBytes: ${vault_key}
+                  secretBytes: ${ansible.vaultKey}
               - usernamePassword:
                   scope:    GLOBAL
                   id:       docker-hub-credentials
