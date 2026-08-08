@@ -65,6 +65,20 @@ spec:
               value: info
             - name: DATABASE_POOL_MAX
               value: '50'
+            - name: OIDC_ISSUER_URL
+              value: https://auth.mandariini.uk/application/o/tracearr/
+            - name: OIDC_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: envsecrets
+                  key: OIDC_CLIENT_ID
+            - name: OIDC_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: envsecrets
+                  key: OIDC_CLIENT_SECRET
+            - name: OIDC_PROVIDER_NAME
+              value: Authentik
           ports:
             - containerPort: 3000
               name: web
