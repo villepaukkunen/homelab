@@ -57,7 +57,7 @@
         "docker.io/library/nextcloud",
         "ghcr.io/immich-app/*",
         "docker.io/jellyfin/jellyfin",
-        "ghcr.io/kube-vip/kube-vip",
+        "docker.io/plndr/kube-vip",
         "quay.io/argoproj/argocd",
         "longhorn",
         "node-feature-discovery",
@@ -93,7 +93,7 @@
     {
       "matchPackageNames": [
         "ghcr.io/immich-app/*",
-        "ghcr.io/kube-vip/kube-vip",
+        "docker.io/plndr/kube-vip",
         "docker.io/library/nextcloud",
         "ghcr.io/connorgallopo/tracearr"
       ],
