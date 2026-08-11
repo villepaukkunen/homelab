@@ -57,6 +57,7 @@
         "docker.io/library/nextcloud",
         "ghcr.io/immich-app/*",
         "docker.io/jellyfin/jellyfin",
+        "docker.io/kube-vip/kube-vip-cloud-provider",
         "docker.io/plndr/kube-vip",
         "quay.io/argoproj/argocd",
         "longhorn",
