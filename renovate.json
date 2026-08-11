@@ -93,7 +93,6 @@
     {
       "matchPackageNames": [
         "ghcr.io/immich-app/*",
-        "docker.io/plndr/kube-vip",
         "docker.io/library/nextcloud",
         "ghcr.io/connorgallopo/tracearr"
       ],
