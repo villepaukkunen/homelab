@@ -181,6 +181,7 @@ controller:
         groupsFieldName: groups
         fullNameFieldName: name
         emailFieldName: email
+        postLogoutRedirectUrl: https://jenkins.mandariini.uk/OicLogout
         userIdStrategy: caseSensitive
         groupIdStrategy: caseSensitive
         properties:
