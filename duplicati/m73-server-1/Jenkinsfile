@@ -33,7 +33,7 @@ pipeline {
         stage('Clean up unused images') {
             steps {
                 sh '''
-                    ssh -o StrictHostKeyChecking=no -i $SSH_CREDS $SSH_CREDS_USR@$HOST "docker image prune -f"
+                    ssh -o StrictHostKeyChecking=no -i $SSH_CREDS $SSH_CREDS_USR@$HOST "docker image prune -af"
                 '''
             }
         }
