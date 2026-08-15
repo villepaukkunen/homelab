@@ -33,3 +33,26 @@ spec:
       ports:
         - port: 80
           protocol: TCP
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ingress-to-collabora
+  namespace: nextcloud
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: collabora
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: traefik
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/name: traefik
+      ports:
+        - port: 9980
+          protocol: TCP
