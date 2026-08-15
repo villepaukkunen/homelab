@@ -109,7 +109,6 @@ collabora:
   collabora:
     aliasgroups:
       - host: https://cloud.mandariini.uk
-    extra_params: --o:ssl.enable=false --o:ssl.termination=true
     existingSecret:
       enabled: true
       secretName: "collabora-admin-credentials"
