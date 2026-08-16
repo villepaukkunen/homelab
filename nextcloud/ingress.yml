@@ -17,6 +17,7 @@ spec:
           port: 8080
       middlewares:
         - name: nextcloud
+          namespace: nextcloud
   tls:
     secretName: mandariini-uk-tls
 ---
@@ -38,5 +39,6 @@ spec:
           port: 9980
       middlewares:
         - name: nextcloud
+          namespace: nextcloud
   tls:
     secretName: mandariini-uk-tls
