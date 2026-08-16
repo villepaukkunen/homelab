@@ -109,9 +109,7 @@ collabora:
   collabora:
     aliasgroups:
       - host: https://cloud.mandariini.uk
-        aliases: ["http://nextcloud.nextcloud.svc.cluster.local:8080"]
     extra_params: --o:ssl.enable=false --o:ssl.termination=true
-    server_name: collabora.mandariini.uk
     existingSecret:
       enabled: true
       secretName: "collabora-admin-credentials"
