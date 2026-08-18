@@ -33,7 +33,7 @@ spec:
         storage: longhorn
       containers:
         - name: netbootxyz
-          image: docker.io/netbootxyz/netbootxyz:0.7.6-nbxyz23
+          image: docker.io/netbootxyz/netbootxyz:0.7.6-nbxyz24
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
