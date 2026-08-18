@@ -106,7 +106,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["ghcr.io/netbootxyz/netbootxyz"],
+      "matchPackageNames": ["docker.io/netbootxyz/netbootxyz"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-nbxyz(?<build>.+)$"
     },
     {
