@@ -80,6 +80,7 @@
         "immich",
         "jenkins",
         "docker.io/linuxserver/*",
+        "docker.io/netbootxyz/netbootxyz",
         "docker.io/nginx",
         "nextcloud",
         "portainer",
