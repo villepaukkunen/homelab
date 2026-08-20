@@ -94,6 +94,7 @@
     },
     {
       "matchPackageNames": [
+        "quay.io/argoproj/argocd",
         "ghcr.io/immich-app/*",
         "docker.io/library/nextcloud",
         "ghcr.io/connorgallopo/tracearr"
