@@ -11,6 +11,9 @@ deployment:
   kind: DaemonSet
   revisionHistoryLimit: 3
 
+core:
+  strictTLSOptions: false
+
 experimental:
   plugins:
     crowdsec-bouncer-traefik-plugin:
