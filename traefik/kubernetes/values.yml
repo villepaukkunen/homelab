@@ -12,7 +12,7 @@ deployment:
   revisionHistoryLimit: 3
 
 core:
-  strictTLSOptions: false
+  strictTLSOptions: true
 
 experimental:
   plugins:
