@@ -67,7 +67,7 @@ ports:
         allowEncodedPercent: false
         allowEncodedQuestionMark: false
         allowEncodedHash: false
-      underscoreHeadersStrategy: delete
+      aliasHeadersStrategy: delete
       tls:
         enabled: true
     http3:
@@ -129,7 +129,7 @@ ports:
         allowEncodedHash: false
       middlewares:
         - traefik-bouncer@kubernetescrd
-      underscoreHeadersStrategy: delete
+      aliasHeadersStrategy: delete
       tls:
         enabled: true
     http3:
