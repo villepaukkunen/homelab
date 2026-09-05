@@ -76,6 +76,7 @@
     {
       "matchPackageNames": [
         "argo-cd",
+        "crowdsec",
         "csi-driver-nfs",
         "docker.io/hkotel/mealie",
         "immich",
