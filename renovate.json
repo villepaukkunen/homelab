@@ -75,7 +75,8 @@
     },
     {
       "matchPackageNames": [
-        "authentik"
+        "authentik",
+        "docker.io/altran1502/*"
       ],
       "matchUpdateTypes": ["patch", "build", "revision"],
       "minimumReleaseAge": "1 days"
@@ -104,7 +105,6 @@
     {
       "matchPackageNames": [
         "quay.io/argoproj/argocd",
-        "docker.io/altran1502/*",
         "docker.io/library/nextcloud",
         "ghcr.io/connorgallopo/tracearr"
       ],
