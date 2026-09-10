@@ -75,6 +75,13 @@
     },
     {
       "matchPackageNames": [
+        "authentik"
+      ],
+      "matchUpdateTypes": ["patch", "build", "revision"],
+      "minimumReleaseAge": "1 days"
+    },
+    {
+      "matchPackageNames": [
         "argo-cd",
         "crowdsec",
         "csi-driver-nfs",
