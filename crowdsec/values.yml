@@ -3,7 +3,7 @@ container_runtime: containerd
 image:
   repository: docker.io/crowdsecurity/crowdsec
   pullPolicy: IfNotPresent
-  tag: v1.7.8
+  tag: v1.8.1
 
 config:
   profiles.yaml: |
