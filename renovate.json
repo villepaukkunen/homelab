@@ -56,7 +56,6 @@
         "cert-manager",
         "docker.io/crowdsecurity/crowdsec",
         "docker.io/library/nextcloud",
-        "docker.io/altran1502/*",
         "docker.io/jellyfin/jellyfin",
         "docker.io/kubevip/kube-vip-cloud-provider",
         "docker.io/plndr/kube-vip",
