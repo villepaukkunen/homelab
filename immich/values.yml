@@ -16,7 +16,7 @@ common:
       passwordKey: password
 server:
   image:
-    repository: ghcr.io/immich-app/immich-server
+    repository: docker.io/altran1502/immich-server
     tag: v3.0.3
     pullPolicy: IfNotPresent
   podSecurityContext:
@@ -39,7 +39,7 @@ server:
 machineLearning:
   enabled: true
   image:
-    repository: ghcr.io/immich-app/immich-machine-learning
+    repository: docker.io/altran1502/immich-machine-learning
     tag: v3.0.3
     pullPolicy: IfNotPresent
   podSecurityContext:

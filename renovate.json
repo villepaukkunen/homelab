@@ -56,7 +56,7 @@
         "cert-manager",
         "docker.io/crowdsecurity/crowdsec",
         "docker.io/library/nextcloud",
-        "ghcr.io/immich-app/*",
+        "docker.io/altran1502/*",
         "docker.io/jellyfin/jellyfin",
         "docker.io/kubevip/kube-vip-cloud-provider",
         "docker.io/plndr/kube-vip",
@@ -104,7 +104,7 @@
     {
       "matchPackageNames": [
         "quay.io/argoproj/argocd",
-        "ghcr.io/immich-app/*",
+        "docker.io/altran1502/*",
         "docker.io/library/nextcloud",
         "ghcr.io/connorgallopo/tracearr"
       ],
