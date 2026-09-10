@@ -40,7 +40,7 @@ machineLearning:
   enabled: true
   image:
     repository: docker.io/altran1502/immich-machine-learning
-    tag: v3.0.3
+    tag: v3.1.0
     pullPolicy: IfNotPresent
   podSecurityContext:
     runAsNonRoot: true
