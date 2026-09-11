@@ -1,7 +1,7 @@
 services:
   duplicati:
     container_name: duplicati
-    image: docker.io/linuxserver/duplicati:v2.3.0.4_stable_2026-07-09-ls306
+    image: docker.io/linuxserver/duplicati:v2.4.0.0_stable_2026-09-03-ls307
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
