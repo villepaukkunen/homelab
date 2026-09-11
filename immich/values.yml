@@ -17,7 +17,7 @@ common:
 server:
   image:
     repository: docker.io/altran1502/immich-server
-    tag: v3.0.3
+    tag: v3.1.0
     pullPolicy: IfNotPresent
   podSecurityContext:
     runAsNonRoot: true
