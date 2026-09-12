@@ -76,6 +76,7 @@
       "matchPackageNames": [
         "authentik",
         "cert-manager",
+        "docker.io/flaresolverr/flaresolverr",
         "docker.io/altran1502/*"
       ],
       "matchUpdateTypes": ["patch", "build", "revision"],
