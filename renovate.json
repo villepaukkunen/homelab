@@ -75,6 +75,7 @@
     {
       "matchPackageNames": [
         "authentik",
+        "cert-manager",
         "docker.io/altran1502/*"
       ],
       "matchUpdateTypes": ["patch", "build", "revision"],
