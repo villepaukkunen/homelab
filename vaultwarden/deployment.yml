@@ -23,7 +23,7 @@ spec:
         storage: longhorn
       containers:
         - name: vaultwarden
-          image: vaultwarden/server:1.37.2
+          image: vaultwarden/server:1.37.3
           imagePullPolicy: IfNotPresent
           env:
             - name: TZ
