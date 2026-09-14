@@ -77,7 +77,8 @@
         "authentik",
         "cert-manager",
         "docker.io/flaresolverr/flaresolverr",
-        "docker.io/altran1502/*"
+        "docker.io/altran1502/*",
+        "docker.io/vaultwarden/server"
       ],
       "matchUpdateTypes": ["patch", "build", "revision"],
       "minimumReleaseAge": "1 days"
