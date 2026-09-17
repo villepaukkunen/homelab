@@ -84,6 +84,7 @@
         "docker.io/flaresolverr/flaresolverr",
         "docker.io/gotify/server",
         "docker.io/altran1502/*",
+        "docker.io/plndr/kube-vip",
         "docker.io/vaultwarden/server"
       ],
       "matchUpdateTypes": ["patch", "build", "revision"],
