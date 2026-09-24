@@ -86,6 +86,7 @@
         "docker.io/gotify/server",
         "docker.io/altran1502/*",
         "docker.io/plndr/kube-vip",
+        "rancher/system-upgrade-controller",
         "docker.io/vaultwarden/server"
       ],
       "matchUpdateTypes": ["patch", "build", "revision"],
