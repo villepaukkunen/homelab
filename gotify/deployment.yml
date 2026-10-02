@@ -27,6 +27,9 @@ spec:
           env:
             - name: TZ
               value: Europe/Helsinki
+          envFrom:
+            - secretRef:
+                name: envsecrets
           ports:
             - containerPort: 80
               name: web
