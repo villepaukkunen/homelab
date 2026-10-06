@@ -85,6 +85,8 @@
         "docker.io/flaresolverr/flaresolverr",
         "docker.io/gotify/server",
         "docker.io/altran1502/*",
+        "intel-device-plugins-gpu",
+        "intel-device-plugins-operator",
         "docker.io/plndr/kube-vip",
         "docker.io/kubevip/kube-vip-cloud-provider",
         "rancher/system-upgrade-controller",
