@@ -90,6 +90,7 @@
         "docker.io/plndr/kube-vip",
         "docker.io/kubevip/kube-vip-cloud-provider",
         "rancher/system-upgrade-controller",
+        "docker.io/traefik",
         "docker.io/vaultwarden/server"
       ],
       "matchUpdateTypes": ["patch", "build", "revision"],
