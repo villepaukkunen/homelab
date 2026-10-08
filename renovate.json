@@ -38,6 +38,7 @@
     },
     {
       "matchPackageNames": [
+        "docker.io/jellyfin/jellyfin",
         "jenkins",
         "portainer",
         "traefik"
