@@ -65,8 +65,6 @@ spec:
               value: info
             - name: TRUST_PROXY
               value: 10.42.0.0/16,10.43.0.0/16
-            - name: DATABASE_POOL_MAX
-              value: '50'
             - name: OIDC_ISSUER_URL
               value: https://auth.mandariini.uk/application/o/tracearr/
             - name: OIDC_CLIENT_ID
