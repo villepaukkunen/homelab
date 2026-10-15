@@ -63,6 +63,8 @@ spec:
                   key: COOKIE_SECRET
             - name: LOG_LEVEL
               value: info
+            - name: TRUST_PROXY
+              value: 10.42.0.0/16,10.43.0.0/16
             - name: DATABASE_POOL_MAX
               value: '50'
             - name: OIDC_ISSUER_URL
