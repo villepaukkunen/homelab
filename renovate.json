@@ -83,6 +83,7 @@
         "authentik",
         "cert-manager",
         "cloudnative-pg",
+        "docker.io/bentopdfteam/bentopdf-simple",
         "docker.io/flaresolverr/flaresolverr",
         "docker.io/gotify/server",
         "docker.io/altran1502/*",
