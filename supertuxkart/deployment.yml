@@ -31,7 +31,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: supertuxkart
-          image: dobernoeder/supertuxkart:1.4.0
+          image: dobernoeder/supertuxkart:1.4.0@sha256:ad9eb45726916263c5d7ba9aea8fd5e9f85478dcf7901410e859d0da16b486b8
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false

@@ -28,7 +28,7 @@ spec:
         storage: longhorn
       containers:
         - name: mealie
-          image: docker.io/hkotel/mealie:v3.28.0
+          image: docker.io/hkotel/mealie:v3.28.0@sha256:8b02290f4d1806f02acac6f25f6d48a3c965612fda1f8e914d5af533276f8688
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
@@ -78,7 +78,7 @@ spec:
             - name: data
               mountPath: /app/data
         - name: flaresolverr
-          image: docker.io/flaresolverr/flaresolverr:v3.5.2
+          image: docker.io/flaresolverr/flaresolverr:v3.5.2@sha256:c80ae007ce2ccdcd217a12426e4f039ef763ff90738c808d38810c3e59323767
           securityContext:
             allowPrivilegeEscalation: false
             runAsUser: 1000
