@@ -4,10 +4,14 @@
     "config:best-practices"
   ],
   "kubernetes": {
-    "fileMatch": ["\\.yml$"]
+    "managerFilePatterns": [
+      "/\\.yml$/"
+    ]
   },
   "argocd": {
-    "fileMatch": ["\\.yml$"]
+    "managerFilePatterns": [
+      "/\\.yml$/"
+    ]
   },
   "assignees": [
     "villepaukkunen"
