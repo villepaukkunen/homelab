@@ -8,6 +8,7 @@ spec:
   ingressClassName: traefik-external
   entryPoints:
     - websecure
+    - websecxt
   routes:
     - kind: Rule
       match: Host(`cloud.mandariini.uk`)
