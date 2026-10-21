@@ -75,7 +75,7 @@ spec:
           value: "10.42.0.0/16"
         - name: egress_servicecidr
           value: "10.43.0.0/16"
-        image: docker.io/plndr/kube-vip:v1.2.4
+        image: docker.io/plndr/kube-vip:v1.2.4@sha256:dde4c0669d9058c74c69c0bc2f0122e26900e1e4b913c03577cb6e4e28083079
         imagePullPolicy: IfNotPresent
         name: kube-vip
         resources: {}

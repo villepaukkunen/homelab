@@ -36,7 +36,7 @@ spec:
                 topologyKey: "kubernetes.io/hostname"
       initContainers:
         - name: gluetun
-          image: qmcgaw/gluetun:v3.41.3
+          image: qmcgaw/gluetun:v3.41.3@sha256:fa19cc76b2af13d57a8d3dc3066f2ada061b1c761b8aecf989b3877c0486e027
           imagePullPolicy: IfNotPresent
           restartPolicy: Always
           securityContext:
@@ -80,7 +80,7 @@ spec:
               subPath: custom.conf
       containers:
         - name: unbound-5
-          image: mvance/unbound:1.22.0
+          image: mvance/unbound:1.22.0@sha256:76906da36d1806f3387338f15dcf8b357c51ce6897fb6450d6ce010460927e90
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
