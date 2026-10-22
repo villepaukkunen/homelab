@@ -99,7 +99,7 @@
         "docker.io/traefik",
         "docker.io/vaultwarden/server"
       ],
-      "matchUpdateTypes": ["patch", "build", "revision"],
+      "matchUpdateTypes": ["patch"],
       "minimumReleaseAge": "1 days"
     },
     {
@@ -118,7 +118,7 @@
         "registry-1.docker.io/cloudpirates/*",
         "rke2-multus"
       ],
-      "matchUpdateTypes": ["patch", "build", "revision"],
+      "matchUpdateTypes": ["patch"],
       "minimumReleaseAge": "1 days",
       "automerge": true,
       "ignoreTests": true
