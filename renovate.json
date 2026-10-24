@@ -138,7 +138,7 @@
       "groupName": "immich"
     },
     {
-      "matchUpdateTypes": ["pin"],
+      "matchUpdateTypes": ["pinDigest"],
       "automerge": true
     },
     {
