@@ -151,7 +151,7 @@
       "matchDatasources": ["docker"],
       "matchPackageNames": ["docker.io/searxng/searxng"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(\\w+)$",
-      "minimumReleaseAge": "3 days",
+      "minimumReleaseAge": "2 days",
       "automerge": true,
       "ignoreTests": true
     },
