@@ -138,9 +138,8 @@
       "groupName": "immich"
     },
     {
-      "pin": {
-        "automerge": true
-      }
+      "matchUpdateTypes": ["pin"],
+      "automerge": true
     },
     {
       "matchDatasources": ["docker"],
