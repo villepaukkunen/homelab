@@ -5,9 +5,6 @@
     "default:automergeDigest",
     "default:skipStatusChecks"
   ],
-  "pin": {
-    "automerge": true
-  },
   "kubernetes": {
     "managerFilePatterns": [
       "/\\.yml$/"
@@ -139,6 +136,11 @@
     {
       "matchPackageNames": ["docker.io/altran1502/*"],
       "groupName": "immich"
+    },
+    {
+      "pin": {
+        "automerge": true
+      }
     },
     {
       "matchDatasources": ["docker"],
