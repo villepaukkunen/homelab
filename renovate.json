@@ -5,6 +5,9 @@
     "default:automergeDigest",
     "default:skipStatusChecks"
   ],
+  "pin": {
+    "automerge": true
+  },
   "kubernetes": {
     "managerFilePatterns": [
       "/\\.yml$/"
