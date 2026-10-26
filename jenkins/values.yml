@@ -203,7 +203,7 @@ additionalAgents:
     customJenkinsLabels: hugo
     image:
       repository: docker.io/villepaukkunen/inbound-agent
-      tag: 3386.v353e57a_1b_ea_0-1-jdk25@sha256:5dd33993908abe61fe4b1cb4e6b5198e7f2ab5186367a9b80925066141fb79de
+      tag: 3386.v353e57a_1b_ea_0-3-jdk25@sha256:5e7a9aa04a98f98e7c22cec6a47c7705f185d34803c471ed804a75308f7d756a
 
 persistence:
   enabled: true
