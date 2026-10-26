@@ -88,6 +88,10 @@ controller:
                           url('https://github.com/villepaukkunen/inbound-agent.git')
                         }
                         branch('*/main')
+                        extensions {
+                          cleanAfterCheckout()
+                          cleanBeforeCheckout()
+                        }
                       }
                     }
                     lightweight()
