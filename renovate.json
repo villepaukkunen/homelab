@@ -175,7 +175,7 @@
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["docker.io/villepaukkunen/inbound-agent"],
-      "versioning": "regex:^(?<major>\\d+)\\.v(\\w+)-(?<patch>\\d+)$",
+      "versioning": "regex:^(?<major>\\d+)\\.v(\\w+)-(?<patch>\\d+)-jdk25$",
       "automerge": true,
       "ignoreTests": true
     }
