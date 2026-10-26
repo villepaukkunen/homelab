@@ -5,7 +5,7 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/name: kube-vip-ds
-    app.kubernetes.io/version: v1.2.4
+    app.kubernetes.io/version: v1.3.1
   name: kube-vip-ds
   namespace: kube-system
 spec:
@@ -17,7 +17,7 @@ spec:
       creationTimestamp: null
       labels:
         app.kubernetes.io/name: kube-vip-ds
-        app.kubernetes.io/version: v1.2.4
+        app.kubernetes.io/version: v1.3.1
     spec:
       affinity:
         nodeAffinity:
@@ -75,7 +75,7 @@ spec:
           value: "10.42.0.0/16"
         - name: egress_servicecidr
           value: "10.43.0.0/16"
-        image: docker.io/plndr/kube-vip:v1.2.4@sha256:dde4c0669d9058c74c69c0bc2f0122e26900e1e4b913c03577cb6e4e28083079
+        image: docker.io/plndr/kube-vip:v1.3.1@sha256:1962f9daf226503f7e6b107f595cb28b7917fd2d0113957075e19a3e5a6c1e33
         imagePullPolicy: IfNotPresent
         name: kube-vip
         resources: {}
