@@ -60,7 +60,7 @@
     {
       "matchPackageNames": ["docker.io/searxng/searxng"],
       "matchUpdateTypes": ["major", "minor", "patch"],
-      "minimumReleaseAge": "2 days",
+      "minimumReleaseAge": "1 days",
       "automerge": true
     },
     {
