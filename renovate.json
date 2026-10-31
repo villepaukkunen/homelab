@@ -102,6 +102,7 @@
         "intel-device-plugins-operator",
         "docker.io/plndr/kube-vip",
         "docker.io/kubevip/kube-vip-cloud-provider",
+        "node-feature-discovery",
         "rancher/system-upgrade-controller",
         "docker.io/traefik",
         "docker.io/vaultwarden/server"
