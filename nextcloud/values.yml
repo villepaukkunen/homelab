@@ -2,7 +2,7 @@ image:
   registry: docker.io
   repository: library/nextcloud
   flavor: apache
-  tag: 34.0.5@sha256:b2255a301d94e004f1af0370e5f1256ffb4ee156b231ac4e76aadd6c0e5b44a4
+  tag: 34.0.5@sha256:7db1a3d4a72fabefe9aab8acac1b5d29b0fee74c3c325add5b6aa7f26c053e90
   pullPolicy: IfNotPresent
 
 nextcloud:
