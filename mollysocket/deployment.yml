@@ -25,7 +25,7 @@ spec:
         storage: longhorn
       containers:
         - name: mollysocket
-          image: ghcr.io/mollyim/mollysocket:1.7.1@sha256:1179280f1a047ede458df278387f332e6be0e453b5e1da8181a8b9c2f724ef3b
+          image: ghcr.io/mollyim/mollysocket:1.7.1@sha256:e601c59cba9dfaae806022093d25c0b5f6fd365f278f7a92f3806c8b8a8455a0
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
