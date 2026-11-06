@@ -148,6 +148,10 @@
       "automerge": true
     },
     {
+      "matchPackageNames": ["docker.io/rancher/k3s-upgrade"],
+      "pinDigests": false
+    },
+    {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["docker.io/linuxserver/ddclient"],
       "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ls(?<build>.+)$"
