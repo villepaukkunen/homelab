@@ -19,7 +19,11 @@ spec:
     podAntiAffinityType: required
     nodeSelector:
       storage: longhorn
-  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:18.4
+  imageCatalogRef:
+    apiGroup: postgresql.cnpg.io
+    kind: ClusterImageCatalog
+    name: cloudnative-vectorchord
+    major: 18
   bootstrap:
     initdb:
       database: immich
