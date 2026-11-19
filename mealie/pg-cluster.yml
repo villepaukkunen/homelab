@@ -12,11 +12,7 @@ spec:
     podAntiAffinityType: required
     nodeSelector:
       storage: longhorn
-  imageCatalogRef:
-    apiGroup: postgresql.cnpg.io
-    kind: ClusterImageCatalog
-    name: postgresql-system-trixie
-    major: 18
+  imageName: ghcr.io/cloudnative-pg/postgresql:18.1-system-trixie
   bootstrap:
     initdb:
       database: mealie
