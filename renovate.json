@@ -180,6 +180,11 @@
     },
     {
       "matchDatasources": ["docker"],
+      "matchPackageNames": ["docker.io/timescale/timescaledb-ha"],
+      "versioning": "regex:^pg(?<major>\\d+)\\.(?<minor>\\d+)-ts(?<patch>\\d+)\\.(?<build>\\d+)\\.(?<revision>\\d+)$"
+    },
+    {
+      "matchDatasources": ["docker"],
       "matchPackageNames": ["docker.io/villepaukkunen/inbound-agent"],
       "versioning": "regex:^(?<major>\\d+)\\.v(\\w+)-(?<patch>\\d+)-jdk25$",
       "automerge": true,
