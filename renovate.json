@@ -149,7 +149,6 @@
     },
     {
       "matchPackageNames": [
-        "docker.io/internetsystemsconsortium/bind9",
         "docker.io/rancher/k3s-upgrade"
       ],
       "pinDigests": false
