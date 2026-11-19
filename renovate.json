@@ -134,7 +134,6 @@
     {
       "matchPackageNames": [
         "quay.io/argoproj/argocd",
-        "ghcr.io/tensorchord/cloudnative-vectorchord",
         "docker.io/library/nextcloud",
         "ghcr.io/connorgallopo/tracearr"
       ],
