@@ -5,4 +5,4 @@ metadata:
 spec:
   images:
     - major: 18
-      image: docker.io/tensorchord/cloudnative-vectorchord:18.4
+      image: docker.io/tensorchord/cloudnative-vectorchord:18.4@sha256:9c9246cb8ba0332f7e1115def71329410657237db8ef104160a479a89c7e03a2
