@@ -135,6 +135,7 @@
       "matchPackageNames": [
         "quay.io/argoproj/argocd",
         "docker.io/library/nextcloud",
+        "ghcr.io/cloudnative-pg/postgresql",
         "ghcr.io/connorgallopo/tracearr"
       ],
       "minimumReleaseAge": "null"
