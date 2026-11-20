@@ -23,7 +23,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: bentopdf
-          image: docker.io/bentopdfteam/bentopdf-simple:2.8.11@sha256:4a501ea221007bc938f231d12b63261a2a9cdd8d6747b236fd709ef30e5fe7bc
+          image: docker.io/bentopdfteam/bentopdf-simple:2.8.12@sha256:f96da8c4a347880b891d66aa2ebfa6b63f76277dafcfcdfa40c8e6b92c59ef44
           securityContext:
             allowPrivilegeEscalation: false
             runAsUser: 101
