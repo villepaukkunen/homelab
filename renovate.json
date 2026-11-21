@@ -92,7 +92,6 @@
     },
     {
       "matchPackageNames": [
-        "authentik",
         "cert-manager",
         "cloudnative-pg",
         "docker.io/bentopdfteam/bentopdf-simple",
@@ -114,6 +113,7 @@
     {
       "matchPackageNames": [
         "argo-cd",
+        "authentik",
         "crowdsec",
         "csi-driver-nfs",
         "docker.io/hkotel/mealie",
