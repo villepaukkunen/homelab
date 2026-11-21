@@ -96,6 +96,13 @@
     },
     {
       "matchPackageNames": [
+        "ghcr.io/cloudnative-pg/postgresql"
+      ],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": [
         "cert-manager",
         "cloudnative-pg",
         "docker.io/bentopdfteam/bentopdf-simple",
