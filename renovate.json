@@ -69,7 +69,6 @@
         "authentik",
         "cert-manager",
         "docker.io/crowdsecurity/crowdsec",
-        "docker.io/library/nextcloud",
         "docker.io/kubevip/kube-vip-cloud-provider",
         "docker.io/plndr/kube-vip",
         "quay.io/argoproj/argocd",
@@ -77,6 +76,12 @@
         "ghcr.io/connorgallopo/tracearr"
       ],
       "allowedVersions": "!/^v?[0-9]+\\.[0-9]+\\.0$/"
+    },
+    {
+      "matchPackageNames": [
+        "docker.io/library/nextcloud"
+      ],
+      "allowedVersions": "!/^v?[0-9]+\\.[0-9]+\\.[0-3]$/"
     },
     {
       "matchPackageNames": [
