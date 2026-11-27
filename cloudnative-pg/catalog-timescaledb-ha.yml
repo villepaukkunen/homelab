@@ -5,4 +5,4 @@ metadata:
 spec:
   images:
     - major: 18
-      image: docker.io/timescale/timescaledb-ha:pg18.7-ts2.32.0@sha256:8a4a942a2e8b6cb6b41c2e57b68b42814752953d16780677b11774d15578cd93
+      image: docker.io/timescale/timescaledb-ha:pg18.7-ts2.32.1@sha256:75a1c22463b10ec22fb7369fde65fc23d8ac516d21eda07323d39d33c45d1277
